@@ -1,0 +1,442 @@
+@charset "utf-8";
+@media (min-width: 320px) {
+  html {
+    font-size: 4.48px;
+  }
+}
+@media (min-width: 360px) {
+  html {
+    font-size: 5.04px;
+  }
+}
+@media (min-width: 375px) {
+  html {
+    font-size: 5.25px;
+  }
+}
+@media (min-width: 384px) {
+  html {
+    font-size: 5.376px;
+  }
+}
+@media (min-width: 400px) {
+  html {
+    font-size: 5.6px;
+  }
+}
+@media (min-width: 414px) {
+  html {
+    font-size: 5.796px;
+  }
+}
+@media (min-width: 424px) {
+  html {
+    font-size: 5.936px;
+  }
+}
+@media (min-width: 480px) {
+  html {
+    font-size: 6.72px;
+  }
+}
+@media (min-width: 540px) {
+  html {
+    font-size: 7.56px;
+  }
+}
+@media (min-width: 580px) {
+  html {
+    font-size: 8.12px;
+  }
+}
+@media (min-width: 640px) {
+  html {
+    font-size: 8.96px;
+  }
+}
+@media (min-width: 720px) {
+  html {
+    font-size: 10.08px;
+  }
+}
+@media (min-width: 750px) {
+  html {
+    font-size: 10.5px;
+  }
+}
+@media (min-width: 960px) {
+  html {
+    font-size: 13.44px;
+  }
+}
+@media (min-width: 1080px) {
+  html {
+    font-size: 15.12px;
+  }
+}
+@media (min-width: 1280px) {
+  html {
+    font-size: 17.92px;
+  }
+}
+@media (min-width: 1480px) {
+  html {
+    font-size: 20.72px;
+  }
+}
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+  background-color: #ffffff;
+}
+a:hover,
+a:focus {
+  color: #23527c;
+  text-decoration: none;
+}
+a {
+  color: #323232;
+}
+li {
+  list-style: none;
+}
+main {
+  width: 100%;
+  position: relative;
+  float: left;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  main {
+    top: -3rem;
+  }
+}
+@media (min-width: 992px) {
+  main {
+    top: -3rem;
+  }
+}
+@media (min-width: 1200px) {
+  main {
+    top: -4rem;
+  }
+}
+.Splash {
+  position: relative;
+  height: 20rem;
+}
+.Splash .Splash-content {
+  height: 100%;
+  background-color: #e3e3e3;
+}
+.Splash .Splash-content .Splash-title {
+  color: black;
+}
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: url("../images/hct/Huichangtong-assets/bg.jpg") repeat;
+  font-size: 1em;
+  color: #232323;
+}
+.header {
+  width: 100%;
+  background: url("../images/hct/Huichangtong-assets/headerBg.jpg");
+  height: 52px;
+  position: absolute;
+  top: 0;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 52px;
+}
+.wraper {
+  width: 100%;
+}
+.wraper .bgTop {
+  width: 100%;
+  height: 360px;
+  background: url("../images/hct/Huichangtong-assets/bgTop.jpg") repeat-x;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+.wraper .bgBottom {
+  width: 100%;
+  height: 320px;
+  background: url("../images/hct/Huichangtong-assets/bgBottom.jpg") repeat-x;
+  position: absolute;
+  bottom: 0;
+  z-index: 0;
+}
+.mainChat {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.mainChat .chatContent {
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 2px #ccc;
+  position: relative;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .mainChat .chatContent {
+    width: 60%;
+    height: 42rem;
+    left: 20%;
+    top: 8rem;
+    border: 1px solid red;
+  }
+}
+@media (min-width: 992px) {
+  .mainChat .chatContent {
+    width: 60%;
+    height: 36rem;
+    left: 20%;
+    top: 6rem;
+    border: 1px solid green;
+  }
+}
+@media (min-width: 1200px) {
+  .mainChat .chatContent {
+    width: 50%;
+    height: 35rem;
+    left: 25%;
+    top: 6rem;
+    border: 1px solid gold;
+  }
+}
+.msgs {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid cornflowerblue;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .msgs {
+    height: 34rem;
+  }
+}
+@media (min-width: 992px) {
+  .msgs {
+    height: 28rem;
+  }
+}
+@media (min-width: 1200px) {
+  .msgs {
+    height: 28rem;
+  }
+}
+.msgs #connectAuto {
+  position: relative;
+  margin-bottom: 1rem;
+  height: 3rem;
+  width: 100%;
+  border-radius: 5px 5px 0 0 ;
+  background-color: #387fed;
+  border: 1px solid #fff;
+  color: #fff;
+  line-height: 2rem;
+}
+.msgs #connectAuto #connctTime {
+  display: block;
+  font-size: 0.7rem;
+  font-style: normal;
+  width: 100%;
+}
+.msgs #connectAuto #clarkName {
+  display: block;
+  font-style: normal;
+  width: 100%;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .msgs #connectAuto #clarkName {
+    font-size: 1.2em;
+    line-height: 3rem;
+    text-align: left;
+    padding-left: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .msgs #connectAuto #clarkName {
+    font-size: 1em;
+    line-height: 3rem;
+    text-align: left;
+    padding-left: 1rem;
+  }
+}
+@media (min-width: 1200px) {
+  .msgs #connectAuto #clarkName {
+    font-size: 1rem;
+    line-height: 3rem;
+    text-align: left;
+    padding-left: 1rem;
+  }
+}
+.msgs #chatUl {
+  width: 100%;
+  height: 100%;
+  padding-left: 1rem;
+}
+.msgs #chatUl #connectName {
+  display: block;
+  font-size: 1em;
+  font-style: normal;
+}
+.msgs #chatUl #chatli {
+  position: relative;
+  width: 55%;
+  background-color: #387fed;
+  border-radius: 5px;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: #fff;
+}
+.msgs #chatUl #chatli #userPhone {
+  display: block;
+  font-size: 1em;
+  font-style: normal;
+  margin-bottom: 0;
+}
+.msgs #chatUl #chatli #sendMsg {
+  font-size: 1em;
+  margin-bottom: 0;
+}
+.chat {
+  position: relative;
+  width: 100%;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 1200px) {
+}
+.chat .buttons {
+  height: 2rem;
+  width: 100%;
+  background-color: purple;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .chat .buttons {
+    height: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .chat .buttons {
+    height: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .chat .buttons {
+    height: 2rem;
+  }
+}
+.chat textarea {
+  position: relative;
+  float: left;
+  width: 85%;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .chat textarea {
+    height: 5rem;
+    width: 85%;
+  }
+}
+@media (min-width: 992px) {
+  .chat textarea {
+    height: 6rem;
+    width: 85%;
+  }
+}
+@media (min-width: 1200px) {
+  .chat textarea {
+    height: 5rem;
+    line-height: 1.2rem;
+    width: 85%;
+  }
+}
+.chat button {
+  position: relative;
+  float: left;
+  background-color: #00649D;
+  color: #fff;
+  display: inline-block;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .chat button {
+    width: 15%;
+    padding: 0 20px;
+    height: 3rem;
+    line-height: 28px;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    top: 0;
+  }
+}
+@media (min-width: 992px) {
+  .chat button {
+    width: 15%;
+    padding: 0 20px;
+    height: 3rem;
+    line-height: 28px;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    top: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .chat button {
+    width: 15%;
+    padding: 0 20px;
+    height: 2rem;
+    line-height: 28px;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    top: 1rem;
+  }
+}
+/* 小屏幕（平板，大于等于 768px） */
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+/* 大屏幕（大桌面显示器，大于等于 1200px） */

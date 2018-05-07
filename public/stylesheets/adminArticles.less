@@ -1,0 +1,189 @@
+@import "../../myless/main";
+
+.esjy-col {
+  width: 100%;
+  a {
+    color: #ffffff;
+  }
+
+}
+
+.subNav {
+  position: relative;
+  float: left;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  height: 4rem;
+  line-height: 4rem;
+
+  .navitem-name{
+    font-size: 2em;
+    width: 25%;
+    text-align: center;
+    position: relative;
+    float: left;
+    //border: 1px solid gold;
+  }
+
+  .subitems{
+    //border: 1px solid red;
+    width: 55%;
+    position: relative;
+    float: right;
+    padding-right: 0;
+    margin-right: 5rem;
+
+
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      width: 55%;
+
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      width: 40%;
+
+    }
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      width: 35%;
+
+    }
+
+
+
+
+
+    .active{
+      color: grey;
+    }
+
+    a{
+      display: block;
+      position: relative;
+      float: left;
+      text-align: center;
+      width: 25%;
+    }
+
+    #addNew{
+      //width: 15%;
+      //position: relative;
+      //float: right;
+      border: 1px solid greenyellow;
+      //margin-right: 5rem;
+    }
+
+  }
+}
+
+
+
+#search-col {
+  width: 100%;
+  height: 100%;
+
+  #search {
+    margin-top: 1rem;
+    width:30%;
+    height: 100%;
+    position: relative;
+    float: left;
+    margin-left: 30%;
+
+  }
+  .add-btn {
+    margin-top: 1rem;
+    width: 10%;
+    height: 100%;
+    position: relative;
+    float: left;
+    margin-left: 8rem;
+  }
+
+
+
+  .esjy-control {
+    margin-top: 1rem;
+
+    width: 30%;
+    position: relative;
+    float: right;
+    height: 100%;
+    //border: 1px solid red;
+  }
+}
+
+
+#table{
+  margin-left: 5rem;
+  margin-right: 5rem;
+
+  table {
+    //display: none;
+    tr{
+
+
+      #col-xuhao {
+        width: 3%;
+        //background-color: black;
+      }
+
+      #col-title {
+        width: 30%;
+        text-align: left;
+        //background-color: red;
+      }
+
+      #col-readed-num {
+        width: 10%;
+        text-align: left;
+
+      }
+
+      #col-create-date {
+        width: 17%;
+        text-align: left;
+
+      }
+
+      #col-edit {
+        width: 6%;
+      }
+
+      #col-delate {
+        width: 6%;
+      }
+
+      #edit-btn, #delate-btn {
+        height: 1.8rem;
+        line-height: 1rem;
+        text-align: center;
+        font-size: 0.8rem;
+      }
+
+    }
+  }
+
+}
+
+
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: @screen-sm-min) {
+
+}
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: @screen-md-min) {
+
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: @screen-lg-min) {
+
+}

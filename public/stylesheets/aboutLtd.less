@@ -1,0 +1,303 @@
+@charset "utf-8";
+@import "../../myless/main";
+
+main .aboutLtd {
+  height: 300px;
+
+  .Splash-content {
+    height: 300px;
+    background-color: @navBackgroundcolor;
+  }
+
+}
+
+main .esjy-Staff {
+  margin-bottom: 1rem;
+  background-color: @staff-big-bg-color;
+  position: relative;
+  float: left;
+  height: 900px;
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+
+    height: 320px;
+
+  }
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+
+    height: 350px;
+
+  }
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+
+    height: 410px;
+
+  }
+
+}
+
+//员工
+.esjy-Staff-bg {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  background-color: @staff-bg-color;
+  box-shadow: 5px 5px 0 rgba(0, 0, 13, 0.3);
+  padding-top: 30px;
+  padding-bottom: 20px;
+  top: -20px;
+  float: left;
+  left: 6.5%;
+  //height: 100%;
+}
+
+
+//左侧文字
+.introduce {
+  text-align: right;
+
+  //width: 90%;
+
+  ///* 小屏幕（平板，大于等于 768px） */
+  //@media (min-width: @screen-sm-min) {
+  //
+  //
+  //}
+  ///* 中等屏幕（桌面显示器，大于等于 992px） */
+  //@media (min-width: @screen-md-min) {
+  //
+  //}
+  ///* 大屏幕（大桌面显示器，大于等于 1200px） */
+  //@media (min-width: @screen-lg-min) {
+  //
+  //}
+
+  h3 {
+    background-color: #24344A;
+    color: #fff;
+    box-shadow: 5px 5px 0 rgba(0, 0, 13, 0.3);
+    width: 110%;
+    margin-left: -30px;
+    height: 9rem;
+    line-height: 9rem;
+    padding-right: 1rem;
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      height: 3rem;
+      line-height: 3rem;
+
+    }
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      height: 3rem;
+      line-height: 3rem;
+
+    }
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      height: 3rem;
+      line-height: 3rem;
+
+    }
+
+  }
+  p {
+    font-size: 1.2em;
+    //background-color: #3b6caa;
+  }
+}
+
+//右侧图片
+.staffs {
+
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+    //border: 2px solid red;
+    //margin-bottom: 1rem;
+  }
+  //background-color: peru;
+  .one-man {
+    height: 28rem;
+    padding-left: 0;
+    padding-right: 0;
+    //margin-bottom: 1rem;
+    //border: @bb;
+
+
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      height: 12rem;
+
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      height: 11rem;
+
+    }
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      height: 9rem;
+
+    }
+
+
+
+
+    h3 {
+      position: relative;
+      float: left;
+      margin-top: 0;
+      //border: @bn;
+      margin-bottom: 0;
+     .url {
+
+       img {
+
+         position: relative;
+         float: left;
+         height: 16rem;
+         margin-bottom: 0.2rem;
+         background-color: #fff;
+         border: 5px solid #fff;
+         box-shadow: 5px 5px 0 rgba(0,0,13,0.3);
+
+
+         /* 小屏幕（平板，大于等于 768px） */
+         @media (min-width: @screen-sm-min) {
+           height: 6.2rem;
+           margin-bottom: 0.2rem;
+         }
+
+         /* 中等屏幕（桌面显示器，大于等于 992px） */
+         @media (min-width: @screen-md-min) {
+           height: 6.2rem;
+           margin-bottom: 0.2rem;
+         }
+
+         /* 大屏幕（大桌面显示器，大于等于 1200px） */
+         @media (min-width: @screen-lg-min) {
+           height: 6rem;
+           margin-bottom: 0.2rem;
+         }
+
+
+
+
+       }
+       span {
+         position: relative;
+         float: left;
+         width: 100%;
+
+       }
+     }
+
+    }
+    p {
+      position: relative;
+      float: left;
+      width: 100%;
+      //border: @bb;
+      span{
+        //border: @bh;
+      }
+    }
+
+  }
+
+}
+
+//百度地图
+.map-col {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  float: left;
+  .map-row {
+    position: relative;
+    float: left;
+    height: 20rem;
+    margin-left: 0;
+    width: 90%;
+    left: 5%;
+
+
+    .map-baidu {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      box-shadow: 5px 5px 0 rgba(0, 0, 13, 0.3);
+
+      .map-baidu-content {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    }
+
+    .map-tel {
+      height: 100%;
+      padding-left: 2rem;
+
+      h4 {
+
+      }
+      ol {
+        li {
+
+
+        }
+      }
+      .tel {
+
+      }
+      .web {
+        font-size: 1.2em;
+        color: #09f;
+      }
+
+
+
+
+    }
+
+
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: @screen-sm-min) {
+
+}
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: @screen-md-min) {
+
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: @screen-lg-min) {
+
+}

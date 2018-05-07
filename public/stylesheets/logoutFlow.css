@@ -1,0 +1,516 @@
+@charset "utf-8";
+@media (min-width: 320px) {
+  html {
+    font-size: 4.48px;
+  }
+}
+@media (min-width: 360px) {
+  html {
+    font-size: 5.04px;
+  }
+}
+@media (min-width: 375px) {
+  html {
+    font-size: 5.25px;
+  }
+}
+@media (min-width: 384px) {
+  html {
+    font-size: 5.376px;
+  }
+}
+@media (min-width: 400px) {
+  html {
+    font-size: 5.6px;
+  }
+}
+@media (min-width: 414px) {
+  html {
+    font-size: 5.796px;
+  }
+}
+@media (min-width: 424px) {
+  html {
+    font-size: 5.936px;
+  }
+}
+@media (min-width: 480px) {
+  html {
+    font-size: 6.72px;
+  }
+}
+@media (min-width: 540px) {
+  html {
+    font-size: 7.56px;
+  }
+}
+@media (min-width: 580px) {
+  html {
+    font-size: 8.12px;
+  }
+}
+@media (min-width: 640px) {
+  html {
+    font-size: 8.96px;
+  }
+}
+@media (min-width: 720px) {
+  html {
+    font-size: 10.08px;
+  }
+}
+@media (min-width: 750px) {
+  html {
+    font-size: 10.5px;
+  }
+}
+@media (min-width: 960px) {
+  html {
+    font-size: 13.44px;
+  }
+}
+@media (min-width: 1080px) {
+  html {
+    font-size: 15.12px;
+  }
+}
+@media (min-width: 1280px) {
+  html {
+    font-size: 17.92px;
+  }
+}
+@media (min-width: 1480px) {
+  html {
+    font-size: 20.72px;
+  }
+}
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+  background-color: #ffffff;
+}
+a:hover,
+a:focus {
+  color: #23527c;
+  text-decoration: none;
+}
+a {
+  color: #323232;
+}
+li {
+  list-style: none;
+}
+main {
+  width: 100%;
+  position: relative;
+  float: left;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  main {
+    top: -3rem;
+  }
+}
+@media (min-width: 992px) {
+  main {
+    top: -3rem;
+  }
+}
+@media (min-width: 1200px) {
+  main {
+    top: -4rem;
+  }
+}
+.Splash {
+  position: relative;
+  height: 20rem;
+}
+.Splash .Splash-content {
+  height: 100%;
+  background-color: #e3e3e3;
+}
+.Splash .Splash-content .Splash-title {
+  color: black;
+}
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.Cols-event-row .EventCard {
+  position: relative;
+  float: left;
+  border-top: 1px solid #e1e1e1;
+  font-size: 1em;
+  height: 100rem;
+  padding: 8rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .Cols-event-row .EventCard {
+    height: 40rem;
+    padding: 4rem;
+  }
+}
+@media (min-width: 992px) {
+  .Cols-event-row .EventCard {
+    height: 40rem;
+    padding: 4rem;
+  }
+}
+@media (min-width: 1200px) {
+  .Cols-event-row .EventCard {
+    height: 38rem;
+    padding: 5rem;
+  }
+}
+.Cols-event-row .EventCard h1 {
+  font-size: 2.2em;
+}
+@media (min-width: 768px) {
+  .Cols-event-row .EventCard h1 {
+    font-size: 2.2em;
+    margin-bottom: 1.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .Cols-event-row .EventCard h1 {
+    font-size: 2.5em;
+    margin-bottom: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .Cols-event-row .EventCard h1 {
+    font-size: 3em;
+    margin-bottom: 1.5rem;
+  }
+}
+.Cols-event-row .EventCard p {
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: 1rem;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+@media (min-width: 768px) {
+  .Cols-event-row .EventCard p {
+    font-size: 1em;
+    line-height: 1.6em;
+  }
+}
+@media (min-width: 992px) {
+  .Cols-event-row .EventCard p {
+    font-size: 1.3em;
+    line-height: 1.6em;
+  }
+}
+@media (min-width: 1200px) {
+  .Cols-event-row .EventCard p {
+    font-size: 1.5em;
+    line-height: 1.6em;
+  }
+}
+.Cols-event-row .EventCard .Event-excute {
+  width: 100%;
+  position: relative;
+  float: left;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1em;
+  font-weight: bold;
+}
+.Cols-event-row .EventCard .Event-excute .Event-excute-row {
+  width: 100%;
+  position: relative;
+  float: left;
+  line-height: 3rem;
+  padding-left: 0.4rem;
+  -webkit-font-smoothing: antialiased;
+}
+.Cols-event-row .EventCard .Event-excute .Event-excute-row i {
+  display: block;
+  line-height: 8rem;
+}
+@media (min-width: 768px) {
+  .Cols-event-row .EventCard .Event-excute .Event-excute-row i {
+    line-height: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .Cols-event-row .EventCard .Event-excute .Event-excute-row i {
+    line-height: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  .Cols-event-row .EventCard .Event-excute .Event-excute-row i {
+    line-height: 3rem;
+  }
+}
+.Cols-event-row .EventCard .Event-excute .Event-excute-row i:first-child {
+  color: #1854ff;
+  position: relative;
+  float: left;
+  margin-right: 1rem;
+}
+.Cols-event-row .EventCard .Price {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  display: none;
+}
+.Cols-event-row .EventCard .Price tbody .Price-Tier {
+  width: 100%;
+  display: table-row;
+  line-height: 8rem;
+}
+@media (min-width: 768px) {
+  .Cols-event-row .EventCard .Price tbody .Price-Tier {
+    line-height: 2.4rem;
+  }
+}
+@media (min-width: 992px) {
+  .Cols-event-row .EventCard .Price tbody .Price-Tier {
+    line-height: 2.4rem;
+  }
+}
+@media (min-width: 1200px) {
+  .Cols-event-row .EventCard .Price tbody .Price-Tier {
+    line-height: 2.4rem;
+  }
+}
+.Cols-event-row .EventCard .Price tbody .Price-Tier:last-child {
+  border-top: 1px solid rgba(51, 51, 51, 0.2);
+}
+.Cols-event-row .EventCard .Price tbody .Price-Tier .Tier-cell:last-child {
+  position: relative;
+  float: right;
+}
+.contactBtn {
+  width: 100%;
+  position: relative;
+  float: left;
+  font-size: 1.25em;
+  text-align: center;
+  background-color: #EA215A;
+  color: #FFFFFF;
+  height: 10rem;
+  line-height: 10rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .contactBtn {
+    height: 3.8rem;
+    line-height: 3.8rem;
+  }
+}
+@media (min-width: 992px) {
+  .contactBtn {
+    height: 3.5rem;
+    line-height: 3.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .contactBtn {
+    height: 3.2rem;
+    line-height: 3.2rem;
+  }
+}
+.Cols-event-row .EventPicture {
+  position: relative;
+  float: right;
+  background-size: 100%;
+  /* 超小屏幕（手机，小于 768px） */
+  /* 没有任何媒体查询相关的代码，因为这在 Bootstrap 中是默认的（还记得 Bootstrap 是移动设备优先的吗？） */
+  height: 100rem;
+  background: url('../images/hct/Huichangtong-assets/flow-bg.png');
+  background-color: #F3F2F2;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .Cols-event-row .EventPicture {
+    height: 40rem;
+    background: url("../images/hct/Huichangtong-assets/flow-bg.png");
+    background-color: #F3F2F2;
+  }
+}
+@media (min-width: 992px) {
+  .Cols-event-row .EventPicture {
+    height: 40rem;
+    background: url("../images/hct/Huichangtong-assets/flow-bg.png");
+    background-color: #F3F2F2;
+  }
+}
+@media (min-width: 1200px) {
+  .Cols-event-row .EventPicture {
+    height: 38rem;
+    background: url("../images/hct/Huichangtong-assets/flow-bg.png");
+    background-color: #F3F2F2;
+  }
+}
+.esjy-flow {
+  background: url("../images/hct/Huichangtong-assets/horizon_bg.jpg");
+  background-size: 150% 150%;
+  overflow: hidden;
+  background-position: top;
+  color: #eee;
+  height: 100rem;
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .esjy-flow {
+    height: 40rem;
+  }
+}
+@media (min-width: 992px) {
+  .esjy-flow {
+    height: 35rem;
+  }
+}
+@media (min-width: 1200px) {
+  .esjy-flow {
+    height: 30rem;
+  }
+}
+.esjy-flow .esjy-flow-col {
+  height: 100%;
+  margin-top: 50px;
+  margin-right: 0;
+  margin-left: 20px;
+}
+.esjy-flow .esjy-flow-col .flow-img {
+  height: 380px;
+  background: url("../images/hct/Huichangtong-assets/horizon_img.jpg");
+  background-size: 100% 100%;
+}
+.esjy-flow .esjy-flow-col .flow-intro {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.esjy-flow .esjy-flow-col .flow-intro .flow-intro-title h4 {
+  line-height: 5.5rem;
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-intro-title h4 {
+    height: 3rem;
+    line-height: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-intro-title h4 {
+    height: 2rem;
+    line-height: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-intro-title h4 {
+    height: 2rem;
+    line-height: 2rem;
+  }
+}
+.esjy-flow .esjy-flow-col .flow-intro .flow-intro-detail {
+  width: 100%;
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-intro-detail {
+    margin-top: 60px;
+  }
+}
+@media (min-width: 992px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-intro-detail {
+    margin-top: 60px;
+  }
+}
+@media (min-width: 1200px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-intro-detail {
+    margin-top: 60px;
+  }
+}
+.esjy-flow .esjy-flow-col .flow-intro .flow-intro-detail ul li {
+  list-style-type: decimal;
+  list-style-position: inside;
+  font-size: 1.2em;
+  line-height: 6rem;
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-intro-detail ul li {
+    line-height: 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-intro-detail ul li {
+    line-height: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-intro-detail ul li {
+    line-height: 2rem;
+  }
+}
+.esjy-flow .esjy-flow-col .flow-intro .flow-call .flow-call-deatil {
+  width: 100%;
+  position: relative;
+  float: left;
+  background: rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 0 10px 10px;
+  height: 10rem;
+  line-height: 10rem;
+  font-size: 1.2em;
+  padding-left: 50px;
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-call .flow-call-deatil {
+    height: 5rem;
+    line-height: 5em;
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 992px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-call .flow-call-deatil {
+    height: 6rem;
+    line-height: 6rem;
+    font-size: 1.5em;
+  }
+}
+@media (min-width: 1200px) {
+  .esjy-flow .esjy-flow-col .flow-intro .flow-call .flow-call-deatil {
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 1.5em;
+  }
+}
+.esjy-flow .esjy-flow-col .flow-intro .flow-call .flow-call-deatil i {
+  margin-right: 10px;
+}
+.esjy-flow .esjy-flow-col .flow-intro .flow-call .flow-call-deatil .call-title {
+  width: 100%;
+}
+.esjy-flow .esjy-flow-col .flow-intro .flow-call .flow-call-deatil .call-number {
+  color: #eee;
+}
+.test {
+  height: 200px;
+}

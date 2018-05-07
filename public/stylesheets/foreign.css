@@ -1,0 +1,848 @@
+@charset "utf-8";
+@media (min-width: 320px) {
+  html {
+    font-size: 4.48px;
+  }
+}
+@media (min-width: 360px) {
+  html {
+    font-size: 5.04px;
+  }
+}
+@media (min-width: 375px) {
+  html {
+    font-size: 5.25px;
+  }
+}
+@media (min-width: 384px) {
+  html {
+    font-size: 5.376px;
+  }
+}
+@media (min-width: 400px) {
+  html {
+    font-size: 5.6px;
+  }
+}
+@media (min-width: 414px) {
+  html {
+    font-size: 5.796px;
+  }
+}
+@media (min-width: 424px) {
+  html {
+    font-size: 5.936px;
+  }
+}
+@media (min-width: 480px) {
+  html {
+    font-size: 6.72px;
+  }
+}
+@media (min-width: 540px) {
+  html {
+    font-size: 7.56px;
+  }
+}
+@media (min-width: 580px) {
+  html {
+    font-size: 8.12px;
+  }
+}
+@media (min-width: 640px) {
+  html {
+    font-size: 8.96px;
+  }
+}
+@media (min-width: 720px) {
+  html {
+    font-size: 10.08px;
+  }
+}
+@media (min-width: 750px) {
+  html {
+    font-size: 10.5px;
+  }
+}
+@media (min-width: 960px) {
+  html {
+    font-size: 13.44px;
+  }
+}
+@media (min-width: 1080px) {
+  html {
+    font-size: 15.12px;
+  }
+}
+@media (min-width: 1280px) {
+  html {
+    font-size: 17.92px;
+  }
+}
+@media (min-width: 1480px) {
+  html {
+    font-size: 20.72px;
+  }
+}
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+body {
+  background-color: #ffffff;
+}
+a:hover,
+a:focus {
+  color: #23527c;
+  text-decoration: none;
+}
+a {
+  color: #323232;
+}
+li {
+  list-style: none;
+}
+main {
+  width: 100%;
+  position: relative;
+  float: left;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  main {
+    top: -3rem;
+  }
+}
+@media (min-width: 992px) {
+  main {
+    top: -3rem;
+  }
+}
+@media (min-width: 1200px) {
+  main {
+    top: -4rem;
+  }
+}
+.Splash {
+  position: relative;
+  height: 20rem;
+}
+.Splash .Splash-content {
+  height: 100%;
+  background-color: #e3e3e3;
+}
+.Splash .Splash-content .Splash-title {
+  color: black;
+}
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+main .article-col {
+  height: 40rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  main .article-col {
+    height: 28rem;
+  }
+}
+@media (min-width: 992px) {
+  main .article-col {
+    height: 28rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .article-col {
+    height: 25rem;
+  }
+}
+main .article-col .Splash-content {
+  width: 100%;
+  background: url("../images/hct/Huichangtong-assets/foreign-01.jpg") center / cover no-repeat;
+}
+main .article-col .Splash-content .small-title {
+  font-size: 1.75em;
+  line-height: 2rem;
+  color: #46d7c4;
+  padding: 6rem 0 1rem;
+  text-align: center;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  main .article-col .Splash-content .small-title {
+    padding: 2rem 0 0.5rem;
+  }
+}
+@media (min-width: 992px) {
+  main .article-col .Splash-content .small-title {
+    padding: 2rem 0 0.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .article-col .Splash-content .small-title {
+    padding: 2rem 0 0.5rem;
+  }
+}
+main .article-col .Splash-content .article-col-title {
+  width: 100%;
+  text-align: center;
+  color: #eee;
+  font-size: 1.8em;
+  font-weight: 300;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  main .article-col .Splash-content .article-col-title {
+    font-size: 3em;
+    font-weight: 300;
+  }
+}
+@media (min-width: 992px) {
+  main .article-col .Splash-content .article-col-title {
+    font-size: 3em;
+    font-weight: 300;
+  }
+}
+@media (min-width: 1200px) {
+  main .article-col .Splash-content .article-col-title {
+    font-size: 3em;
+    font-weight: 300;
+  }
+}
+.esjy-col-1 {
+  position: relative;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .esjy-col-1 {
+    height: 32rem;
+  }
+}
+@media (min-width: 992px) {
+  .esjy-col-1 {
+    height: 25rem;
+  }
+}
+@media (min-width: 1200px) {
+  .esjy-col-1 {
+    height: 20rem;
+  }
+}
+.esjy-col-1 .showFile {
+  height: 100%;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+.showFile_title .padding .title {
+  padding-top: 2.2rem;
+}
+.showFile_title .padding .title p {
+  font-size: 1.6em;
+  margin-bottom: 0;
+}
+.customer {
+  position: relative;
+  margin-bottom: 2rem;
+  background-color: #f6f6f6;
+  color: #000;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .customer {
+    height: 95rem;
+  }
+}
+@media (min-width: 992px) {
+  .customer {
+    height: 38rem;
+  }
+}
+@media (min-width: 1200px) {
+  .customer {
+    height: 34rem;
+  }
+}
+.customer .person {
+  height: 40rem;
+  background: url("../images/hct/Huichangtong-assets/customer01.jpg") no-repeat center / cover;
+  color: #fff;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .customer .person {
+    height: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .customer .person {
+    height: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .customer .person {
+    height: 100%;
+  }
+}
+.customer .person .say,
+.customer .person .position {
+  width: 80%;
+  position: relative;
+  left: 10%;
+  text-align: center;
+  top: 30%;
+}
+.customer .bigWord {
+  padding-top: 5rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  display: block;
+  word-break: break-all;
+  font-size: 2em;
+  border-color: #003BC9 !important;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .customer .bigWord {
+    padding-left: 8rem;
+    padding-right: 8rem;
+    height: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .customer .bigWord {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    height: 100%;
+    border-right: 1px dashed;
+    border-color: #003BC9 !important;
+  }
+}
+@media (min-width: 1200px) {
+  .customer .bigWord {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    height: 100%;
+    border-right: 1px dashed;
+    border-color: #003BC9 !important;
+  }
+}
+.customer .bigWord .bigWord_1,
+.customer .bigWord .bigWord_2 {
+  font-size: 1em;
+  line-height: 1em;
+  position: relative;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .customer .bigWord .bigWord_1,
+  .customer .bigWord .bigWord_2 {
+    font-size: 0.8em;
+    line-height: 1.3em;
+    position: relative;
+  }
+}
+@media (min-width: 992px) {
+  .customer .bigWord .bigWord_1,
+  .customer .bigWord .bigWord_2 {
+    font-size: 1em;
+    line-height: 1em;
+  }
+}
+@media (min-width: 1200px) {
+  .customer .bigWord .bigWord_1,
+  .customer .bigWord .bigWord_2 {
+    font-size: 1.2em;
+    line-height: 1.2em;
+  }
+}
+.customer .bigWord .bigWord_img {
+  width: 100%;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .customer .bigWord .bigWord_img {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .customer .bigWord .bigWord_img {
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .customer .bigWord .bigWord_img {
+    width: 100%;
+  }
+}
+.customer .smallWord {
+  font-size: 1.2em;
+  line-height: 2rem;
+  padding-bottom: 0;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .customer .smallWord {
+    font-size: 1.2em;
+    line-height: 2rem;
+    padding-left: 8rem;
+    padding-right: 8rem;
+    height: 25%;
+  }
+}
+@media (min-width: 992px) {
+  .customer .smallWord {
+    font-size: 1rem;
+    line-height: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    height: 50%;
+  }
+}
+@media (min-width: 1200px) {
+  .customer .smallWord {
+    font-size: 1.5em;
+    line-height: 2rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    height: 50%;
+  }
+}
+.customer .smallWord .smallWord_img_up,
+.customer .smallWord .smallWord_img_down {
+  vertical-align: baseline;
+  position: relative;
+  width: 100%;
+}
+.customer .smallWord-up {
+  border-bottom: 1px dotted;
+  border-color: #003BC9;
+  padding-top: 3rem;
+}
+.customer .smallWord-up .smallWord_up1,
+.customer .smallWord-up .smallWord_up2 {
+  display: block;
+  word-break: break-all;
+  font-size: 1em;
+  line-height: 5rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .customer .smallWord-up .smallWord_up1,
+  .customer .smallWord-up .smallWord_up2 {
+    font-size: 1.2em;
+    line-height: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .customer .smallWord-up .smallWord_up1,
+  .customer .smallWord-up .smallWord_up2 {
+    font-size: 1.2em;
+    line-height: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .customer .smallWord-up .smallWord_up1,
+  .customer .smallWord-up .smallWord_up2 {
+    font-size: 1em;
+    line-height: 1.5rem;
+  }
+}
+.customer .smallWord-down .smallWord_down1,
+.customer .smallWord-down .smallWord_down2 {
+  display: block;
+  word-break: break-all;
+  font-size: 1em;
+  line-height: 5rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .customer .smallWord-down .smallWord_down1,
+  .customer .smallWord-down .smallWord_down2 {
+    font-size: 1.2em;
+    line-height: 2rem;
+    padding-top: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .customer .smallWord-down .smallWord_down1,
+  .customer .smallWord-down .smallWord_down2 {
+    font-size: 1.2em;
+    line-height: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .customer .smallWord-down .smallWord_down1,
+  .customer .smallWord-down .smallWord_down2 {
+    font-size: 1em;
+    line-height: 1.5rem;
+  }
+}
+.foreignFlow {
+  position: relative;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .foreignFlow {
+    height: 12rem;
+  }
+}
+@media (min-width: 992px) {
+  .foreignFlow {
+    height: 12rem;
+  }
+}
+@media (min-width: 1200px) {
+  .foreignFlow {
+    height: 12rem;
+  }
+}
+.foreignFlow .foreign_title {
+  height: 20rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .foreignFlow .foreign_title {
+    height: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .foreignFlow .foreign_title {
+    height: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .foreignFlow .foreign_title {
+    height: 100%;
+  }
+}
+.foreignFlow .foreign_title .padding .title p {
+  font-size: 1.5em;
+}
+.foreignFlow .foreign_step {
+  height: 100%;
+}
+.foreignFlow .foreign_step .padding .card_image_foreign .esjy_resize_foreign {
+  height: 40%;
+  width: 40%;
+  position: relative;
+  left: 30%;
+  background: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+.foreignFlow .foreign_step .padding .card_content {
+  width: 100%;
+  text-align: center;
+}
+.foreignFlow .foreign_step .padding .card_content h5 {
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 1200px) {
+  .foreignFlow .foreign_step .padding .card_content h5 {
+    color: black;
+  }
+}
+.foreignFlow .foreign_step .padding .card_content p {
+  color: navy;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+.esjy-col-1 .row {
+  margin-left: 0;
+  padding-bottom: 5rem;
+}
+.count {
+  color: #fff;
+  margin-bottom: 2rem;
+  background: url("../images/hct/Huichangtong-assets/countBg.jpg") no-repeat center / cover;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .count {
+    height: 68rem;
+  }
+}
+@media (min-width: 992px) {
+  .count {
+    height: 34rem;
+  }
+}
+@media (min-width: 1200px) {
+  .count {
+    height: 30rem;
+  }
+}
+.count .col-12-12 {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+.count .col-12-12 .tragle_count {
+  max-width: 46px;
+  background: no-repeat center;
+  margin: 0 auto!important;
+  float: none!important;
+  height: auto!important;
+  width: 100%;
+}
+.count .col-12-12 h2 {
+  width: 100%;
+  font-size: 1.6em;
+  padding-bottom: 1rem;
+  font-weight: 300;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .count .col-12-12 h2 {
+    font-size: 2em;
+    padding-bottom: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .count .col-12-12 h2 {
+    font-size: 2em;
+    padding-bottom: 1rem;
+  }
+}
+@media (min-width: 1200px) {
+  .count .col-12-12 h2 {
+    font-size: 2em;
+    padding-bottom: 1rem;
+  }
+}
+.count .col-12-12 p {
+  width: 100%;
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: 300;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .count .col-12-12 p {
+    font-size: 1.1em;
+    line-height: 1em;
+  }
+}
+@media (min-width: 992px) {
+  .count .col-12-12 p {
+    font-size: 1.1em;
+    line-height: 1em;
+  }
+}
+@media (min-width: 1200px) {
+  .count .col-12-12 p {
+    font-size: 1.1em;
+    line-height: 1em;
+  }
+}
+.esjy-col-4 {
+  text-align: center;
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  height: 20%;
+  margin-top: 2rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .esjy-col-4 {
+    height: 35%;
+    left: 5%;
+  }
+}
+@media (min-width: 992px) {
+  .esjy-col-4 {
+    height: 50%;
+    left: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .esjy-col-4 {
+    height: 50%;
+    left: 0;
+  }
+}
+.esjy-col-4 .esjy-circle-dashed {
+  border: 1px dashed rgba(255, 255, 255, 0.6);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 50%;
+  height: 26rem;
+  width: 26rem;
+  left: 25%;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .esjy-col-4 .esjy-circle-dashed {
+    height: 22rem;
+    width: 22rem;
+    left: 0;
+  }
+}
+@media (min-width: 992px) {
+  .esjy-col-4 .esjy-circle-dashed {
+    height: 17rem;
+    width: 17rem;
+    left: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .esjy-col-4 .esjy-circle-dashed {
+    height: 17rem;
+    width: 17rem;
+    left: 0;
+  }
+}
+.esjy-col-4 .esjy-circle-dashed .esjy-circle {
+  background-color: #fff;
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 50%;
+  height: 22rem;
+  width: 22rem;
+  top: 2rem;
+  left: 2rem;
+  color: #003BC9;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .esjy-col-4 .esjy-circle-dashed .esjy-circle {
+    height: 18rem;
+    width: 18rem;
+    top: 2rem;
+    left: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .esjy-col-4 .esjy-circle-dashed .esjy-circle {
+    height: 14rem;
+    width: 14rem;
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .esjy-col-4 .esjy-circle-dashed .esjy-circle {
+    height: 14rem;
+    width: 14rem;
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+}
+.esjy-col-4 .esjy-circle-dashed p {
+  font-size: 1.2em;
+  line-height: 1.2em;
+  display: block;
+  position: relative;
+  top: 25%;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .esjy-col-4 .esjy-circle-dashed p {
+    font-size: 1.5em;
+    line-height: 1.8em;
+  }
+}
+@media (min-width: 992px) {
+  .esjy-col-4 .esjy-circle-dashed p {
+    font-size: 1.5em;
+    line-height: 1.8em;
+  }
+}
+@media (min-width: 1200px) {
+  .esjy-col-4 .esjy-circle-dashed p {
+    font-size: 1.5em;
+    line-height: 1.8em;
+  }
+}
+.esjy-col-4 .esjy-circle-dashed p span {
+  font-size: 2em;
+  line-height: 1em;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .esjy-col-4 .esjy-circle-dashed p span {
+    font-size: 3em;
+    line-height: 1.2em;
+  }
+}
+@media (min-width: 992px) {
+  .esjy-col-4 .esjy-circle-dashed p span {
+    font-size: 3em;
+    line-height: 1.2em;
+  }
+}
+@media (min-width: 1200px) {
+  .esjy-col-4 .esjy-circle-dashed p span {
+    font-size: 3em;
+    line-height: 1.2em;
+  }
+}
+.test {
+  height: 1000px;
+  width: 100%;
+}
+/* 小屏幕（平板，大于等于 768px） */
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+/* 大屏幕（大桌面显示器，大于等于 1200px） */

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
+    <meta name="apple-touch-fullscreen" content="YES">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--以上是固定必须的！-->
+
+    <meta content="ESJY 主页" name="description"/>
+    <meta content="ESJY 主页" name="keywords"/>
+    <meta content="index,follow" name="robots"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>咨询</title>
+
+
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="/stylesheets/consult.css">
+
+    <!--jquery-->
+    <script src="/jquery-3.2.1.js"></script>
+    <script src="/bootstrap/js/bootstrap.js"></script>
+
+
+    <!--[if IE 9]>
+    <script type="text/javascript" src="/jquery-1.12.4.min.js"></script>
+    <script src="/dist/html5shiv.min.js"></script>
+    <script src="/dist/respond.js"></script>
+    <![endif]-->
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/javascripts/consult.js"></script>
+
+</head>
+
+<script>
+
+
+
+</script>
+
+<body>
+
+
+<div class="wraper hidden-xs">
+    <div class="bgTop "></div>
+    <div class="bgBottom"></div>
+</div>
+
+<div class="header hidden-xs">
+晖昌通
+</div>
+
+<div class="mainChat">
+
+    <div class="chatContent">
+
+        <%if(rs.length > 0) {%>
+        <div class="msgs">
+            <div id="connectAuto">
+                <i id="connctTime"></i>
+                <i id="clarkName">为您接通业务咨询代表  <%= rs[0]['nicheng']%></i>
+            </div>
+
+            <ul id="chatUl">
+                <i id="connectName">业务咨询代表 <%= rs[0]['nicheng']%>3月22日:</i>
+                <li id="chatli" class="msg left">
+                    <p id="userPhone">您好，我是业务代表 <%= rs[0]['nicheng']%> 手机：<%= rs[0]['phone']%>。</p>
+                    <p id="sendMsg">请问有什么可以帮到您？</p>
+                </li>
+                <li id="chat1" class="msg right"></li>
+                <!--<li id="chat1" class="chat active">zhengzai..</li>-->
+
+            </ul>
+        </div>
+
+
+        <% } else { %>
+        <div class="msgs">
+            <div id="connectAuto">
+                <i id="connctTime"></i>
+                <i id="clarkName"> 请稍等。。。。</i>
+            </div>
+
+
+        </div>
+
+        <%}%>
+
+
+
+
+
+
+        <div class="chat">
+            <div class="buttons"></div>
+            <textarea type="text" name="" id="t"></textarea>
+            <button id="b" class="hidden-xs" >发送</button>
+        </div>
+    </div>
+
+
+
+</div>
+
+</body>
+</html>

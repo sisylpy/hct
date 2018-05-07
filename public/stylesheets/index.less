@@ -1,0 +1,647 @@
+@charset "utf-8";
+@import "../../myless/main";
+//
+//main .article-col {
+//
+//  height: 40rem;
+//
+//  /* 小屏幕（平板，大于等于 768px） */
+//  @media (min-width: @screen-sm-min) {
+//    height: 20rem;
+//
+//  }
+//
+//  /* 中等屏幕（桌面显示器，大于等于 992px） */
+//  @media (min-width: @screen-md-min) {
+//    height: 20rem;
+//
+//  }
+//
+//  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+//  @media (min-width: @screen-lg-min) {
+//    height: 20rem;
+//
+//  }
+//
+//
+//}
+
+
+
+main .article-col {
+
+  height: 40rem;
+
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+    height: 28rem;
+
+  }
+
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    height: 28rem;
+
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    height: 25rem;
+
+  }
+
+  .Splash-content {
+    width: 100%;
+    //background-color: darkslategrey;
+    //background: url("../images/hct/Huichangtong-assets/foreign-01.jpg")  center/cover no-repeat;
+
+    .small-title {
+      font-size: 1.75em;
+      line-height: 2rem;
+      color: #46d7c4;
+      padding: 6rem 0 1rem;
+      text-align: center;
+
+      /* 小屏幕（平板，大于等于 768px） */
+      @media (min-width: @screen-sm-min) {
+        padding: 2rem 0 0.5rem;
+
+      }
+
+      /* 中等屏幕（桌面显示器，大于等于 992px） */
+      @media (min-width: @screen-md-min) {
+        padding: 2rem 0 0.5rem;
+
+      }
+
+      /* 大屏幕（大桌面显示器，大于等于 1200px） */
+      @media (min-width: @screen-lg-min) {
+        padding: 2rem 0 0.5rem;
+
+      }
+
+    }
+
+    .article-col-title {
+      width: 100%;
+      text-align: center;
+      color: #eee;
+      font-size: 1.8em;
+      font-weight: 300;
+      /* 小屏幕（平板，大于等于 768px） */
+      @media (min-width: @screen-sm-min) {
+        font-size: 3em;
+        font-weight: 300;
+      }
+
+      /* 中等屏幕（桌面显示器，大于等于 992px） */
+      @media (min-width: @screen-md-min) {
+        font-size: 3em;
+        font-weight: 300;
+      }
+
+      /* 大屏幕（大桌面显示器，大于等于 1200px） */
+      @media (min-width: @screen-lg-min) {
+        font-size: 3em;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+
+//reset Bootstrap
+.container {
+
+  .row{
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+//1，注销公司
+.esjy-col-1 {
+  width: 100%;
+  height: 100%;
+  .esjy-rule {
+    position: relative;
+    border-top: 1px dotted #c7c7c7;
+    min-height: 1px;
+    width: 90%;
+    left: 5%;
+  }
+
+}
+
+//每行第一个部分
+.padding {
+  height: 100%;
+
+  .title {
+
+    height: 10rem;
+    padding-top: 2rem;
+    //padding-left: 1rem;
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      padding-top: 0;
+      //padding-left: 3rem;
+
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      padding-top: 0;
+      padding-left: 2rem;
+
+
+    }
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      padding-top: 0;
+      padding-left: 2rem;
+
+    }
+
+    h4{
+      font-size: 1.3em;
+    }
+    .link{
+      font-size: 1.2em;
+      font-weight: 400;
+      color: #0f6dff;
+      margin-top: 3rem;
+      i{
+        color: #0f6dff;
+
+      }
+    }
+  }
+}
+
+//每行图片部分
+.card_image {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+
+  .esjy_resize {
+    height: @esjy_resizeHeight-mob;
+    width: 100%;
+    background: url("../images/hct/Huichangtong-assets/wzgs.jpg") center/cover ;
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      height: @esjy_resizeHeight-p-sm ;
+      width: 100%;
+    }
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      height: @esjy_resizeHeight-p-md ;
+      width: 100%;
+    }
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      height: @esjy_resizeHeight-p-lg ;
+      width: 100%;
+    }
+  }
+}
+
+//每行文字部分
+.card_content {
+  margin-top: 1rem;
+  //height: @card_contentHeight-mob;
+  text-align: left;
+  position: relative;
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+    //height: @card_contentHeight-p-sm ;
+
+  }
+
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    //height: @card_contentHeight-p-md;
+
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    //height: @card_contentHeight-p-lg;
+
+  }
+
+  h4 {
+
+    margin-bottom: 2rem;
+    font-weight: 500;
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      font-size: 1.2em;
+      height: 2rem;
+      line-height: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      font-size: 1.2em;
+      height: 1.3rem;
+      line-height: 1.3rem;
+      margin-bottom: 2rem;
+    }
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      font-size: 1.2em;
+      height: 1.3rem;
+      line-height: 1.3rem;
+      margin-bottom: 2rem;
+    }
+
+
+  }
+  p {
+    font-size: 1.2em;
+
+
+  }
+
+
+
+}
+
+//每行底部
+.card_bottom {
+
+  //height: @card_bottomHeight-mob;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+    //height: @card_bottomHeight-p-sm;
+  }
+
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    //height: @card_bottomHeight-p-md;
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    //height: @card_bottomHeight-p-lg;
+  }
+
+  a {
+    font-size: 1.2em;
+    color: #0f6dff;
+
+
+
+    i{
+      font-size: 1.2em;
+      color: #0f6dff;
+
+    }
+  }
+
+}
+
+//每行的h3字体设置
+//.padding .title h3 {
+//
+//  font-size: 1.5em;
+//  padding-left: 1rem;
+//
+//  /* 小屏幕（平板，大于等于 768px） */
+//  @media (min-width: @screen-sm-min) {
+//    font-size: 1.5em;
+//    padding-left: 1rem;
+//
+//  }
+//
+//  /* 中等屏幕（桌面显示器，大于等于 992px） */
+//  @media (min-width: @screen-md-min) {
+//    font-size: 1.5em;
+//    padding-left: 1rem;
+//
+//  }
+//
+//  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+//  @media (min-width: @screen-lg-min) {
+//    font-size: 2em;
+//    padding-left: 1rem;
+//
+//  }
+//}
+
+//1.公司注销
+.logoutFlow {
+  position: relative;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 2rem;
+
+
+}
+
+//2，外资注册
+#foreign {
+  background-color: #ececec;
+  padding-top: 2rem;
+
+}
+
+//3.资质审批
+.qualifications {
+  background-color: #000;
+  color: #fff;
+
+  #qua_title {
+    background-color: #0064ff;
+    color: #fff;
+
+    height: @esjy-s-resizeHeight-mob ;
+    padding-top: 2rem;
+
+
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      height: @esjy-s-resizeHeight-p-sm + @card-s_contentHeight-p-sm + @esjy-s-resizeHeight-p-sm;
+
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      height: @esjy-s-resizeHeight-p-md + @card-s_contentHeight-p-md + @card-s_bottomHeight-p-md;
+      padding-left: 2rem;
+
+    }
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      height: @esjy-s-resizeHeight-p-lg + @card-s_contentHeight-p-lg + @card-s_bottomHeight-p-lg + @card-s-resizeTop-p-lg;
+      padding-left: 2rem;
+
+    }
+
+     h4{
+       color: #fff;
+
+     }
+    a{
+      display: block;
+      margin-top: 2rem;
+      color: #fff;
+
+
+    }
+
+  }
+
+  .qualifications_card{
+
+    height: 100%;
+    .card-s_image{
+      height: 100%;
+
+      .esjy-s_resize{
+        width: 100%;
+        background: url("../images/hct/Huichangtong-assets/wzgs.jpg");
+        height: @esjy-s-resizeHeight-mob;
+        margin-top: @card-s-resizeTop-mob;
+
+
+        /* 小屏幕（平板，大于等于 768px） */
+        @media (min-width: @screen-sm-min) {
+          height: @esjy-s-resizeHeight-p-sm;
+          margin-top: @card-s-resizeTop-p-sm;
+
+
+        }
+
+        /* 中等屏幕（桌面显示器，大于等于 992px） */
+        @media (min-width: @screen-md-min) {
+          height: @esjy-s-resizeHeight-p-md;
+          margin-top: @card-s-resizeTop-p-md;
+
+        }
+
+        /* 大屏幕（大桌面显示器，大于等于 1200px） */
+        @media (min-width: @screen-lg-min) {
+          height: @esjy-s-resizeHeight-p-lg;
+          margin-top: @card-s-resizeTop-p-lg;
+
+
+        }
+
+
+      }
+
+
+
+    }
+    .card-s_content {
+      padding-top: 2rem;
+
+      height: @card-s_contentHeight-mob;
+
+
+      /* 小屏幕（平板，大于等于 768px） */
+      @media (min-width: @screen-sm-min) {
+        height: @card-s_contentHeight-p-sm;
+
+
+      }
+
+      /* 中等屏幕（桌面显示器，大于等于 992px） */
+      @media (min-width: @screen-md-min) {
+        height: @card-s_contentHeight-p-md;
+
+      }
+
+      /* 大屏幕（大桌面显示器，大于等于 1200px） */
+      @media (min-width: @screen-lg-min) {
+        height: @card-s_contentHeight-p-lg;
+
+      }
+
+      h4 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+    .card-s_bottom{
+
+      height: @card-s_bottomHeight-mob;
+      /* 小屏幕（平板，大于等于 768px） */
+      @media (min-width: @screen-sm-min) {
+        height: @card-s_bottomHeight-p-sm;
+
+
+      }
+
+      /* 中等屏幕（桌面显示器，大于等于 992px） */
+      @media (min-width: @screen-md-min) {
+        height: @card-s_bottomHeight-p-md;
+        padding-left: 2rem;
+
+
+      }
+
+      /* 大屏幕（大桌面显示器，大于等于 1200px） */
+      @media (min-width: @screen-lg-min) {
+        height: @card-s_bottomHeight-p-lg;
+        padding-left: 2rem;
+
+
+      }
+
+    }
+
+
+  }
+
+
+}
+
+
+
+//4，文章左侧
+.article-left {
+  width: 30%;
+  //border:1px solid red;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+
+//4，文章右侧
+.articles-right {
+  width:70%;
+  position: relative;
+  float: left;
+  //border: 1px solid blue;
+  height:100%;
+}
+
+
+//4，文字链接
+.article-content {
+  height: 100%;
+  padding-top: 2rem;
+
+  @media (min-width: @screen-sm-min) {
+    //height: @article-colHeight-p-sm;
+  }
+
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    //height: @article-colHeight-p-md;
+    padding-left: 2rem;
+
+
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    //height: @article-colHeight-p-lg;
+    padding-left: 2rem;
+  }
+  .article_title {
+
+  }
+
+  .article {
+    //border: 1px solid red;
+
+    a {
+      //background-color: purple;
+      height: 100%;
+      display: block;
+      padding-bottom: 1rem;
+
+      h4 {
+
+        line-height: 10rem;
+        text-align: left;
+        font-weight: 500;
+        margin-bottom: 2rem;
+
+        /* 小屏幕（平板，大于等于 768px） */
+        @media (min-width: @screen-sm-min) {
+          font-size: 1.2em;
+          line-height: 2rem;
+        }
+
+        /* 中等屏幕（桌面显示器，大于等于 992px） */
+        @media (min-width: @screen-md-min) {
+          font-size: 1.2em;
+          line-height: 1.3rem;
+          margin-bottom: 1rem;
+        }
+        /* 大屏幕（大桌面显示器，大于等于 1200px） */
+        @media (min-width: @screen-lg-min) {
+
+          font-size: 1.2em;
+          line-height: 1.3rem;
+          margin-bottom: 1rem;
+
+        }
+      }
+      p {
+        text-align: left;
+        color: #0064ff;
+        font-size: 1.3em;
+        display: block;
+        word-break: break-all;
+
+        /* 小屏幕（平板，大于等于 768px） */
+        @media (min-width: @screen-sm-min) {
+          font-size: 1.1em;
+
+        }
+
+        /* 中等屏幕（桌面显示器，大于等于 992px） */
+        @media (min-width: @screen-md-min) {
+          font-size: 1.1em;
+
+        }
+
+        /* 大屏幕（大桌面显示器，大于等于 1200px） */
+        @media (min-width: @screen-lg-min) {
+          font-size: 1.1em;
+
+
+        }
+
+      }
+    }
+  }
+
+}
+
+
+
+
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: @screen-sm-min) {
+
+}
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: @screen-md-min) {
+
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: @screen-lg-min) {
+
+}

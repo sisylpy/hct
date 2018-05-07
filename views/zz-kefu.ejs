@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!--<script src="/socket.io/socket.io.js"></script>-->
+  <script src="/socket.io/socket.io.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="/jquery-3.2.1.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="/stylesheets/kefu.css">
+
+
+  <script>
+    var kfsocket = io.connect('http://localhost:3003');
+
+
+    $(function () {
+
+
+
+    })
+
+  </script>
+
+
+</head>
+<body>
+<div class="esjy-col">
+
+  <div class="container">
+    <div class="row">
+      <div class="person col-5">
+        <div class="search">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="搜索文章标题" aria-label="Recipient's username"
+                   aria-describedby="basic-addon2">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button">查找</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="main">
+          <ul class="personList">
+            <li  class="personNO">
+              <div class="face">consultId</div>
+              <div class="personInfo" >
+                <p class="lastwords hidde" >consultTime</p>
+                <p class="saying"> consultId</p>
+              </div>
+              <p class="del"> X </p>
+            </li>
+          </ul>
+
+          <a href="/admin">修改文章</a>
+        </div>
+
+      </div>
+      <div class="chat-col col-7">
+        <div class="chatContent">
+          <ul id="chatUl">
+            <li id="chat0" class="chat">
+              <i id="name">sisy</i>
+              <i id="timer">12:30:30</i>
+              <p id="content">The first line</p>
+            </li>
+            <li id="chat1" class="chat"></li>
+            <!--<li id="chat1" class="chat active">zhengzai..</li>-->
+
+
+          </ul>
+        </div>
+
+        <input type="text" name="" id="t">
+        <button id="b">发送</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

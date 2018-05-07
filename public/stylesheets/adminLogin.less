@@ -1,0 +1,222 @@
+@import "../../myless/main";
+
+.esjy-col {
+  width: 100%;
+  a {
+    color: #ffffff;
+  }
+
+}
+
+
+
+//咨询聊天
+.consult{
+  height: @kefuItemHeight-p-lg;
+  width: 100%;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  //border:1px solid red;
+
+  //咨询聊天下的横线
+  .line{
+    border-bottom: 1px solid grey;
+    height: 5rem;
+    font-size: 2em;
+    line-height: 5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+
+.consult-content {
+  height: @person-colHeight-p-lg;
+  border: 5px solid green;
+}
+
+//左侧客户列表
+.person-col {
+  //height: 100%;
+  width: 40%;
+  position: relative;
+  float: left;
+  //border: 1px solid pink;
+  overflow:auto;
+
+  .main{
+    width: 100%;
+    //border: 1px solid gold;
+    //background-color:green;
+    height: @person-colHeight-p-lg;
+
+    ul {
+      width: 100%;
+      //height: @person-colHeight-p-lg;
+      position: relative;
+      float: left;
+      //background-color: yellow;
+      display: block;
+      padding-left: 1.5rem;
+      //-webkit-padding-start: 0;
+
+
+    }
+  }
+}
+
+//左侧客户每行
+.personNO {
+  height: @personLineHeight;
+  //background-color: lightblue;
+  display: block;
+  position: relative;
+  float: left;
+  border-bottom: 1px solid grey;
+  width: 100%;
+  .face {
+    width: @personFaceHeight;
+    height: @personFaceHeight;
+    top: (@personLineHeight - @personFaceHeight)/2;
+    //height: 90%;
+    background-color: #3b6caa;
+    position: relative;
+    float: left;
+    border-radius: 50%;
+    font-size: 2em;
+    color: #eee;
+    text-align: center;
+    line-height: @personFaceHeight;
+    //background: url("../images/hct/Huichangtong-assets/icon_05.png") bottom;
+  }
+  .personInfo {
+    height: 100%;
+    width: 70%;
+    //background-color:purple;
+    position: relative;
+    float: left;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+
+    .hidden{
+      display: none;
+    }
+    .consultTime{
+      //font-size: 1em;
+      //font-weight: 500;
+      //background-color: coral;
+      position: relative;
+      float: left;
+      height: @consultTimeHeight;
+      width: 100%;
+      //border: 1px solid red;
+      margin-bottom: 0;
+
+
+    }
+    .lastChat{
+      //padding-left: 1rem;
+      line-height: 1.2rem;
+      //background-color: cadetblue;
+      position: relative;
+      float: left;
+      height: @lastChatHeight;
+      //border: 1px solid greenyellow;
+      margin-top: 0.5rem;
+
+    }
+  }
+  .del{
+    position: relative;
+    float: right;
+    width: 10%;
+    height: 100%;
+    line-height: @personLineHeight;
+    text-align: center;
+    //background-color: blue;
+    color: white;
+
+  }
+}
+
+//右侧聊天
+.chat-col {
+  height: 100%;
+  width: 60%;
+  position: relative;
+  float: left;
+  //border-left: 1px solid red;
+  //background-color: #00D494;
+
+  //右侧聊天上部分
+  .chatContent {
+    //background-color: bisque;
+    height: 85%;
+    border: 1px solid purple;
+
+    #chatUl {
+      padding: 0;
+
+      .chat {
+        line-height: 3rem;
+        //background-color: #00D494;
+        width: 70%;
+        position: relative;
+        margin-right: 25%;
+
+        #name {
+
+        }
+        #timer {
+
+        }
+        #content {
+
+        }
+
+      }
+
+      #chat0 {
+        background-color: red;
+        width: 60%;
+        position: relative;
+        margin-left: 40%;
+      }
+      #chat1 {
+        background-color: #00D494;
+        width: 60%;
+        position: relative;
+        //margin-right: 25%;
+
+      }
+
+    }
+
+  }
+  //右侧聊天下面发送信息部分　
+  .sendMessage {
+    background-color: lightgrey;
+    height: 15%;
+    width: 100%;
+    textarea {
+      width:75%;
+      position: relative;
+      float: left;
+      height: 100%;
+      //left: 10%;
+      //top: 10%;
+      //border-radius: 1rem
+
+    }
+    #b{
+
+      width: 20%;
+      height: 50%;
+      top: 25%;
+      position: relative;
+      float: right;
+      right: 2%;
+    }
+
+  }
+}
+

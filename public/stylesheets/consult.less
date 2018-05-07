@@ -1,0 +1,372 @@
+@import "../../myless/main";
+
+body{
+  background: url("../images/hct/Huichangtong-assets/bg.jpg") repeat;
+  font-size: 1em;
+  color: #232323;
+}
+.header{
+  width: 100%;
+  background: url("../images/hct/Huichangtong-assets/headerBg.jpg");
+  height:52px;
+  position: absolute;
+  top:0;
+  color: #fff;
+  font-size: 2rem;
+  text-align: center;
+  line-height: 52px;
+}
+
+.wraper {
+  width: 100%;
+  //height: 650px;
+.bgTop {
+  width: 100%;
+  height: 360px;
+  background: url("../images/hct/Huichangtong-assets/bgTop.jpg") repeat-x;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+
+}
+  .bgBottom {
+    width: 100%;
+    height: 320px;
+    background: url("../images/hct/Huichangtong-assets/bgBottom.jpg") repeat-x;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+  }
+
+}
+
+
+//聊天窗口
+.mainChat {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  .chatContent {
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 2px #ccc;
+    position: relative;
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      width: 60%;
+      height: 42rem;
+      left:20%;
+      top:8rem;
+      border: 1px solid red;
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      width: 60%;
+      height: 36rem;
+      left:20%;
+      top:6rem;
+      border: 1px solid green;
+
+    }
+
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+
+      width: 50%;
+      height: 35rem;
+      left:25%;
+      top:6rem;
+      border: 1px solid gold;
+
+    }
+
+  }
+}
+
+.msgs{
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid cornflowerblue;
+
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+    height: 34rem;
+
+  }
+
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    height: 28rem;
+
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    height: 28rem;
+
+  }
+
+
+
+  #connectAuto {
+    position: relative;
+    margin-bottom: 1rem;
+    height: 3rem;
+    width: 100%;
+    border-radius: 5px 5px 0 0 ;
+    background-color: #387fed;
+    border: 1px solid #fff;
+    color: #fff;
+    line-height: 2rem;
+
+
+    #connctTime {
+      display: block;
+      font-size: 0.7rem;
+      font-style: normal;
+      width: 100%;
+
+    }
+    #clarkName {
+      display: block;
+      font-style: normal;
+      width: 100%;
+
+
+      /* 小屏幕（平板，大于等于 768px） */
+      @media (min-width: @screen-sm-min) {
+
+        font-size: 1.2em;
+        line-height: 3rem;
+        text-align: left;
+        padding-left: 1rem;
+      }
+
+      /* 中等屏幕（桌面显示器，大于等于 992px） */
+      @media (min-width: @screen-md-min) {
+        font-size: 1em;
+        line-height: 3rem;
+        text-align: left;
+        padding-left: 1rem;
+
+      }
+
+      /* 大屏幕（大桌面显示器，大于等于 1200px） */
+      @media (min-width: @screen-lg-min) {
+        font-size: 1rem;
+        line-height: 3rem;
+        text-align: left;
+        padding-left: 1rem;
+      }
+    }
+  }
+
+  #chatUl {
+    width: 100%;
+    height: 100%;
+    padding-left: 1rem;
+
+
+    #connectName {
+      display: block;
+      font-size: 1em;
+      font-style: normal;
+    }
+
+    #chatli {
+
+      position: relative;
+      width: 55%;
+      background-color: #387fed;
+      border-radius: 5px;
+      padding-top: 0.5rem;
+      padding-left: 0.5rem;
+      padding-bottom: 0.5rem;
+
+      color: #fff;
+
+
+
+      #userPhone {
+        display: block;
+        font-size: 1em;
+        font-style: normal;
+        margin-bottom: 0;
+
+
+      }
+      #sendMsg {
+        font-size: 1em;
+        margin-bottom: 0;
+
+      }
+
+    }
+  }
+
+
+
+
+}
+
+.chat{
+  position: relative;
+  width: 100%;
+  //background-color: red;
+
+
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+
+  }
+
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+
+  }
+
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+
+    //height: 100%;
+  }
+
+
+
+  .buttons {
+    height: 2rem;
+    width: 100%;
+    background-color: purple;
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      height: 3rem;
+
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      height: 2rem;
+
+    }
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      height: 2rem;
+
+    }
+
+
+  }
+
+
+
+  textarea {
+    position: relative;
+    float: left;
+    //height: 100%;
+
+    width: 85%;
+    //vertical-align:top;
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      height: 5rem;
+      width: 85%;
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+      height: 6rem;
+      width: 85%;
+    }
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      height: 5rem;
+      line-height: 1.2rem;
+      width: 85%;
+    }
+
+  }
+
+  button {
+    position: relative;
+    float: left;
+    background-color: #00649D;
+    color: #fff;
+    display: inline-block;
+
+
+    /* 小屏幕（平板，大于等于 768px） */
+    @media (min-width: @screen-sm-min) {
+      width: 15%;
+      padding: 0 20px;
+      height: 3rem;
+      line-height: 28px;
+      margin: 0;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      top: 0;
+    }
+
+    /* 中等屏幕（桌面显示器，大于等于 992px） */
+    @media (min-width: @screen-md-min) {
+
+      width: 15%;
+      padding: 0 20px;
+      height: 3rem;
+      line-height: 28px;
+      margin: 0;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      top: 1.5rem;
+    }
+
+    /* 大屏幕（大桌面显示器，大于等于 1200px） */
+    @media (min-width: @screen-lg-min) {
+      width: 15%;
+      padding: 0 20px;
+      height: 2rem;
+      line-height: 28px;
+      margin: 0;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      top: 1rem;
+    }
+
+
+  }
+
+}
+
+
+
+
+/* 小屏幕（平板，大于等于 768px） */
+@media (min-width: @screen-sm-min) {
+
+}
+
+/* 中等屏幕（桌面显示器，大于等于 992px） */
+@media (min-width: @screen-md-min) {
+
+}
+
+/* 大屏幕（大桌面显示器，大于等于 1200px） */
+@media (min-width: @screen-lg-min) {
+
+}
