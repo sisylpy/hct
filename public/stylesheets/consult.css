@@ -303,7 +303,7 @@ body {
   font-size: 1em;
   font-style: normal;
 }
-.msgs #chatUl #chatli {
+.msgs #chatUl .chatli {
   position: relative;
   width: 55%;
   background-color: #387fed;
@@ -312,14 +312,21 @@ body {
   padding-left: 0.5rem;
   padding-bottom: 0.5rem;
   color: #fff;
+  margin-top:0.5rem;
 }
-.msgs #chatUl #chatli #userPhone {
+.msgs #chatUl .chatli.left{
+  float:left;
+}
+.msgs #chatUl .chatli.right{
+  float:right;
+}
+.msgs #chatUl .chatli .userPhone {
   display: block;
   font-size: 1em;
   font-style: normal;
   margin-bottom: 0;
 }
-.msgs #chatUl #chatli #sendMsg {
+.msgs #chatUl .chatli .sendMsg {
   font-size: 1em;
   margin-bottom: 0;
 }

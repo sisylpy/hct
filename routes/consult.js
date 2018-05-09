@@ -4,7 +4,7 @@
 
 var express = require('express');
 var router = express.Router();
-var checkSession = require('../jsbean/CheckSession');
+var checkSession = require('../jsBean/CheckSession');
 
 
 router.get('/login',function (req, res,next) {

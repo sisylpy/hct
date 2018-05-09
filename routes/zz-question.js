@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var checkSession = require('../jsbean/CheckSession');
+var checkSession = require('../jsBean/CheckSession');
 var questionModel = require('../models/QuestionModel');
 
 router.all('/ask', function(req, res) {

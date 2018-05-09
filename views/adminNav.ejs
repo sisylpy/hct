@@ -8,7 +8,8 @@
   <a class="navitems active" id="articleitem" href="/admin/articles">文章管理</a>
   <div class="btn-group dropdown" id="userFace">
     <% if (loginbean) { %>
-    <input id="uid" type="hidden" name="<%= loginbean.uid%>">
+    <input id="uid" type="hidden" name="<%= loginbean.uid%>" value="<%= loginbean.uid%>">
+    <input id="socketId" type="hidden" name="<%= loginbean.socketId%>" value="<%= loginbean.socketId%>">
     <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" type="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= loginbean.nicheng %></button>
     <% } else { %>

@@ -259,13 +259,13 @@ main {
   position: relative;
   margin-right: 25%;
 }
-.chat-col .chatContent #chatUl #chat0 {
+.chat-col .chatContent #chatUl .chat0 {
   background-color: red;
   width: 60%;
   position: relative;
   margin-left: 40%;
 }
-.chat-col .chatContent #chatUl #chat1 {
+.chat-col .chatContent #chatUl .chat1 {
   background-color: #00D494;
   width: 60%;
   position: relative;

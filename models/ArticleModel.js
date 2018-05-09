@@ -1,6 +1,6 @@
 var connPool = require("./ConnPool");
 var async = require('async');
-var LoginBean = require("../jsbean/LoginBean");
+var LoginBean = require("../jsBean/LoginBean");
 
 module.exports = {
 

@@ -113,14 +113,24 @@ module.exports = {
         return;
       }
 
-      var consultSql = 'SELECT * FROM user WHERE status = 1';
+      var consultSql = 'SELECT u.*,max(m.chattime) chattime FROM user u  LEFT JOIN message m on u.uid=m.userid WHERE status = 1 GROUP BY uid ';
       conn.query(consultSql,function (err, rs) {
         if (err) {
           res.send("数据库查询错误。" + err.message);
           return;
         }
-        console.log(rs.length);
-        res.render('consult', {rs:rs});
+        var server = '';
+        var now = (new Date()).getTime();
+        var maxtime = now - (new Date(rs[0].chattime)).getTime();
+        var currentServer = rs[0];  // 当前客服
+        for(var i = 0; i < rs.length; i++){
+            if((now - (new Date(rs[i].chattime)).getTime()) > maxtime ){
+                maxtime = now - (new Date(rs[i].chattime)).getTime();
+                currentServer = rs[i];
+            }
+        }
+        console.log(currentServer);
+        res.render('consult', {rs:currentServer});
       });
       conn.release();
     })
