@@ -194,12 +194,13 @@ $(function () {
       }
     })*/
     $('#b').on('click', function () {
-        var chattime = new Date().Format("yyyy-MM-dd HH:mm:ss");
+        var chattime = new Date().Format("yyyy-MM-dd hh:mm:ss");
+        var showChattime = new Date().Format("hh:mm:ss");
         // 添加新的完成输入的li
         var value = $('#t').val();
         var li = '<li class="chat0">'+
             '<i class="name">'+nicheng+'</i>'+
-            '<i class="timer">'+chattime+'</i>'+
+            '<i class="timer">'+showChattime+'</i>'+
             '<p class="content">'+value+'</p> '+
             '</li>';
         $("#chatUl").append(li);
