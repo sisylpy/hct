@@ -146,7 +146,7 @@ $(function () {
         if(obj.client_id == current_clientId){
             // 将消息显示到页面上
             li = '<li class="chat1">'+
-                '<i class="name">'+nicheng+'</i>'+
+                '<i class="name">'+obj.client_id+'</i>'+
                 '<i class="timer">'+new Date(obj.chattime).Format('hh:mm:ss')+'</i>'+
                 '<p class="content">'+obj.msg+'</p> '+
                 '</li>';
