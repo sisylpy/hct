@@ -52,6 +52,7 @@ client_chat.on('connection', (socket) => {
                 }
             });
         });
+        
         // 推送给客服
         server_chat.to(obj.server_socketId).emit('message', {
             client_id: obj.client_id,
