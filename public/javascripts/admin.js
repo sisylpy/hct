@@ -90,13 +90,16 @@ $(function () {
                     res.map(function (mes) {
                         // 将消息显示到页面上
                         var styleclass = '';
+                        var showname = '';
                         if(mes.whosaid == 'C'){
                             styleclass = 'chat1';
+                            showname = mes.client_id;
                         }else if(mes.whosaid == 'S'){
                             styleclass = 'chat0';
+                            showname = nicheng;
                         }
                         li = '<li class="'+styleclass+'">'+
-                            '<i class="name">'+nicheng+'</i>'+
+                            '<i class="name">'+showname+'</i>'+
                             '<i class="timer">'+new Date(mes.chattime).Format('hh:mm:ss')+'</i>'+
                             '<p class="content">'+mes.message+'</p> '+
                             '</li>';
@@ -110,13 +113,16 @@ $(function () {
             current_message.map(function(mes){
                 // 将消息显示到页面上
                 var styleclass = '';
+                var showname = '';
                 if(mes.whosaid == 'C'){
                     styleclass = 'chat1';
+                    showname = mes.client_id;
                 }else if(mes.whosaid == 'S'){
                     styleclass = 'chat0';
+                    showname = nicheng;
                 }
                 li = '<li class="'+styleclass+'">'+
-                    '<i class="name">'+nicheng+'</i>'+
+                    '<i class="name">'+showname+'</i>'+
                     '<i class="timer">'+new Date(mes.chattime).Format('hh:mm:ss')+'</i>'+
                     '<p class="content">'+mes.message+'</p> '+
                     '</li>';
