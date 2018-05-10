@@ -4,6 +4,7 @@
 
 var connPool = require("./ConnPool");
 var async = require('async');
+var randomString =require("randomstring"); //产生随机字符串模块
 
 
 module.exports = {
@@ -119,6 +120,7 @@ module.exports = {
           res.send("数据库查询错误。" + err.message);
           return;
         }
+        var clientId = randomString.generate(30)+(new Date().getTime());  // 随机产生客户端id
         var server = '';
         var now = (new Date()).getTime();
         var maxtime = now - (new Date(rs[0].chattime)).getTime();
@@ -129,8 +131,7 @@ module.exports = {
                 currentServer = rs[i];
             }
         }
-        console.log(currentServer);
-        res.render('consult', {rs:currentServer});
+        res.render('consult', {rs:currentServer,clientId:clientId});
       });
       conn.release();
     })
