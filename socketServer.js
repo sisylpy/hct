@@ -50,6 +50,7 @@ client_chat.on('connection', (socket) => {
                 if (err) {
                     console.log(err.message);
                 }
+                conn.release();
             });
         });
 
@@ -95,6 +96,7 @@ server_chat.on('connection', (socket) => {
                 if (err) {
                     console.log(err.message);
                 }
+                conn.release();
             });
         });
 

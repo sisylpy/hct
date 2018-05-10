@@ -44,6 +44,7 @@ module.exports = {
                                     return;
                                 }
                                 callback(null, rs);
+                                // conn.release();
                             })
                         } else {
                             res.send("email/密码错误");
@@ -58,6 +59,7 @@ module.exports = {
                             return;
                         }
                         callback(null, rs);
+                        // conn.release();
                     })
 
                 }
@@ -95,9 +97,9 @@ module.exports = {
 
                 });
                 // res.redirect('login');
-
+                conn.release();
             })
-            conn.release();
+            // conn.release();
 
         });
 
