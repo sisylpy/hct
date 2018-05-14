@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>后台管理主页</title>
-  <meta charset="UTF-8">
+    <title>后台管理主页</title>
+    <meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!--wang-->
-  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-  <script src="/jquery-3.2.1.js"></script>
-  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossorigin="anonymous"></script>
-  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-          crossorigin="anonymous"></script>
+    <!--wang-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+    <script src="/jquery-3.2.1.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
-  <script src="/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 
-  <link rel="stylesheet" href="/stylesheets/adminLogin.css">
-  <script src="/javascripts/admin.js"></script>
+    <link rel="stylesheet" href="/stylesheets/adminLogin.css">
+    <script src="/javascripts/admin.js"></script>
 
 </head>
-
 
 
 <body id="">
@@ -32,59 +31,59 @@
 <div class="esjy-col">
 
 
-  <%- include adminNav %>
+    <%- include adminNav %>
 
 
-  <div class="consult">
-    <div class="line">咨询聊天</div>
+    <div class="consult">
+        <div class="line">咨询聊天</div>
 
 
-    <div class="consult-content">
-      <div class="person-col">
-        <div class="main">
-          <ul class="personList">
-            <% rsConsult.forEach(function (row) { %>
+        <div class="consult-content">
+            <div class="person-col">
+                <div class="main">
+                    <ul class="personList">
+                        <% rsConsult.forEach(function (row) { %>
 
-            <li class="personNO" id="<%= row['consultUserId'] %>" >
-              <div class="face"> <%= row['consultUserId']%></div>
-              <div class="personInfo">
-                <p class="consultTime"><%= row['consultTime'].toLocaleTimeString()%></p>
-                <p class="lastChat"> <%= row['lastChat'] %></p>
-              </div>
-              <p class="del"> X </p>
-            </li>
-            <% }) %>
-          </ul>
+                        <li class="personNO" id="<%= row['client_id'] %>" data-clientid="<%= row['client_id'] %>"
+                            data-clientip="<%= row['client_ip'] %>">
+                            <div class="face"> <%= row['userid'] %></div>
+                            <div class="personInfo">
+                                <p class="consultTime"><%= row['lastchattime'].toLocaleTimeString() %></p>
+                                <p class="lastChat"> <%= row['message'] %></p>
+                            </div>
+                            <p class="del"> X </p>
+                        </li>
+                        <% }) %>
+                    </ul>
 
-          <!--<a href="/admin">修改文章</a>-->
+                    <!--<a href="/admin">修改文章</a>-->
+                </div>
+
+            </div>
+
+            <div class="chat-col" style="position:relative;">
+                <div class="chatContent">
+                    <ul id="chatUl">
+                        <!--<li class="chat0 chat">
+                            <i class="name">sisddddy</i>
+                            <i class="timer">12:30:30</i>
+                            <p class="content">The first line</p>
+                        </li>
+                        <li class="chat1 chat active" class="chat active">......</li>-->
+                    </ul>
+                </div>
+
+                <div class="sendMessage">
+                    <textarea type="text" name="" id="t"></textarea>
+                    <button id="b">发送</button>
+
+                </div>
+
+            </div>
+
         </div>
-
-      </div>
-
-      <div class="chat-col">
-        <div class="chatContent">
-          <ul id="chatUl">
-            <li id="chat0" class="chat">
-              <i id="name">sisddddy</i>
-              <i id="timer">12:30:30</i>
-              <p id="content">The first line</p>
-            </li>
-            <li id="chat1" class="chat"></li>
-            <li id="chat1" class="chat active">......</li>
-          </ul>
-        </div>
-
-        <div class="sendMessage">
-          <textarea type="text" name="" id="t"></textarea>
-          <button id="b">发送</button>
-
-        </div>
-
-      </div>
 
     </div>
-
-  </div>
 
 
 </div>

@@ -5,10 +5,11 @@
 var express = require('express');
 var router = express.Router();
 var articleModel = require('../models/ArticleModel');
-var checkSession = require('../jsbean/CheckSession');
+var checkSession = require('../jsBean/CheckSession');
 
 var adminModel = require('../models/AdminModel');
 var consultModel = require('../models/ConsultModel');
+var MessageModel = require('../models/MessageModel');
 
 
 
@@ -26,6 +27,11 @@ router.all('/login', function (req, res, next) {
     adminModel.adminlogin(req,res);
   }
 })
+
+router.get('/message/:client_id', (req, res, next) => {
+  MessageModel.getMessageByClientId(req,res);
+    // var client_id = req.header['client_id'];
+});
 
 //后台退出
 router.get('/logout', function (req, res, next) {
