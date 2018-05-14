@@ -2,26 +2,109 @@
 @import "../../myless/main";
 
 
+main .answer {
 
+  height: 40rem;
 
-.main {
-  //background-color: darkblue;
-  width: 100%;
-  position: relative;
-  float: left;
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
-    top: -@esjy-navHeight-pc;
+    height: 28rem;
+
   }
+
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   @media (min-width: @screen-md-min) {
-    top: -@esjy-navHeight-pc;
+    height: 28rem;
+
   }
+
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
   @media (min-width: @screen-lg-min) {
-    top: -@esjy-navHeight-pc-lg;
+    height: 250rem;
+
+  }
+
+  .Splash-content {
+    width: 100%;
+    //background-color: darkslategrey;
+    background: url("../images/hct/Huichangtong-assets/foreign-01.jpg")  center/cover no-repeat;
+
+    .small-title {
+      font-size: 1.75em;
+      line-height: 2rem;
+      color: #46d7c4;
+      padding: 6rem 0 1rem;
+      text-align: center;
+
+      /* 小屏幕（平板，大于等于 768px） */
+      @media (min-width: @screen-sm-min) {
+        padding: 2rem 0 0.5rem;
+
+      }
+
+      /* 中等屏幕（桌面显示器，大于等于 992px） */
+      @media (min-width: @screen-md-min) {
+        padding: 2rem 0 0.5rem;
+
+      }
+
+      /* 大屏幕（大桌面显示器，大于等于 1200px） */
+      @media (min-width: @screen-lg-min) {
+        padding: 2rem 0 0.5rem;
+
+      }
+
+    }
+
+    .article-col-title {
+      width: 100%;
+      text-align: center;
+      color: #eee;
+      font-size: 1.8em;
+      font-weight: 300;
+      /* 小屏幕（平板，大于等于 768px） */
+      @media (min-width: @screen-sm-min) {
+        font-size: 3em;
+        font-weight: 300;
+      }
+
+      /* 中等屏幕（桌面显示器，大于等于 992px） */
+      @media (min-width: @screen-md-min) {
+        font-size: 3em;
+        font-weight: 300;
+      }
+
+      /* 大屏幕（大桌面显示器，大于等于 1200px） */
+      @media (min-width: @screen-lg-min) {
+        font-size: 30em;
+        font-weight: 300;
+      }
+    }
   }
 }
+
+
+//.main {
+//  //background-color: darkblue;
+//  width: 100%;
+//  position: relative;
+//  float: left;
+//  /* 小屏幕（平板，大于等于 768px） */
+//  @media (min-width: @screen-sm-min) {
+//    top: -@esjy-navHeight-pc;
+//  }
+//  /* 中等屏幕（桌面显示器，大于等于 992px） */
+//  @media (min-width: @screen-md-min) {
+//    top: -@esjy-navHeight-pc;
+//  }
+//  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+//  @media (min-width: @screen-lg-min) {
+//    top: -@esjy-navHeight-pc-lg;
+//  }
+//}
+
+
+
 
 .article-page-banner {
   height: 38rem; //总高度

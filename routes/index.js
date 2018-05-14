@@ -28,6 +28,12 @@ router.get('/orgLog', function(req, res, next) {
   res.render('organisationLogout');
 });
 
+//文章
+router.get('/article-page', function(req, res, next) {
+  // res.render('article-page');
+  articleModel.artclePage(req,res);
+
+});
 //关于公司
 router.get('/about', function(req, res, next) {
   res.render('aboutLtd');
@@ -46,10 +52,6 @@ router.get('/admin', function(req, res, next) {
 
 
 
-//文章
-router.get('/article-page', function(req, res, next) {
-  res.render('article-page');
-});
 
 //ceshi
 router.get('/chat/a', function(req, res, next) {

@@ -145,27 +145,82 @@ main {
   margin: 0;
   padding: 0;
 }
-.main {
-  width: 100%;
-  position: relative;
-  float: left;
+main .answer {
+  height: 40rem;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
 }
 @media (min-width: 768px) {
-  .main {
-    top: -3rem;
+  main .answer {
+    height: 28rem;
   }
 }
 @media (min-width: 992px) {
-  .main {
-    top: -3rem;
+  main .answer {
+    height: 28rem;
   }
 }
 @media (min-width: 1200px) {
-  .main {
-    top: -4rem;
+  main .answer {
+    height: 250rem;
+  }
+}
+main .answer .Splash-content {
+  width: 100%;
+  background: url("../images/hct/Huichangtong-assets/foreign-01.jpg") center / cover no-repeat;
+}
+main .answer .Splash-content .small-title {
+  font-size: 1.75em;
+  line-height: 2rem;
+  color: #46d7c4;
+  padding: 6rem 0 1rem;
+  text-align: center;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  main .answer .Splash-content .small-title {
+    padding: 2rem 0 0.5rem;
+  }
+}
+@media (min-width: 992px) {
+  main .answer .Splash-content .small-title {
+    padding: 2rem 0 0.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  main .answer .Splash-content .small-title {
+    padding: 2rem 0 0.5rem;
+  }
+}
+main .answer .Splash-content .article-col-title {
+  width: 100%;
+  text-align: center;
+  color: #eee;
+  font-size: 1.8em;
+  font-weight: 300;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  main .answer .Splash-content .article-col-title {
+    font-size: 3em;
+    font-weight: 300;
+  }
+}
+@media (min-width: 992px) {
+  main .answer .Splash-content .article-col-title {
+    font-size: 3em;
+    font-weight: 300;
+  }
+}
+@media (min-width: 1200px) {
+  main .answer .Splash-content .article-col-title {
+    font-size: 30em;
+    font-weight: 300;
   }
 }
 .article-page-banner {
