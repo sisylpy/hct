@@ -7,7 +7,8 @@ module.exports = (function () {
         user: 'root',               //MySQL认证用户名
         password: '123456',        //MySQL认证用户密码
         database: 'segment',
-        port: '3306'                   //端口号
+        port: '3306',                   //端口号
+        dateString: true
     });
     pool.on('connection', function(connection) {
         connection.query('SET SESSION auto_increment_increment=1');

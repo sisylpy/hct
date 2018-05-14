@@ -311,24 +311,24 @@ body {
   padding-top: 0.5rem;
   padding-left: 0.5rem;
   padding-bottom: 0.5rem;
+  margin-top: 0.5rem;
   color: #fff;
-  margin-top:0.5rem;
 }
-.msgs #chatUl .chatli.left{
-  float:left;
-}
-.msgs #chatUl .chatli.right{
-  float:right;
-}
-.msgs #chatUl .chatli .userPhone {
+.msgs #chatUl .chatli #userPhone {
   display: block;
   font-size: 1em;
   font-style: normal;
   margin-bottom: 0;
 }
-.msgs #chatUl .chatli .sendMsg {
+.msgs #chatUl .chatli #sendMsg {
   font-size: 1em;
   margin-bottom: 0;
+}
+.msgs #chatUl .chatli.left {
+  float: left;
+}
+.msgs #chatUl .chatli.right {
+  float: right;
 }
 .chat {
   position: relative;

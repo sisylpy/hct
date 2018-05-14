@@ -8,9 +8,12 @@ var favicon = require('serve-favicon');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
+
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
 var consultRouter = require('./routes/consult');
+
+
 
 var app = express();
 

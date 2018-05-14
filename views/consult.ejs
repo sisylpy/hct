@@ -55,7 +55,7 @@
 </div>
 
 <div class="mainChat">
-    <input type="hidden" name="clientId" id="clientId" value="<%=clientId%>" />
+
     <div class="chatContent">
 
         <%if(rs){%>
@@ -74,14 +74,12 @@
                     <p class="userPhone">您好，我是业务代表 <%= rs['nicheng']%> 手机：<%= rs['phone']%>。</p>
                     <p class="sendMsg">请问有什么可以帮到您？</p>
                 </li>
-                <!--<li class="chatli msg right">
-                    <p class="userPhone">您好，我是业务代表 <%= rs['nicheng']%> 手机：<%= rs['phone']%>。</p>
-                    <p class="sendMsg">请问有什么可以帮到您？</p>
-                </li>-->
+                <li id="chat1" class="msg right"></li>
                 <!--<li id="chat1" class="chat active">zhengzai..</li>-->
 
             </ul>
         </div>
+
 
         <% } else { %>
         <div class="msgs">
@@ -89,9 +87,16 @@
                 <i id="connctTime"></i>
                 <i id="clarkName"> 请稍等。。。。</i>
             </div>
+
+
         </div>
 
         <%}%>
+
+
+
+
+
 
         <div class="chat">
             <div class="buttons"></div>

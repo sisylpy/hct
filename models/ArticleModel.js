@@ -36,7 +36,31 @@ module.exports = {
   },
 
 
+  artclePage: function (req, res) {
+    console.log("0000000");
+    pool = connPool();
+    pool.getConnection(function (err, conn) {
+      if (err) {
+        res.send("获取连接错误,错误原因:" + err.message);
+        return;
+      }
+      var statusSql = 'select aid,title, titleLabel from articleList  where status = 3';
 
+      console.log("11111111");
+      conn.query(statusSql,function (err, rs) {
+        if(err) {
+          res.send("数据库查询错误" + err.message);
+        }
+        console.log(rs[0]['titleLabel']);
+        // res.send(rs);
+        res.render('article-page', {rs: rs});
+
+      });
+      conn.release();
+
+    })
+
+  },
 
   /**
    * 首页面默认显示第一个菜单

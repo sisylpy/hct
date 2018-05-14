@@ -29,7 +29,7 @@ console.log("chhadhfkajflas;lfj");
     var sendStr = $('#t').val();
     // var timer = new Date().toLocaleTimeString();
     // var sendObj = {"name": name, "timer":timer,"content":sendStr};
-    // iosocket.emit('msging', sendStr);
+    iosocket.emit('msging', sendStr);
   })
 
   $('#b').on('click',function () {

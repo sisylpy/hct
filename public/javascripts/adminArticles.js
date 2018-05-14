@@ -22,8 +22,6 @@ $(function () {
 //TODO：筛选typeid = 1，2，3 的三类文章
   $('#logoutFlow').on('click', function () {
     alert('数据库 typeid=1')
-
-
   });
   $('#foreign').on('click', function () {
     alert('数据库 typeid = 2')
