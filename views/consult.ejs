@@ -66,10 +66,13 @@
             </div>
 
             <ul id="chatUl">
-                <i id="connectName">业务咨询代表 <%= rs[0]['nicheng']%>3月22日:</i>
-                <li id="chatli" class="msg left">
-                    <p id="userPhone">您好，我是业务代表 <%= rs[0]['nicheng']%> 手机：<%= rs[0]['phone']%>。</p>
-                    <p id="sendMsg">请问有什么可以帮到您？</p>
+                <input type="hidden" id="server_uid" value="<%= rs['uid']%>" />
+                <input type="hidden" id="server_socketId" value="<%= rs['socketId']%>" />
+                <i id="connectName">业务咨询代表 <%= rs['nicheng']%>3月22日:</i>
+                <li class="chatli msg left">
+                    
+                    <p class="userPhone">您好，我是业务代表 <%= rs['nicheng']%> 手机：<%= rs['phone']%>。</p>
+                    <p class="sendMsg">请问有什么可以帮到您？</p>
                 </li>
                 <li id="chat1" class="msg right"></li>
                 <!--<li id="chat1" class="chat active">zhengzai..</li>-->
