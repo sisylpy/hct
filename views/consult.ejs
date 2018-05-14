@@ -58,7 +58,7 @@
     <input type="hidden" name="clientId" id="clientId" value="<%=clientId%>" />
     <div class="chatContent">
 
-        <%if(rs) {%>
+        <%if(rs){%>
         <div class="msgs">
             <div id="connectAuto">
                 <i id="connctTime"></i>
@@ -70,7 +70,7 @@
                 <input type="hidden" id="server_socketId" value="<%= rs['socketId']%>" />
                 <i id="connectName">业务咨询代表 <%= rs['nicheng']%>3月22日:</i>
                 <li class="chatli msg left">
-                    
+
                     <p class="userPhone">您好，我是业务代表 <%= rs['nicheng']%> 手机：<%= rs['phone']%>。</p>
                     <p class="sendMsg">请问有什么可以帮到您？</p>
                 </li>
