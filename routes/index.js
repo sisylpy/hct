@@ -3,7 +3,7 @@ var router = express.Router();
 var consult = require('../models/ConsultModel');
 var userModel = require('../models/UserModel');
 var articleModel = require('../models/ArticleModel');
-var checkSession = require('../jsbean/CheckSession');
+var checkSession = require('../jsBean/CheckSession');
 
 
 //首页
