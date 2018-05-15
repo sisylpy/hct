@@ -124,15 +124,27 @@ module.exports = {
         var server = '';
         var now = (new Date()).getTime();
         var consultTime = (new Date()).toLocaleTimeString();
-        var maxtime = now - (new Date(rs[0].chattime)).getTime();
-        var currentServer = rs[0];  // 当前客服
-        for(var i = 0; i < rs.length; i++){
-          if((now - (new Date(rs[i].chattime)).getTime()) > maxtime ){
-            maxtime = now - (new Date(rs[i].chattime)).getTime();
-            currentServer = rs[i];
+
+        console.log("-------------");
+        console.log(rs);
+        if (rs.length > 0){
+
+          var maxtime = now - (new Date(rs[0].chattime)).getTime();
+          var currentServer = rs[0];  // 当前客服
+          for(var i = 0; i < rs.length; i++){
+            if((now - (new Date(rs[i].chattime)).getTime()) > maxtime ){
+              maxtime = now - (new Date(rs[i].chattime)).getTime();
+              currentServer = rs[i];
+            }
           }
+          res.render('consult', {rs:currentServer,clientId:clientId, consultTime:consultTime});
+        }else {
+
+          // res.redirect('/orgLog')
+          // res.send('aa');
+          res.render('contactBtn');
         }
-        res.render('consult', {rs:currentServer,clientId:clientId, consultTime:consultTime});
+
       });
       conn.release();
     })

@@ -83,7 +83,7 @@
       <tr>
         <th scope="col" id="col-xuhao">#</th>
         <th scope="col" id="col-title">文章标题</th>
-        <th scope="col" id="col-readed-num">阅读数量</th>
+        <th scope="col" id="col-readed-num">首页推荐</th>
         <th scope="col" id="col-create-date">创建日期</th>
         <th scope="col" id="col-edit">修改</th>
         <th scope="col" id="col-delate">删除</th>
@@ -98,7 +98,7 @@
         <td><%= rs[i]['updatetime'].toLocaleString() %></td>
         <td>
           <button id="edit-btn" type="button" class="btn btn-secondary"><a
-                    href="/admin/editArticle?qid=<%= rs[i]['qid'] %>" target="_blank">修改</a></button>
+                    href="/admin/editArticle?aid=<%= rs[i]['aid'] %>" target="_blank">修改</a></button>
         </td>
         <td>
           <button id="delate-btn" type="button" class="btn btn-dark" data-toggle="modal"

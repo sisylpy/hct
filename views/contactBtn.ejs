@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>后台管理主页</title>
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!--wang-->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
+  <script src="/jquery-3.2.1.js"></script>
+  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"></script>
+
+  <script src="/socket.io/socket.io.js"></script>
+
+  <link rel="stylesheet" href="/stylesheets/adminLogin.css">
+  <script src="/javascripts/admin.js"></script>
+
+</head>
+
+<body>
+<!--联系我们的展开页面——Begin-->
+<!--<div class="esjy-columns clearfix">-->
+  <!--<div class="esjy-col-1-1">-->
+    <!--&lt;!&ndash;隐藏的联系方式——Begin&ndash;&gt;-->
+    <!--<div id="esjy-contact-module" class="esjy-contact-widget clearfix">-->
+      <!--<div class="esjy-icononly">-->
+        <!--<h3 class="esjy-bold">晖昌通 在您身边</h3>-->
+        <!--<i class="fa fa-times fa-lg hidden-xs pc-close"></i>-->
+        <!--<i class="fa fa-times fa-2x visible-xs mob-close"></i>-->
+      <!--</div>-->
+
+      <!--<ul class="esjy-contact-list">-->
+        <!--<li class="esjy-chat">-->
+          <!--<a target="_blank" href="/consult"><i class="fa fa-commenting-o fa-lg"></i>-->
+            <!--<h4>立即交谈</h4>-->
+            <!--<p class="esjy-chat-clark">开始与业务代表进行实时沟通</p>-->
+          <!--</a>-->
+        <!--</li>-->
+        <!--<li class="esjy-call">-->
+          <!--<i class="fa fa-phone fa-lg"></i>-->
+          <!--<a href="tel:13910825707" class="esjy-call-free">免费咨询热线（工作日-->
+            <!--9:00-17:00）<br>-->
+            <!--业务座机：010-87801881-->
+          <!--</a>-->
+        <!--</li>-->
+        <!--<li class="esjy-microcode">-->
+          <!--<i class="fa fa-weixin fa-lg"></i>-->
+          <!--<a href="">添加微信联系（点击查看大图)</a>-->
+          <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".esjy-addWechat-lg-img"></button>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;隐藏的联系方式——END&ndash;&gt;-->
+
+    <!--&lt;!&ndash;二维码图片&ndash;&gt;-->
+    <!--&lt;!&ndash; Large modal &ndash;&gt;-->
+    <!--<div class="modal fade esjy-addWechat-lg-img" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">-->
+      <!--<div class="modal-dialog modal-lg" role="document">-->
+        <!--<div class="modal-content">-->
+          <!--<img class="esjy-microcode-img" src="/images/hct/Huichangtong-assets/WX.png" alt="微信号">-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+<!--</div>-->
+<!--联系我们的展开页面——End-->
+
+<!--3种按钮——Begin-->
+<!--回到顶部按钮-->
+<p id="toTop" class="esjy-tools-Circle  hidden-xs">
+  <a class="tool-toTop" href="#top"><i class="fa fa-angle-up fa-3x"></i></a>
+</p>
+<!--联系我们按钮pc-->
+<button type="button" class="esjy-contact-btn-pc hidden-xs hidden-sm">
+  <span>联<br>系<br>我<br>们</span>
+</button>
+<!--联系我们按钮mob-->
+<button type="button"  class="esjy-contact-btn-mob hidden-md hidden-lg">
+  <span class="">联系我们</span>
+</button>
+<!--3种按钮——End-->
+<!--联系我们——END-->
+
+
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+</html>

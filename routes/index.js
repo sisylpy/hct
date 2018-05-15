@@ -51,9 +51,9 @@ router.get('/article-page', function (req, res, next) {
 });
 
 //ceshi
-router.get('/chat/a', function (req, res, next) {
+router.get('/offwork', function (req, res, next) {
 
-  res.render('chat');
+  res.render('offwork');
 
 });
 

@@ -102,7 +102,12 @@ router.get('/addArticle', function (req, res) {
   loginbean = checkSession.check(req, res);
   if (!loginbean) { return;}
   else {
-    res.render('add', {loginbean: loginbean});
+
+    var rs =[[]];
+    console.log(rs[0].length);
+    res.render('detail', {rs: rs});
+
+    // res.render('detail', {rs:rs,loginbean: loginbean});
   }
 });
 

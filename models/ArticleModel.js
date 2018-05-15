@@ -102,10 +102,6 @@ module.exports = {
   editArticle: function (req, res) {
 
     aid = req.query['aid'];
-    // var editSaveSql = 'UPDATE articleList SET title =' + title + ',subTitle = '+ subTitle +', content = ' + content + ' WHERE aid = ' + req.body['aid'] +'';
-    // var userAddSql = 'insert into articleList (typeid,title,content,uid) values(?,?,?,?)';
-    // var param = [req.body['typeId'], req.body['title'], req.body['content'],loginbean.id];
-
     editSql = 'select aid,typeid, title,content, subTitle from articleList where aid=?';
       param = [aid];
       pool = connPool();
@@ -137,20 +133,20 @@ module.exports = {
       title = req.body['title'];
       subTitle = req.body['subTitle'];
       content = req.body['content'];
-      editSaveSql = 'UPDATE articleList SET title = "tttt" , subTitle = "sss", content = "ccc" WHERE aid = ' + req.body['aid'] + '';
+      console.log(req.body);
+      editSaveSql = 'UPDATE articleList SET typeid = ?,title = ?, subTitle = ?, content = ? WHERE aid = ' + req.body['aid'] + '';
 
       pool = connPool();
+      var parm = [typeid,title,subTitle,content];
       pool.getConnection(function (err, conn) {
-        conn.query(editSaveSql, function (err, rs) {
+        conn.query(editSaveSql, parm,function (err, rs) {
           if (err) {
             res.send("数据库错误,错误原因:" + err.message);
             return;
           }
 
           // console.log(rs);
-          // res.send("<script> alert('save success'); location.href = '../'</script>");
-          // res.redirect('../'); //不能同时和上面的同时用；
-          res.send('ok');
+          res.send("<script> alert('save success'); location.href = '../admin/articles'</script>");
         });
         conn.release();
       });
@@ -171,7 +167,7 @@ module.exports = {
     pool.getConnection(function (err, conn) {
 
       var userAddSql = 'insert into articleList (typeid,title,content,uid) values(?,?,?,?)';
-      var param = [req.body['typeId'], req.body['title'], req.body['content'],loginbean.uid];
+      var param = [req.body['typeId'], req.body['aid'], req.body['title'], req.body['content'],loginbean.uid];
 
       // var param = [req.body['email'], req.body['pwd']];
 
@@ -179,7 +175,6 @@ module.exports = {
       console.log(param);
       conn.query(userAddSql, param, function (err, rs) {
         if (err) {
-          // console.log('insert err:',err.message);
           res.send("数据库错误,错误原因:" + err.message);
           return;
         }
