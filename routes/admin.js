@@ -28,9 +28,10 @@ router.all('/login', function (req, res, next) {
   }
 })
 
+//todo:client_id 是改变的吗？为什么不传uid？
 router.get('/message/:client_id', (req, res, next) => {
   MessageModel.getMessageByClientId(req,res);
-    // var client_id = req.header['client_id'];
+  // var client_id = req.header['client_id'];
 });
 
 //后台退出
@@ -45,7 +46,10 @@ router.get('/kefu', function (req, res, next) {
   loginbean = checkSession.check(req, res);
   if (!loginbean) { return;}
   else {
-    consultModel.consultList(req, res);
+    // consultModel.consultList(req, res);
+    //todo:点击菜单"客服"
+    MessageModel.getMessageByClientId(req,res);
+
   }
 
 });

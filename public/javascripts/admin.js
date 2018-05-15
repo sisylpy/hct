@@ -72,6 +72,10 @@ $(function () {
     var server_users = io.connect('/admin/login');
 
     $(document).on('click','.personNO',function(event){
+
+        //添加选中样式
+        $(this).addClass('active').siblings().removeClass('active');
+
         $("#chatUl").html('');
         current_clientId = $(this).data('clientid');
         current_clientIp = $(this).data('clientip');
@@ -93,10 +97,12 @@ $(function () {
                         var showname = '';
                         if(mes.whosaid == 'C'){
                             styleclass = 'chat1';
-                            showname = mes.client_id;
+                            // showname = mes.client_id;
+                          //todo: 修改为信息的第几条
+                            showname = "第1句：";
                         }else if(mes.whosaid == 'S'){
                             styleclass = 'chat0';
-                            showname = nicheng;
+                            showname = "业务咨询代表："+ nicheng;
                         }
                         li = '<li class="'+styleclass+'">'+
                             '<i class="name">'+showname+'</i>'+
@@ -116,10 +122,12 @@ $(function () {
                 var showname = '';
                 if(mes.whosaid == 'C'){
                     styleclass = 'chat1';
-                    showname = mes.client_id;
+                    // showname = mes.client_id;
+                  //todo: 修改为信息的第几条
+                  showname = "第1句：";
                 }else if(mes.whosaid == 'S'){
                     styleclass = 'chat0';
-                    showname = nicheng;
+                  showname = "业务咨询代表："+ nicheng;
                 }
                 li = '<li class="'+styleclass+'">'+
                     '<i class="name">'+showname+'</i>'+
@@ -140,6 +148,22 @@ $(function () {
     server_users.on('msging', (obj) => {
         // todo 目前只是在控制台输出，最后显示在页面上
         console.log(obj.msg);
+        // msgingli ='<li class="chat2">'+obj.msg+'</li>'
+
+      if(current_clientId == '') current_clientId = obj.client_id;
+      if(current_clientIp == '') current_clientId = obj.client_ip;
+
+      // 判断收到的消息的发送者的clientid是否当前正在聊天的client
+      if(obj.client_id == current_clientId){
+        // 将消息显示到页面上
+        msgingli ='<li class="chat2">客户正在输入：'+obj.msg+'</li>'
+
+        $('.chat-col').append(msgingli);
+      }
+
+
+
+
     });
 
     // 监听客户端完成输入
@@ -153,7 +177,7 @@ $(function () {
             // 将消息显示到页面上
             li = '<li class="chat1">'+
                 '<i class="name">'+obj.client_id+'</i>'+
-                '<i class="timer">'+new Date(obj.chattime).Format('hh:mm:ss')+'</i>'+
+              '<i class="timer">'+new Date(obj.chattime).Format('hh:mm:ss')+'</i>'+
                 '<p class="content">'+obj.msg+'</p> '+
                 '</li>';
             $("#chatUl").append(li);
@@ -191,21 +215,14 @@ $(function () {
         }
     });
 
-    /*$.ajax({
-      url: '/consult/login',
-      type: 'post',
-      data: {uid:uid},
-      success: function (res) {
-          console.log(res);
-      }
-    })*/
+
     $('#b').on('click', function () {
         var chattime = new Date().Format("yyyy-MM-dd hh:mm:ss");
         var showChattime = new Date().Format("hh:mm:ss");
         // 添加新的完成输入的li
         var value = $('#t').val();
         var li = '<li class="chat0">'+
-            '<i class="name">'+nicheng+'</i>'+
+            '<i class="name">业务咨询代表：'+nicheng+'</i>'+
             '<i class="timer">'+showChattime+'</i>'+
             '<p class="content">'+value+'</p> '+
             '</li>';

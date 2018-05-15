@@ -153,12 +153,12 @@ body {
 .header {
   width: 100%;
   background: url("../images/hct/Huichangtong-assets/headerBg.jpg");
-  height: 52px;
   position: absolute;
   top: 0;
   color: #fff;
   font-size: 2rem;
   text-align: center;
+  height: 52px;
   line-height: 52px;
 }
 .wraper {
@@ -190,6 +190,10 @@ body {
   border-radius: 5px;
   box-shadow: 0 0 10px 2px #ccc;
   position: relative;
+  width: 90%;
+  height: 100rem;
+  left: 5%;
+  top: 10rem;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -200,7 +204,6 @@ body {
     height: 42rem;
     left: 20%;
     top: 8rem;
-    border: 1px solid red;
   }
 }
 @media (min-width: 992px) {
@@ -225,6 +228,8 @@ body {
   position: relative;
   width: 100%;
   border-bottom: 1px solid cornflowerblue;
+  overflow: auto;
+  height: 90%;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -245,15 +250,43 @@ body {
   }
 }
 .msgs #connectAuto {
-  position: relative;
+  position: fixed;
   margin-bottom: 1rem;
-  height: 3rem;
-  width: 100%;
   border-radius: 5px 5px 0 0 ;
-  background-color: #387fed;
   border: 1px solid #fff;
   color: #fff;
-  line-height: 2rem;
+  background: url("../images/hct/Huichangtong-assets/headerBg.jpg");
+  line-height: 5rem;
+  top: 6rem;
+  height: 5rem;
+  width: 90%;
+  /* 小屏幕（平板，大于等于 768px） */
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+}
+@media (min-width: 768px) {
+  .msgs #connectAuto {
+    line-height: 2rem;
+    top: 8rem;
+    height: 3rem;
+    width: 60%;
+  }
+}
+@media (min-width: 992px) {
+  .msgs #connectAuto {
+    line-height: 2rem;
+    top: 6rem;
+    height: 3rem;
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .msgs #connectAuto {
+    line-height: 2rem;
+    top: 6rem;
+    height: 3rem;
+    width: 50%;
+  }
 }
 .msgs #connectAuto #connctTime {
   display: block;
@@ -297,35 +330,29 @@ body {
   width: 100%;
   height: 100%;
   padding-left: 1rem;
+  padding-top: 4rem;
 }
-.msgs #chatUl #connectName {
+.msgs #chatUl .connectName {
   display: block;
   font-size: 1em;
   font-style: normal;
 }
 .msgs #chatUl .chatli {
   position: relative;
-  width: 55%;
   background-color: #387fed;
   border-radius: 5px;
   padding-top: 0.5rem;
-  padding-left: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
   padding-bottom: 0.5rem;
   margin-top: 0.5rem;
   color: #fff;
-}
-.msgs #chatUl .chatli #userPhone {
   display: block;
-  font-size: 1em;
-  font-style: normal;
-  margin-bottom: 0;
-}
-.msgs #chatUl .chatli #sendMsg {
-  font-size: 1em;
-  margin-bottom: 0;
 }
 .msgs #chatUl .chatli.left {
   float: left;
+  background-color: #e3e3e3;
+  color: #000;
 }
 .msgs #chatUl .chatli.right {
   float: right;
@@ -340,7 +367,7 @@ body {
 @media (min-width: 1200px) {
 }
 .chat .buttons {
-  height: 2rem;
+  height: 5rem;
   width: 100%;
   background-color: purple;
   /* 小屏幕（平板，大于等于 768px） */
@@ -365,7 +392,7 @@ body {
 .chat textarea {
   position: relative;
   float: left;
-  width: 85%;
+  width: 90%;
   /* 小屏幕（平板，大于等于 768px） */
   /* 中等屏幕（桌面显示器，大于等于 992px） */
   /* 大屏幕（大桌面显示器，大于等于 1200px） */

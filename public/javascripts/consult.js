@@ -42,7 +42,9 @@ $(function () {
     $('#b').on('click', function () {
         // 添加新的完成输入的li
         var value = $('#t').val();
+        var sendTime = new Date().toLocaleTimeString();
         var li = '<li class="chatli msg right">' +
+          '<p class="sendMsg"> 我：'+sendTime+'</p>' +
             '<p class="sendMsg">'+value+'</p>' +
             '</li>'
         $("#chatUl").append(li);

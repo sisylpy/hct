@@ -9,48 +9,48 @@ var randomString =require("randomstring"); //产生随机字符串模块
 
 module.exports = {
 
-   // kefuSocket: function (req, res, kefuSocket) {
-   //
-   //   pool = connPool();
-   //   pool.getConnection(function (err, conn) {
-   //     if(err) {
-   //       res.send("数据库链接错误。" + err.message);
-   //       return;
-   //     }
-   //
-   //
-   //     function aa() {
-   //       console.log('000000');
-   //       kefuSocket();
-   //
-   //       console.log(kefuSocket);
-   //
-   //     }
-   //
-   //     aa();
-   //     console.log('1111');
-   //
-   //     console.log(kefuSocket);
-   //
-   //
-   //     var kefuName = kefuSocket['username'];
-   //     var kefusoketId = kefuSocket['sockedId'];
-   //     var kefuSocketSql = 'UPDATE  user SET socketId = ?  WHERE nicheng = ?';
-   //     var param = [kefuName,kefusoketId];
-   //     conn.query(kefuSocketSql,param,function (err, rs) {
-   //       if(err) {
-   //         res.send("数据库查询错误。" + err.message);
-   //         return;
-   //       }
-   //       // res.render('index', {rs: rs});
-   //       console.log('chg');
-   //
-   //     })
-   //     conn.release();
-   //
-   //   })
-   //
-   // },
+  // kefuSocket: function (req, res, kefuSocket) {
+  //
+  //   pool = connPool();
+  //   pool.getConnection(function (err, conn) {
+  //     if(err) {
+  //       res.send("数据库链接错误。" + err.message);
+  //       return;
+  //     }
+  //
+  //
+  //     function aa() {
+  //       console.log('000000');
+  //       kefuSocket();
+  //
+  //       console.log(kefuSocket);
+  //
+  //     }
+  //
+  //     aa();
+  //     console.log('1111');
+  //
+  //     console.log(kefuSocket);
+  //
+  //
+  //     var kefuName = kefuSocket['username'];
+  //     var kefusoketId = kefuSocket['sockedId'];
+  //     var kefuSocketSql = 'UPDATE  user SET socketId = ?  WHERE nicheng = ?';
+  //     var param = [kefuName,kefusoketId];
+  //     conn.query(kefuSocketSql,param,function (err, rs) {
+  //       if(err) {
+  //         res.send("数据库查询错误。" + err.message);
+  //         return;
+  //       }
+  //       // res.render('index', {rs: rs});
+  //       console.log('chg');
+  //
+  //     })
+  //     conn.release();
+  //
+  //   })
+  //
+  // },
 
 
   //先不用
@@ -123,15 +123,16 @@ module.exports = {
         var clientId = randomString.generate(30)+(new Date().getTime());  // 随机产生客户端id
         var server = '';
         var now = (new Date()).getTime();
+        var consultTime = (new Date()).toLocaleTimeString();
         var maxtime = now - (new Date(rs[0].chattime)).getTime();
         var currentServer = rs[0];  // 当前客服
         for(var i = 0; i < rs.length; i++){
-            if((now - (new Date(rs[i].chattime)).getTime()) > maxtime ){
-                maxtime = now - (new Date(rs[i].chattime)).getTime();
-                currentServer = rs[i];
-            }
+          if((now - (new Date(rs[i].chattime)).getTime()) > maxtime ){
+            maxtime = now - (new Date(rs[i].chattime)).getTime();
+            currentServer = rs[i];
+          }
         }
-        res.render('consult', {rs:currentServer,clientId:clientId});
+        res.render('consult', {rs:currentServer,clientId:clientId, consultTime:consultTime});
       });
       conn.release();
     })

@@ -172,11 +172,11 @@ main {
   width: 40%;
   position: relative;
   float: left;
-  overflow: auto;
 }
 .person-col .main {
   width: 100%;
   height: 38rem;
+  overflow: auto;
 }
 .person-col .main ul {
   width: 100%;
@@ -205,6 +205,18 @@ main {
   color: #eee;
   text-align: center;
   line-height: 4rem;
+}
+.personNO .face .smallface {
+  width: 1.33333333rem;
+  height: 1.33333333rem;
+  border-radius: 50%;
+  background-color: rebeccapurple;
+  color: #e3e3e3;
+  position: relative;
+  top: -4rem;
+  right: -3rem;
+  font-size: 0.5em;
+  line-height: 1.33333333rem;
 }
 .personNO .personInfo {
   height: 100%;
@@ -240,18 +252,29 @@ main {
   text-align: center;
   color: white;
 }
+.personList .active {
+  background-color: #387fed;
+  color: #fff;
+}
+.personList .active .face {
+  background-color: #e3e3e3;
+  color: #000;
+}
 .chat-col {
   height: 100%;
   width: 60%;
   position: relative;
   float: left;
+  background-color: #fff;
 }
 .chat-col .chatContent {
   height: 85%;
   border: 1px solid purple;
+  color: #fff;
+  overflow: auto;
 }
 .chat-col .chatContent #chatUl {
-  padding: 0;
+  padding: 1rem ;
 }
 .chat-col .chatContent #chatUl .chat {
   line-height: 3rem;
@@ -260,15 +283,33 @@ main {
   margin-right: 25%;
 }
 .chat-col .chatContent #chatUl .chat0 {
-  background-color: red;
-  width: 60%;
+  background-color: #e3e3e3;
+  color: #000;
   position: relative;
-  margin-left: 40%;
+  float: right;
+  border-radius: 5px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.2rem;
+  margin-top: 0.5rem;
 }
 .chat-col .chatContent #chatUl .chat1 {
-  background-color: #00D494;
-  width: 60%;
+  background-color: #387fed;
   position: relative;
+  float: left;
+  border-radius: 5px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+.chat-col .chat2 {
+  position: fixed;
+  bottom: 20%;
+  font-style: italic;
+  border-bottom: 1px solid #3c3c3c;
 }
 .chat-col .sendMessage {
   background-color: lightgrey;

@@ -41,20 +41,20 @@
   position: relative;
   float: left;
   //border: 1px solid pink;
-  overflow:auto;
 
   .main{
     width: 100%;
     //border: 1px solid gold;
     //background-color:green;
     height: @person-colHeight-p-lg;
+    overflow:auto;
+
 
     ul {
       width: 100%;
       //height: @person-colHeight-p-lg;
       position: relative;
       float: left;
-      //background-color: yellow;
       display: block;
       padding-left: 1.5rem;
       //-webkit-padding-start: 0;
@@ -73,6 +73,7 @@
   float: left;
   border-bottom: 1px solid grey;
   width: 100%;
+
   .face {
     width: @personFaceHeight;
     height: @personFaceHeight;
@@ -87,6 +88,19 @@
     text-align: center;
     line-height: @personFaceHeight;
     //background: url("../images/hct/Huichangtong-assets/icon_05.png") bottom;
+
+    .smallface{
+      width: @personFaceHeight/3;
+      height: @personFaceHeight/3;
+      border-radius: 50%;
+      background-color: rebeccapurple;
+      color: #e3e3e3;
+      position: relative;
+      top: -@personFaceHeight;
+      right: -@personSmallFaceRight;
+      font-size: 0.5em;
+      line-height: @personFaceHeight/3;
+    }
   }
   .personInfo {
     height: 100%;
@@ -138,6 +152,22 @@
   }
 }
 
+.personList .active {
+    background-color: #387fed;
+    color: #fff;
+
+  .face {
+    background-color: #e3e3e3;
+    color: #000;
+  }
+
+
+
+
+
+}
+
+
 //右侧聊天
 .chat-col {
   height: 100%;
@@ -145,7 +175,7 @@
   position: relative;
   float: left;
   //border-left: 1px solid red;
-  //background-color: #00D494;
+  background-color: #fff;
 
   //右侧聊天上部分
   .chatContent {
@@ -153,8 +183,12 @@
     height: 85%;
     border: 1px solid purple;
 
+    color: #fff;
+    //todo:monday mod
+    overflow: auto;
+
     #chatUl {
-      padding: 0;
+      padding: 1rem ;
 
       .chat {
         line-height: 3rem;
@@ -175,21 +209,49 @@
 
       }
 
+      //todo: 宽度需要修改
       .chat0 {
-        background-color: red;
-        width: 60%;
+        background-color: #e3e3e3;
+        color: #000;
+        //width: 60%;
         position: relative;
-        margin-left: 40%;
+        //margin-left: 40%;
+
+        float: right;
+        border-radius: 5px;
+        padding-top: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 0.2rem;
+        margin-top:0.5rem;
+
+
       }
       .chat1 {
-        background-color: #00D494;
-        width: 60%;
+        background-color: #387fed;
+        //width: 60%;
         position: relative;
+        float: left;
+        //padding-left: 1rem;
         //margin-right: 25%;
 
-      }
 
+        border-radius: 5px;
+        padding-top: 0.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 0.5rem;
+        margin-top:0.5rem;
+
+      }
     }
+  }
+
+  .chat2{
+    position: fixed;
+    bottom: 20%;
+    font-style: italic;
+    border-bottom: 1px solid #3c3c3c;
 
   }
   //右侧聊天下面发送信息部分　
