@@ -198,6 +198,7 @@ $(function () {
                     '</div>' +
                     '</li>';
                 $(".personList").append(li);
+                clientIds.push(obj.client_id); // 将新客户端id加入列表
             }
         }
 
