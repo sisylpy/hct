@@ -6,6 +6,9 @@
   var bannerHeight = $('.article-page-banner').height();
   var topHeight = navHeight + bannerHeight - 55;
 
+  var url = location.href;
+
+
   window.onscroll = function () {
 
     //顶部固定菜单栏

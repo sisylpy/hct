@@ -50,10 +50,10 @@ $(function () {
                 }else if(mes.whosaid == 'S'){
                     styleclass = 'chat0';
                 }
-                li = '<li class="'+styleclass+'">'+
+                li = '<li class="'+styleclass+'"><div>'+
                     '<i class="name">'+nicheng+'</i>'+
                     '<i class="timer">'+new Date(mes.chattime).Format('hh:mm:ss')+'</i>'+
-                    '<p class="content">'+mes.message+'</p> '+
+                    '<p class="content">'+mes.message+'</p> </div>'+
                     '</li>';
                 $("#chatUl").append(li);
 
@@ -98,16 +98,18 @@ $(function () {
                         if(mes.whosaid == 'C'){
                             styleclass = 'chat1';
                             // showname = mes.client_id;
-                          //todo: 修改为信息的第几条
+                          //todo:---6, 修改为信息的第几条
+
+
                             showname = "第1句：";
                         }else if(mes.whosaid == 'S'){
                             styleclass = 'chat0';
                             showname = "业务咨询代表："+ nicheng;
                         }
-                        li = '<li class="'+styleclass+'">'+
+                        li = '<li class="'+styleclass+'"><div>'+
                             '<i class="name">'+showname+'</i>'+
                             '<i class="timer">'+new Date(mes.chattime).Format('hh:mm:ss')+'</i>'+
-                            '<p class="content">'+mes.message+'</p> '+
+                            '<p class="content">'+mes.message+'</p> </div>'+
                             '</li>';
                         $("#chatUl").append(li);
                         all_message[current_clientId].push(mes);
@@ -123,7 +125,7 @@ $(function () {
                 if(mes.whosaid == 'C'){
                     styleclass = 'chat1';
                     // showname = mes.client_id;
-                  //todo: 修改为信息的第几条
+                  //todo:---6, 修改为信息的第几条
                   showname = "第1句：";
                 }else if(mes.whosaid == 'S'){
                     styleclass = 'chat0';
@@ -146,7 +148,8 @@ $(function () {
 
     // 监听客户端输入
     server_users.on('msging', (obj) => {
-        // todo 目前只是在控制台输出，最后显示在页面上
+        // todo:---2, 目前只是在控制台输出，最后显示在页面上,客户正在输入的内容，目前无法消失。
+
         console.log(obj.msg);
         // msgingli ='<li class="chat2">'+obj.msg+'</li>'
 

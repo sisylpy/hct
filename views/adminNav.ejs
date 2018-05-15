@@ -4,18 +4,21 @@
 
 <div class="esjy_nav ">
   <a class="logo" href="/">晖昌通管理系统</a>
-  <a class="navitems" id="kefuitem" href="/admin/kefu">客服</a>
+  <a class="navitems" id="kefuitem" href="/admin/login">客服</a>
   <a class="navitems active" id="articleitem" href="/admin/articles">文章管理</a>
+
+  <% if (loginbean) { %>
+  <input id="uid" type="hidden" name="<%= loginbean.uid %>" value="<%= loginbean.uid %>">
+  <input id="socketId" type="hidden" name="<%= loginbean.socketId %>" value="<%= loginbean.socketId %>">
   <div class="btn-group dropdown" id="userFace">
-    <% if (loginbean) { %>
-    <input id="uid" type="hidden" name="<%= loginbean.uid%>" value="<%= loginbean.uid%>">
-    <input id="socketId" type="hidden" name="<%= loginbean.socketId%>" value="<%= loginbean.socketId%>">
-    <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" type="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= loginbean.nicheng %></button>
+
+    <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="false" aria-expanded="false">
+      <%= loginbean.nicheng %>
+    </button>
     <% } else { %>
-    <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" type="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      用户
+    <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+            aria-haspopup="false" aria-expanded="false">用户
     </button>
     <% } %>
 
@@ -25,5 +28,6 @@
       <button class="dropdown-item" type="button" href=""><a href="/admin/logout">退出</a></button>
     </div>
   </div>
+
 
 </div>

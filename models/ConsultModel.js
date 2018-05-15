@@ -140,9 +140,9 @@ module.exports = {
           res.render('consult', {rs:currentServer,clientId:clientId, consultTime:consultTime});
         }else {
 
-          // res.redirect('/orgLog')
+          res.redirect('/orgLog')
           // res.send('aa');
-          res.render('contactBtn');
+          // res.render('contactBtn');
         }
 
       });

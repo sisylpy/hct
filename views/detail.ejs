@@ -103,7 +103,7 @@
       <% if (rs[0] == 0) {%>
       <div class="line">添加文章</div>
       <%} else  {%>
-      <div class="line">修改文章22</div>
+      <div class="line">修改文章</div>
 
       <%}%>
 
@@ -147,7 +147,7 @@
         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
           <button class="dropdown-item" type="button">修改头像</button>
           <button class="dropdown-item" type="button">修改密码</button>
-          <button class="dropdown-item" type="button" href=""><a href="/logout">退出</a></button>
+          <button class="dropdown-item" type="button" href=""><a href="/admin/logout">退出</a></button>
         </div>
       </div>
     </div>
@@ -166,8 +166,9 @@
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">文章显示位置</button>
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">普通文章</button>
               <div class="dropdown-menu">
+                <!--todo: 默认"普通文章"是active状态，status=0；还可以选择"首页推荐"，status=1。-->
                 <a class="dropdown-item" href="#">普通文章</a>
                 <a class="dropdown-item" href="#">首页推荐</a>
                 <div role="separator" class="dropdown-divider"></div>
@@ -231,3 +232,26 @@
 
 </body>
 </html>
+
+
+
+
+
+<div class="btn-group dropdown" id="userFace">
+
+  <% if (loginbean) { %>
+  <input id="uid" type="hidden" name="<%= loginbean.uid%>" value="<%= loginbean.uid%>">
+  <input id="socketId" type="hidden" name="<%= loginbean.socketId%>" value="<%= loginbean.socketId%>">
+  <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"><%= loginbean.nicheng %></button>
+  <% } else { %>
+  <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+    用户
+  </button>
+  <% } %>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" type="button">修改头像</button>
+    <button class="dropdown-item" type="button">修改密码</button>
+    <button class="dropdown-item" type="button" href=""><a href="/admin/logout">退出</a></button>
+  </div>
+</div>

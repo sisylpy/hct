@@ -23,7 +23,7 @@ client_chat.on('connection', (socket) => {
 
   socket.on('disconnect', () => {
     console.log("client_tuichule ");
-    //todo: 退出后修改客户状态为下线状态
+    //todo:---1，退出后修改客户状态为下线状态
   });
 
   // 监听客户端输入事件

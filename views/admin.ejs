@@ -11,6 +11,7 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
   <script src="/jquery-3.2.1.js"></script>
+
   <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
           integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
           crossorigin="anonymous"></script>
@@ -47,7 +48,7 @@
             <li class="personNO" id="<%= row['client_id'] %>" data-clientid="<%= row['client_id'] %>"
                 data-clientip="<%= row['client_ip'] %>">
               <div class="face"> <%= row['userid'] %>
-                <!--//todo:未读信息条数量-->
+                <!--//todo:---5，未读信息条数量-->
                <div class="smallface">1</div>
               </div>
               <div class="personInfo">
@@ -76,7 +77,6 @@
           </ul>
 
         </div>
-        <!--//todo:客户正在输入的内容，目前无法消失。-->
         <li class="chat2"></li>
 
 

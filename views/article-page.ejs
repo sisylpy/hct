@@ -59,13 +59,13 @@
             <!---->
 
         </div>
-        <div class="mune-col hidden-xs">
+        <div class="mune-col hidden-xs" id="container_type">
             <div class="mune clearfix">
                 <ul class="mune-list">
-                    <li class="item"><a class="active" role="button" data-linkid="at0">全部</a></li>
-                    <li class="item"><a class="active" role="button" data-linkid="at0">公司注销</a></li>
-                    <li class="item"><a role="button" data-linkid="at1" >外资注册</a></li>
-                    <li class="item"><a role="button" data-linkid="at2">资质审批</a></li>
+                    <li class="item"><a href="/article-page#container_type" class="active" role="button" data-linkid="at0">全部</a></li>
+                    <li class="item"><a href="?typeid=1#container_type" class="active" role="button" data-linkid="at0">公司注销</a></li>
+                    <li class="item"><a href="?typeid=2#container_type" role="button" data-linkid="at1" >外资注册</a></li>
+                    <li class="item"><a href="?typeid=3#container_type" role="button" data-linkid="at2">资质审批</a></li>
                 </ul>
             </div>
             <div class="cotact-btn">
@@ -87,7 +87,7 @@
 
                       <%for (var i = 0; i < rs.length; i++) { %>
 
-                        <div class="article" id="at0-que0">
+                        <div class="article" id="article_<%= rs[i]['aid']%>" data-aid="article_<%= rs[i]['aid']%>">
                             <a href="/" class="radio">
                                 <h2><%= rs[i]['titleLabel'] %></h2>
                                 <p><%= rs[i]['title'] %><i class="fa fa-long-arrow-right "></i></p>

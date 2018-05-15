@@ -46,6 +46,7 @@ router.get('/admin', function (req, res, next) {
 //文章
 router.get('/article-page', function (req, res, next) {
   // res.render('article-page');
+
   articleModel.artclePage(req,res);
 
 });

@@ -20,12 +20,13 @@ var MessageModel = require('../models/MessageModel');
 
 //后台登陆
 router.all('/login', function (req, res, next) {
-  subflag = req.body['subflag'];
+  /*subflag = req.body['subflag'];
   if(subflag==undefined){
     res.redirect('/adminLogin');
-  }else{
+  }else{*/
+
     adminModel.adminlogin(req,res);
-  }
+  // }
 })
 
 //todo:client_id 是改变的吗？为什么不传uid？
@@ -47,7 +48,6 @@ router.get('/kefu', function (req, res, next) {
   if (!loginbean) { return;}
   else {
     // consultModel.consultList(req, res);
-    //todo:点击菜单"客服"
     MessageModel.getMessageByClientId(req,res);
 
   }

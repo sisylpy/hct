@@ -40,9 +40,12 @@
   <div class="subNav bg-dark ">
     <a class="navitem-name" href="/admin/articles">文章管理</a>
     <div class="subitems">
-      <a id="logoutFlow" class="active" href="#"> 公司注销</a>
-      <a id="foreign" class="" href="/admin/searchType/?typeId=2">外资注册</a>
-      <a id="orgnaize" class="" href="/admin/searchType/?typeId=3">资质审批</a>
+      <a id="logoutFlow" <%if(typeId==1){%>
+         class="active" <%}%> href="/admin/searchType/?typeId=1"> 公司注销</a>
+      <a id="foreign" <%if(typeId==2){%>
+         class="active" <%}%>  href="/admin/searchType/?typeId=2">外资注册</a>
+      <a id="orgnaize" <%if(typeId==3){%>
+         class="active" <%}%>  href="/admin/searchType/?typeId=3">资质审批</a>
       <button type="button" class="btn btn-dark add-btn" id="addNew"><a
                 href="/admin/addArticle" target="_blank">添加新文章</a></button>
     </div>
@@ -59,16 +62,18 @@
       </div>
     </div>
 
-
     <div class="esjy-control" >
       <div class="custom-control custom-radio">
-        <input  onclick="javascript:window.location.href='http://localhost:3003/admin/search?customRadio=all'" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="all"
+        <input  onclick="javascript:window.location.href='/admin/search?customRadio=all&typeid=<%= typeId%>'" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="all" <%if(type == 'all'){%> checked
+                <%}%>
                />
         <input id="subflag" type="hidden" name="subflag" />
         <label  class="custom-control-label" for="customRadio1">全部</label>
       </div>
       <div class="custom-control custom-radio">
-        <input onclick="javascript:window.location.href='http://localhost:3003/admin/search?customRadio=put'"  type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="put" />
+        <input onclick="javascript:window.location.href='/admin/search?customRadio=put&typeid=<%= typeId%>'"  type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="put" <%if(type == 'put'){%> checked
+                <%}%>
+        />
         <label  class="custom-control-label" for="customRadio2">首页推荐</label>
       </div>
     </div>
