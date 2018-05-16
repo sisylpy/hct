@@ -1,7 +1,7 @@
 /**
  * Created by lipeiyi on 2018/4/12.
  */
-// var connPool = require('./ConnPool');
+
 Date.prototype.Format = function (fmt) { //author: meizz
     var o = {
         "M+": this.getMonth() + 1, //月份
@@ -17,6 +17,7 @@ Date.prototype.Format = function (fmt) { //author: meizz
         if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 };
+
 
 $(function () {
 
@@ -98,17 +99,14 @@ $(function () {
                         if(mes.whosaid == 'C'){
                             styleclass = 'chat1';
                             // showname = mes.client_id;
-                          //todo:---6, 修改为信息的第几条
-
-
-                            showname = "第1句：";
+                          showname = "客户咨询：" + new Date(mes.chattime).Format('hh:mm:ss');
                         }else if(mes.whosaid == 'S'){
                             styleclass = 'chat0';
-                            showname = "业务咨询代表："+ nicheng;
+                            shwotime = new Date(mes.chattime).Format('hh:mm:ss');
+                            showname = "业务咨询代表："+ nicheng + shwotime;
                         }
                         li = '<li class="'+styleclass+'"><div>'+
-                            '<i class="name">'+showname+'</i>'+
-                            '<i class="timer">'+new Date(mes.chattime).Format('hh:mm:ss')+'</i>'+
+                            '<i class="name">'+showname+' </i>'+
                             '<p class="content">'+mes.message+'</p> </div>'+
                             '</li>';
                         $("#chatUl").append(li);

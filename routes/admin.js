@@ -24,7 +24,6 @@ router.all('/login', function (req, res, next) {
   if(subflag==undefined){
     res.redirect('/adminLogin');
   }else{*/
-
     adminModel.adminlogin(req,res);
   // }
 })

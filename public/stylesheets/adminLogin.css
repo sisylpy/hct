@@ -273,60 +273,6 @@ main {
   color: #fff;
   overflow: auto;
 }
-.chat-col .chatContent #chatUl {
-  padding: 1rem ;
-}
-.chat-col .chatContent #chatUl .chat {
-  line-height: 3rem;
-  width: 70%;
-  position: relative;
-  margin-right: 25%;
-}
-.chat-col .chatContent #chatUl .chat0 {
-  width: 60%;
-  display: block;
-  position: relative;
-  -float: right;
-  border-radius: 5px;
-  /*padding-top: 0.5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 0.2rem;*/
-  margin-top: 0.5rem;
-  clear: both;
-}
-.chat-col .chatContent #chatUl .chat0 div {
-  float: right;
-  background-color: #e3e3e3;
-  color: #000;
-  border-radius: 5px;
-  padding-top: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 0.2rem;
-}
-.chat-col .chatContent #chatUl .chat1 {
-  -background-color: #387fed;
-  display: block;
-  width: 60%;
-  -float: left;
-  /*border-radius: 5px;
-        padding-top: 0.5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-bottom: 0.5rem;*/
-  margin-top: 0.5rem;
-  clear: both;
-}
-.chat-col .chatContent #chatUl .chat1 div {
-  background-color: #387fed;
-  float: right;
-  border-radius: 5px;
-  padding-top: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-bottom: 0.5rem;
-}
 .chat-col .chat2 {
   position: fixed;
   bottom: 20%;
@@ -351,4 +297,46 @@ main {
   position: relative;
   float: right;
   right: 2%;
+}
+#chatUl {
+  padding: 1rem ;
+}
+#chatUl .chat {
+  line-height: 3rem;
+  width: 70%;
+  position: relative;
+  margin-right: 25%;
+}
+#chatUl .chat0 {
+  display: block;
+  margin-top: 0.5rem;
+  float: right;
+  clear: both;
+}
+#chatUl .chat0 div {
+  background-color: #e3e3e3;
+  color: #000;
+  border-radius: 5px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.2rem;
+}
+#chatUl .chat0 div .name {
+  color: purple;
+  display: block;
+}
+#chatUl .chat1 {
+  display: block;
+  margin-top: 0.5rem;
+  float: left;
+  clear: both;
+}
+#chatUl .chat1 div {
+  background-color: #387fed;
+  border-radius: 5px;
+  padding-top: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0.5rem;
 }
