@@ -10,6 +10,9 @@ module.exports = {
   //2，查询Consult在线客户；
   adminlogin: function (req, res) {
 
+    console.log('======????sesison');
+    console.log(req.session);
+
     pool = connPool();
     // 从pool中获取连接(异步,取到后回调)
     pool.getConnection(function (err, conn) {
@@ -18,6 +21,9 @@ module.exports = {
         return;
       }
 
+      if(req.session == undefined) {
+
+      }
       var userSql = 'select uid,nicheng,socketId from user where email=? and pwd=?';
       var param = [req.body['email'], req.body['pwd']];
       var socket_id = '';

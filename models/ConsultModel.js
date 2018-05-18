@@ -104,6 +104,10 @@ module.exports = {
   //     })
   //   },
 
+
+
+
+
   //客户打开聊天页面，查询是否有在线客服
   consultReq: function (req, res) {
     pool = connPool();
