@@ -42,7 +42,6 @@
         var id_scroolTop = id_offSetTop - id_Height ;
         //    设置滚动
         $("html,body").animate({scrollTop: id_offSetTop - 80}, 200);
-
       }
     })
   }
@@ -88,8 +87,6 @@
 
     $(this).parent().siblings().children('.article-list').hide(200);
     $(this).siblings().toggle(200);
-
-
 
 
 
