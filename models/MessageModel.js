@@ -20,6 +20,7 @@ module.exports = {
           res.send("数据库查询错误。" + err.message);
           return;
         }
+        console.log("查询聊天记录数据：");
         res.json(rs);
       })
     });

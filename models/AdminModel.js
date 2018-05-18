@@ -10,8 +10,9 @@ module.exports = {
   //2，查询Consult在线客户；
   adminlogin: function (req, res) {
 
-    console.log('======????sesison');
-    console.log(req.session);
+    // console.log('======????sesison');
+    // console.log(req.session);
+    // console.log(req.session.loginbean);
 
     pool = connPool();
     // 从pool中获取连接(异步,取到后回调)
@@ -21,56 +22,69 @@ module.exports = {
         return;
       }
 
-      if(req.session == undefined) {
+      if(req.session.loginbean == undefined) {
 
+
+        var userSql = 'select uid,nicheng,socketId from user where email=? and pwd=?';
+        var param = [req.body['email'], req.body['pwd']];
+        var socket_id = '';
+        async.series({
+          one: function (callback) {
+            conn.query(userSql, param, function (err, rs) {
+              if (err) {
+                res.send("数据库错误,错误原因:" + err.message);
+                return;
+              }
+              // console.log(rs);
+              if (rs.length > 0) {
+                loginbean = new LoginBean();
+                loginbean.uid = rs[0].uid;
+                loginbean.nicheng = rs[0].nicheng;
+                loginbean.socketId = rs[0].socketId;
+                req.session.loginbean = loginbean;
+
+                var statusSql = 'update user set status = 1 where uid = ?';
+                var statsParam = loginbean.uid;
+
+                conn.query(statusSql, statsParam, function (err, rs) {
+                  if (err) {
+                    res.send("status ,错误原因:" + err.message);
+                    return;
+                  }
+                  callback(null, rs);
+                })
+              } else {
+                res.send("用户名/密码错误");
+              }
+            });
+          },
+          two: function (callback) {
+            var consultSql = 'SELECT userid,client_id,message,client_ip,max(chattime) lastchattime FROM message WHERE userid = ' + loginbean.uid + ' GROUP BY client_id';
+            conn.query(consultSql, function (err, rs) {
+              if (err) {
+                res.send("数据库查询错误。" + err.message);
+                return;
+              }
+              callback(null, rs);
+            })
+
+          }
+        }, function (err, results) {
+          rsConsult = results['two'];
+          res.render('admin', {rsConsult: rsConsult, loginbean: loginbean});
+        });
+      }else {
+
+        var uid = req.session.loginbean.uid;
+        var consultSql = 'SELECT userid,client_id,message,client_ip,max(chattime) lastchattime FROM message WHERE userid = ? GROUP BY client_id';
+        conn.query(consultSql, uid, function (err, rs) {
+          if (err) {
+            res.send("数据库查询错误。" + err.message);
+            return;
+          }
+          res.render('admin', {rsConsult: rs});
+        })
       }
-      var userSql = 'select uid,nicheng,socketId from user where email=? and pwd=?';
-      var param = [req.body['email'], req.body['pwd']];
-      var socket_id = '';
-      async.series({
-        one: function (callback) {
-          conn.query(userSql, param, function (err, rs) {
-            if (err) {
-              res.send("数据库错误,错误原因:" + err.message);
-              return;
-            }
-            console.log(rs);
-            if (rs.length > 0) {
-              loginbean = new LoginBean();
-              loginbean.uid = rs[0].uid;
-              loginbean.nicheng = rs[0].nicheng;
-              loginbean.socketId = rs[0].socketId;
-              req.session.loginbean = loginbean;
-              var statusSql = 'update user set status = 1 where uid = ?';
-              var statsParam = loginbean.uid;
-
-              conn.query(statusSql, statsParam, function (err, rs) {
-                if (err) {
-                  res.send("status ,错误原因:" + err.message);
-                  return;
-                }
-                callback(null, rs);
-              })
-            } else {
-              res.send("用户名/密码错误");
-            }
-          });
-        },
-        two: function (callback) {
-          var consultSql = 'SELECT userid,client_id,message,client_ip,max(chattime) lastchattime FROM message WHERE userid = ' + loginbean.uid + ' GROUP BY client_id';
-          conn.query(consultSql, function (err, rs) {
-            if (err) {
-              res.send("数据库查询错误。" + err.message);
-              return;
-            }
-            callback(null, rs);
-          })
-
-        }
-      }, function (err, results) {
-        rsConsult = results['two'];
-        res.render('admin', {rsConsult: rsConsult, loginbean: loginbean});
-      });
       conn.release();
     });
   },
@@ -100,11 +114,8 @@ module.exports = {
           res.redirect('/admin');
 
         });
-        // res.redirect('login');
         conn.release();
       })
-      // conn.release();
-
     });
 
   },

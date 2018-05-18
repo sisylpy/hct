@@ -90,6 +90,7 @@ server_chat.on('connection', (socket) => {
    * 客服关闭页面
    */
   socket.on('disconnect', () => {
+    console.log('退出了吗？？？');
     console.log("server_tuichule ");
   });
 

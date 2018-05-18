@@ -45,7 +45,6 @@ module.exports = {
 
       if (typeid == 0) {
         var statusSql = 'select aid,title, titleLabel,content,typeid from articleList ';
-        console.log('进入文章页面！');
       } else {
         var statusSql = 'select aid,title, titleLabel,typeid, content from articleList where typeid=' + typeid;
 
@@ -97,10 +96,6 @@ module.exports = {
           res.send("数据库错误,错误原因:" + err.message);
           return;
         }
-        // loginbean = new LoginBean();
-        // loginbean.id = rs[0].uid;
-        // loginbean.nicheng = rs[0].nicheng;
-        // req.session.loginbean = loginbean;
 
         res.render('adminArticles', {rs: rs, typeId: typeId, loginbean: loginbean, type: 'all'});
       });

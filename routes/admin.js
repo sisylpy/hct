@@ -19,14 +19,28 @@ var MessageModel = require('../models/MessageModel');
 // var fs = require('fs');
 
 //后台登陆
-router.all('/login', function (req, res, next) {
-  /*subflag = req.body['subflag'];
+router.post('/login', function (req, res, next) {
+  subflag = req.body['subflag'];
   if(subflag==undefined){
     res.redirect('/adminLogin');
-  }else{*/
+  }else{
+    adminModel.adminlogin(req,res);
+  }
+});
+
+
+router.get('/login', function (req, res, next) {
+  // subflag = req.body['subflag'];
+  // if(subflag==undefined){
+  //   res.redirect('/adminLogin');
+  // }else{
     adminModel.adminlogin(req,res);
   // }
 });
+
+
+
+
 
 //todo:client_id 是改变的吗？为什么不传uid？
 router.get('/message/:client_id', (req, res, next) => {
@@ -40,18 +54,6 @@ router.get('/logout', function (req, res, next) {
 });
 
 
-//TODO:客服功能
-//后台客服
-router.get('/kefu', function (req, res, next) {
-  loginbean = checkSession.check(req, res);
-  if (!loginbean) { return;}
-  else {
-    // consultModel.consultList(req, res);
-    MessageModel.getMessageByClientId(req,res);
-
-  }
-
-});
 
 //后台文章管理
 router.get('/articles', function (req, res, next) {
