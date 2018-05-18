@@ -59,7 +59,7 @@
 
     $(function () {
 
-           var navLi = $('.nav-item') //此处填写你的导航html对象
+      var navLi = $('.nav-item') //此处填写你的导航html对象
       var windowUrl = window.location.href; //获取当前url链接
       navLi.each(function () {
         var t = $(this).attr('href');
@@ -73,18 +73,20 @@
 
 
     })
+
     function typeId() {
       $("#inputState").change(function () {
         var id = $("#inputState  option:selected").val();
         $('#typeId').val(id);
 
 
-        $('#typeId').css("background-color","yellow");
+        $('#typeId').css("background-color", "yellow");
 
 
         // alert($('#typeId').attr('name'));
       })
     }
+
     typeId();
 
   </script>
@@ -100,35 +102,47 @@
     <div class="nav">
       <a class="logo" href="/admin/articles">晖昌通管理系统</a>
 
-      <% if (rs[0] == 0) {%>
+      <% if (rs[0] == 0) { %>
       <div class="line">添加文章</div>
-      <%} else  {%>
+      <% } else  { %>
       <div class="line">修改文章</div>
 
-      <%}%>
-
-
+      <% } %>
 
       <div class="form-group">
+
+        <% if( rs == undefined) { %>
+
         <select id="inputState" class="form-control">
-          <% if (rs[0]['typeid'] == '1') {%>
           <option value="1" selected>公司注销</option>
           <option value="2">外资注册</option>
           <option value="3">资质审批</option>
 
-          <%} else if (rs[0]['typeid'] == '2') {%>
+        </select>
+        <% } else { %>
+
+        <select id="inputState" class="form-control">
+          <% if (rs[0]['typeid'] == '1') { %>
+          <option value="1" selected>公司注销</option>
+          <option value="2">外资注册</option>
+          <option value="3">资质审批</option>
+
+          <% } else if (rs[0]['typeid'] == '2') { %>
           <option value="1">公司注销</option>
           <option value="2" selected>外资注册</option>
           <option value="3">资质审批</option>
 
-          <%} else {%>
+          <% } else { %>
           <option value="1">公司注销</option>
           <option value="2">外资注册</option>
           <option value="3" selected>资质审批</option>
 
-          <%}%>
+          <% } %>
 
         </select>
+
+        <% } %>
+
       </div>
 
 
@@ -154,9 +168,9 @@
 
   </div>
 
-  <% if (rs[0] == undefined) {%>
+  <% if (rs[0] == undefined) { %>
   <div class="line">添加文章</div>
-  <%} else  {%>
+  <% } else  { %>
 
   <div class="edit-article">
     <form method="post" action="/admin/editSave">
@@ -166,7 +180,9 @@
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">普通文章</button>
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">普通文章
+              </button>
               <div class="dropdown-menu">
                 <!--todo: 默认"普通文章"是active状态，status=0；还可以选择"首页推荐"，status=1。-->
                 <a class="dropdown-item" href="#">普通文章</a>
@@ -174,9 +190,10 @@
                 <div role="separator" class="dropdown-divider"></div>
               </div>
             </div>
-            <input name="title" type="text" class="form-control" aria-label="Text input with dropdown button" value="<%= rs[0]['title'] %>">
+            <input name="title" type="text" class="form-control" aria-label="Text input with dropdown button"
+                   value="<%= rs[0]['title'] %>">
           </div>
-          <input  name="typeId" type="hidden"  id="typeId" value="<%=rs[0]['typeid']%>">
+          <input name="typeId" type="hidden" id="typeId" value="<%= rs[0]['typeid'] %>">
 
         </div>
       </div>
@@ -191,10 +208,11 @@
 
       <div class="form-group article-content">
         <label for="exampleFormControlSelect2">详细内容:</label>
-        <textarea name="content" id="content" class="form-control xheditor" rows="10"> <%= rs[0]['content'] %></textarea>
+        <textarea name="content" id="content" class="form-control xheditor"
+                  rows="10"> <%= rs[0]['content'] %></textarea>
       </div>
 
-      <div class="form-group row article-from" >
+      <div class="form-group row article-from">
         <label class="col-1 col-form-label ">文章出自:</label>
         <div class="col-11">
           <input class="form-control" type="text"
@@ -202,27 +220,18 @@
         </div>
       </div>
       <div id="save">
-        <!--<button type="button" class="btn btn-primary">修改</button>-->
-        <!--<button type="button" class="btn btn-secondary">下一篇</button>-->
         <input name="typeid" type="hidden"
                value="<%= parseInt(rs[0]['typeid']) %>">
         <input name="aid" type="hidden"
                value="<%= rs[0]['aid'] %>">
         <button type="submit" class="btn btn-success">确认提交</button>
-        <!--<button type="button" class="btn btn-danger">删除文章</button>-->
-        <!--<button type="button" class="btn btn-warning">删除</button>-->
-        <!--<button type="button" class="btn btn-info">Info</button>-->
-        <!--<button type="button" class="btn btn-light">上一篇</button>-->
-        <!--<button type="button" class="btn btn-dark">下一篇</button>-->
       </div>
 
     </form>
 
   </div>
 
-  <%}%>
-
-
+  <% } %>
 
 </div>
 
@@ -233,25 +242,3 @@
 </body>
 </html>
 
-
-
-
-
-<div class="btn-group dropdown" id="userFace">
-
-  <% if (loginbean) { %>
-  <input id="uid" type="hidden" name="<%= loginbean.uid%>" value="<%= loginbean.uid%>">
-  <input id="socketId" type="hidden" name="<%= loginbean.socketId%>" value="<%= loginbean.socketId%>">
-  <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false"><%= loginbean.nicheng %></button>
-  <% } else { %>
-  <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-    用户
-  </button>
-  <% } %>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-    <button class="dropdown-item" type="button">修改头像</button>
-    <button class="dropdown-item" type="button">修改密码</button>
-    <button class="dropdown-item" type="button" href=""><a href="/admin/logout">退出</a></button>
-  </div>
-</div>

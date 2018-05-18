@@ -43,6 +43,9 @@
       <div class="person-col">
         <div class="main">
           <ul class="personList">
+
+            <% if (rsConsult.length > 0){%>
+
             <% rsConsult.forEach(function (row) { %>
 
             <li class="personNO" id="<%= row['client_id'] %>" data-clientid="<%= row['client_id'] %>"
@@ -58,6 +61,13 @@
               <p class="del"> X </p>
             </li>
             <% }) %>
+
+            <%}%>
+
+
+
+
+
           </ul>
 
           <!--<a href="/admin">修改文章</a>-->

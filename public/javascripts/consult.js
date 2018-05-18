@@ -4,9 +4,7 @@
 
 $(function () {
 
-    var UserAgent = navigator.userAgent.toLowerCase();//将获得的设备数据转换为小写字母
-    var username = navigator.appName;
-    var timer = new Date().toLocaleTimeString();
+
     var client_id = $("#clientId").val();
     var server_socketId = $("#server_socketId").val();
     var server_uid = $("#server_uid").val();

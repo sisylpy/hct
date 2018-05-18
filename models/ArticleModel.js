@@ -10,7 +10,6 @@ module.exports = {
    * status = 1 是推荐文章
    */
   statusArtcles: function (req, res) {
-    console.log("0000000");
     pool = connPool();
     pool.getConnection(function (err, conn) {
       if (err) {
@@ -19,8 +18,8 @@ module.exports = {
       }
       var statusSql = 'select aid,title, titleLabel,typeid from articleList  where status =1 order by typeid asc';
 
-      conn.query(statusSql,function (err, rs) {
-        if(err) {
+      conn.query(statusSql, function (err, rs) {
+        if (err) {
           res.send("数据库查询错误" + err.message);
         }
         res.render('index', {rs: rs});
@@ -32,35 +31,50 @@ module.exports = {
   },
 
 
+  /**
+   * 前台---打开"国家规定"页面和点击"typeid"
+   */
   artclePage: function (req, res) {
-    console.log('session is here');
-    console.log();
+    var typeid = req.query.typeid == undefined ? 0 : req.query.typeid;
     pool = connPool();
     pool.getConnection(function (err, conn) {
       if (err) {
         res.send("获取连接错误,错误原因:" + err.message);
         return;
       }
-      var typeid = req.query.typeid == undefined ? 0 : req.query.typeid;
-      if(typeid == 0){
-        var statusSql = 'select aid,title, titleLabel,typeid from articleList where status=1';
-      }else {
-        var statusSql = 'select aid,title, titleLabel,typeid from articleList where status=1 and typeid=' + typeid;
-      }
 
-      conn.query(statusSql,function (err, rs) {
-        if(err) {
+      if (typeid == 0) {
+        var statusSql = 'select aid,title, titleLabel,content,typeid from articleList ';
+        console.log('进入文章页面！');
+      } else {
+        var statusSql = 'select aid,title, titleLabel,typeid, content from articleList where typeid=' + typeid;
+
+      }
+      conn.query(statusSql, function (err, rs) {
+        if (err) {
           res.send("数据库查询错误" + err.message);
         }
+
+        if(typeid == 0){
+          res.render('articlePage', {rs: rs});
+
+        }else {
+
+          res.send(typeid);
+        }
+
       });
       conn.release();
     })
   },
 
+
+
+
   /**
-   * 首页面默认显示第一个菜单
+   * 后台---首页面默认显示第一个菜单
    */
-  articleList: function (req, res,loginbean) {
+  articleList: function (req, res, loginbean) {
     /**
      * typeId 从nav.ejs 传过来，默认是"1"
      */
@@ -87,39 +101,43 @@ module.exports = {
         // loginbean.id = rs[0].uid;
         // loginbean.nicheng = rs[0].nicheng;
         // req.session.loginbean = loginbean;
-        console.log('000000');
-        console.log(rs);
-        res.render('adminArticles', {rs: rs, typeId: typeId,loginbean:loginbean,type:'all'});
+
+        res.render('adminArticles', {rs: rs, typeId: typeId, loginbean: loginbean, type: 'all'});
       });
       conn.release();
     });
   },
 
 
-
+  /**
+   * 后台---修改文章
+   */
   editArticle: function (req, res) {
 
     aid = req.query['aid'];
     editSql = 'select aid,typeid, title,content, subTitle from articleList where aid=?';
-      param = [aid];
-      pool = connPool();
-      pool.getConnection(function (err, conn) {
+    param = [aid];
+    pool = connPool();
+    pool.getConnection(function (err, conn) {
+      if (err) {
+        res.send("获取连接错误,错误原因:" + err.message);
+        return;
+      }
+      conn.query(editSql, param, function (err, rs) {
         if (err) {
-          res.send("获取连接错误,错误原因:" + err.message);
+          res.send("数据库错误,错误原因:" + err.message);
           return;
         }
-        conn.query(editSql, param, function (err, rs) {
-          if (err) {
-            res.send("数据库错误,错误原因:" + err.message);
-            return;
-          }
-          res.render('detail', {rs: rs});
-        });
-
-        conn.release();
+        res.render('detail', {rs: rs});
       });
+
+      conn.release();
+    });
   },
 
+  /**
+   * 后台---保存修改文章
+   */
   editSave: function (req, res) {
 
     loginbean = req.session.loginbean;
@@ -132,9 +150,9 @@ module.exports = {
       editSaveSql = 'UPDATE articleList SET typeid = ?,title = ?, subTitle = ?, content = ? WHERE aid = ' + req.body['aid'] + '';
 
       pool = connPool();
-      var parm = [typeid,title,subTitle,content];
+      var parm = [typeid, title, subTitle, content];
       pool.getConnection(function (err, conn) {
-        conn.query(editSaveSql, parm,function (err, rs) {
+        conn.query(editSaveSql, parm, function (err, rs) {
           if (err) {
             res.send("数据库错误,错误原因:" + err.message);
             return;
@@ -150,7 +168,7 @@ module.exports = {
   },
 
 
-  // ???????????????
+  // todo: typeid status 2个参数未获取
   saveArticle: function (req, res) {
     loginbean = req.session.loginbean;
     pool = connPool();
@@ -158,7 +176,7 @@ module.exports = {
     pool.getConnection(function (err, conn) {
 
       var userAddSql = 'insert into articleList (typeid,title,content,uid) values(?,?,?,?)';
-      var param = [req.body['typeId'], req.body['aid'], req.body['title'], req.body['content'],loginbean.uid];
+      var param = [req.body['typeId'], req.body['aid'], req.body['title'], req.body['content'], loginbean.uid];
 
       // var param = [req.body['email'], req.body['pwd']];
 
@@ -180,6 +198,9 @@ module.exports = {
   },
 
 
+  /**
+   * 后台---首页推荐 和 全部查询
+   */
   searchArticle: function (req, res) {
     loginbean = req.session.loginbean;
     pool = connPool();
@@ -189,28 +210,30 @@ module.exports = {
       var param = [req.query['customRadio']];
       var typeId = req.query['typeid'];
       console.log(typeId);
-      param = param!=null?param:'all';
-      if (param == 'all'){
-        var searchSql = 'SELECT * FROM articleList where typeid='+typeId;
+      param = param != null ? param : 'all';
+      if (param == 'all') {
+        var searchSql = 'SELECT * FROM articleList where typeid=' + typeId;
         var type = 'all';
-      }else {
-        var searchSql = 'SELECT * FROM articleList WHERE status = 1 and typeid='+typeId;
-        var type='put';
+      } else {
+        var searchSql = 'SELECT * FROM articleList WHERE status = 1 and typeid=' + typeId;
+        var type = 'put';
       }
-        conn.query(searchSql, function (err, rs) {
-          if (err) {
-            res.send("数据库错误,错误原因:" + err.message);
-            return;
-          }
-          res.render('adminArticles',{rs:rs,type:type});
-        });
+      conn.query(searchSql, function (err, rs) {
+        if (err) {
+          res.send("数据库错误,错误原因:" + err.message);
+          return;
+        }
+        res.render('adminArticles', {rs: rs, type: type});
+      });
       conn.release();
     });
 
   },
 
-
-  searchType: function (req,res) {
+  /**
+   * 后台---文章类型查询
+   */
+  searchType: function (req, res) {
 
     typeId = req.query['typeId'];
     pool = connPool();
@@ -238,15 +261,13 @@ module.exports = {
         // loginbean.id = rs[0].uid;
         // loginbean.nicheng = rs[0].nicheng;
         // req.session.loginbean = loginbean;
-        res.render('adminArticles', {rs: rs,loginbean:loginbean,type:'all',typeId:typeId});
+        res.render('adminArticles', {rs: rs, loginbean: loginbean, type: 'all', typeId: typeId});
       });
       conn.release();
     });
 
 
-
   }
-
 
 
 };

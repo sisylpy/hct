@@ -8,7 +8,6 @@ var checkSession = require('../jsBean/CheckSession');
 
 //首页
 router.get('/', function (req, res, next) {
-  // res.render('index');
   articleModel.statusArtcles(req, res);
 });
 
@@ -44,12 +43,13 @@ router.get('/admin', function (req, res, next) {
 
 
 //文章
-router.get('/article-page', function (req, res, next) {
-  // res.render('article-page');
+router.get('/articlePage', function (req, res, next) {
 
   articleModel.artclePage(req,res);
 
 });
+
+
 
 //ceshi
 router.get('/offwork', function (req, res, next) {
@@ -58,19 +58,6 @@ router.get('/offwork', function (req, res, next) {
 
 });
 
-
-//
-//
-// router.get('/qualifications', function(req, res, next) {
-//
-//   res.render('index');
-//
-// });
-//
-// router.get('/articles', function(req, res, next) {
-//
-//
-// });
 
 
 module.exports = router;

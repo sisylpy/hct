@@ -8,25 +8,39 @@ var _ = require('underscore');
 var moment = require('moment');
 var connPool = require("./models/ConnPool");
 var pool = connPool();
-var news = io
-  .of('/news')
-  .on('connection', (socket) => {
-    socket.emit('item', {news: 'item'});
-  });
+// var news = io
+//   .of('/news')
+//   .on('connection', (socket) => {
+//     socket.emit('item', {news: 'item'});
+//   });
 
-// 客户端
+/**
+ * 客户
+ */
 var client_chat = io.of('/client/consult');
 
 client_chat.on('connection', (socket) => {
-  var client_ip = socket.handshake.headers['x-forwarded-for'] || socket.handshake.address;   // 获取客户端ip
+  // 获取客户端ip
+  var client_ip = socket.handshake.headers['x-forwarded-for'] || socket.handshake.address;
 
 
+  /**
+   * 客户关闭页面
+   */
   socket.on('disconnect', () => {
     console.log("client_tuichule ");
-    //todo:---1，退出后修改客户状态为下线状态
   });
 
-  // 监听客户端输入事件
+  /**
+   * 监听客户上线
+   */
+  socket.on('client_join', (obj) => {
+    socket.join(obj.client_id);
+  });
+
+  /**
+   * 监听客户正在输入（客户独有此功能）
+   */
   socket.on('msging', (obj) => {
     // 推送给相应的客服 在客服端进行显示
     server_chat.to(obj.server_socketId).emit('msging', {
@@ -36,7 +50,9 @@ client_chat.on('connection', (socket) => {
     });
   });
 
-  // 客户端完成输入事件
+  /**
+   * 监听客户完成输入事件
+   */
   socket.on('message', (obj) => {
     // 将聊天加入数据库
     pool.getConnection((err, conn) => {
@@ -59,17 +75,20 @@ client_chat.on('connection', (socket) => {
     })
   });
 
-  // 客户端打开聊天页面
-  socket.on('client_join', (obj) => {
-    socket.join(obj.client_id);
-  });
+
 });
 
-// 客服
+
+/**
+ * 客服
+ */
 var server_chat = io.of('/admin/login');
 
 server_chat.on('connection', (socket) => {
-  console.log("server_consult....");
+
+  /**
+   * 客服关闭页面
+   */
   socket.on('disconnect', () => {
     console.log("server_tuichule ");
   });
@@ -82,9 +101,10 @@ server_chat.on('connection', (socket) => {
     socket.join(obj.server_socketId);
   });
 
-  // 监听客服端完成输入事件
+  /**
+   * 监听客服完成输入事件
+   */
   socket.on('message', (obj) => {
-    console.log(obj);
     // 将聊天加入数据库
     pool.getConnection((err, conn) => {
       var messageAddSql = 'insert into message (userid,client_ip,message,client_id,whosaid,chattime) values(?,?,?,?,?,current_timestamp)';

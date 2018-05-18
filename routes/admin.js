@@ -26,7 +26,7 @@ router.all('/login', function (req, res, next) {
   }else{*/
     adminModel.adminlogin(req,res);
   // }
-})
+});
 
 //todo:client_id 是改变的吗？为什么不传uid？
 router.get('/message/:client_id', (req, res, next) => {

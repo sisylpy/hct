@@ -49,33 +49,48 @@
 
 
   //本页面点击菜单栏文章的滚动
-  // function articleScrool() {
+  //todo:页面
   $('.item').on("click","a",function () {
 
     //设置菜单的active状态
-    $(this).addClass("active");
-    $(this).parent().siblings().children().removeClass("active");
+    $(this).addClass("active").siblings().removeClass('active');
+    // $(this).parent().siblings().children().removeClass("active");
+
+
 
     //    获取data_linkid
     var data_linkid = $(this).attr("data-linkid");
 
-    $('.article-col').each(function () {
+    // $('.article-col').each(function () {
 
-      if ($(this).attr("id") === data_linkid) {
+      // if ($(this).attr("id") === data_linkid) {
+      //
+      //   // 获取id对应的顶部的距离
+      //   var id_offSetTop =  $(this).offset().top;
+      //
+      //   //获取id的高度
+      //   var id_Height = $(this).height();
+      //   //   计算应该滚动出去的scrollTop
+      //   var id_scroolTop = id_offSetTop - id_Height ;
+      //   //    设置滚动
+      //   $("html,body").animate({scrollTop: id_offSetTop - 80}, 200);
+      //
+      // }
 
-        // 获取id对应的顶部的距离
-        var id_offSetTop =  $(this).offset().top;
+    // })
 
-        //获取id的高度
-        var id_Height = $(this).height();
-        //   计算应该滚动出去的scrollTop
-        var id_scroolTop = id_offSetTop - id_Height ;
-        //    设置滚动
-        $("html,body").animate({scrollTop: id_offSetTop - 80}, 200);
 
-      }
+  })
 
-    })
+
+  //打开文章内容
+  $('.radio').on("click", function () {
+
+    $(this).parent().siblings().children('.article-list').hide(200);
+    $(this).siblings().toggle(200);
+
+
+
 
 
   })

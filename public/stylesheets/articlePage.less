@@ -485,40 +485,12 @@
       }
       .article-sub-title {
         position: relative;
+        font-size: 1.4em;
+        line-height: 3rem;
 
       }
     }
 
-    .article-list {
-      position: relative;
-
-      li {
-
-        position: relative;
-        list-style-type: decimal;
-        list-style-position: outside;
-        line-height: 4rem;
-        margin-bottom: 1rem;
-
-        @media (min-width: @screen-sm-min) {
-          line-height: 1.5rem;
-        }
-
-        /* 中等屏幕（桌面显示器，大于等于 992px） */
-        @media (min-width: @screen-md-min) {
-
-          line-height: 1.5rem;
-
-        }
-        /* 大屏幕（大桌面显示器，大于等于 1200px） */
-        @media (min-width: @screen-lg-min) {
-          line-height: 1.5rem;
-
-        }
-
-      }
-
-    }
 
     .article-supplement {
       position: relative;
@@ -526,6 +498,45 @@
     }
 
   }
+}
+
+.article-list {
+  position: relative;
+  line-height: 3rem;
+  display: none;
+
+  ol{
+
+    li {
+
+      position: relative;
+      list-style-type: decimal;
+      list-style-position: outside;
+      line-height: 4rem;
+      margin-bottom: 1rem;
+      font-size: 1.2em;
+
+      @media (min-width: @screen-sm-min) {
+        line-height: 1.5rem;
+      }
+
+      /* 中等屏幕（桌面显示器，大于等于 992px） */
+      @media (min-width: @screen-md-min) {
+
+        line-height: 1.5rem;
+
+      }
+      /* 大屏幕（大桌面显示器，大于等于 1200px） */
+      @media (min-width: @screen-lg-min) {
+        line-height: 1.5rem;
+
+      }
+
+    }
+
+  }
+
+
 }
 
 .right-content {

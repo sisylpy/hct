@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
+  <meta name="apple-touch-fullscreen" content="YES">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--以上是固定必须的！-->
+
+  <meta content="ESJY 主页" name="description"/>
+  <meta content="ESJY 主页" name="keywords"/>
+  <meta content="index,follow" name="robots"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>文章</title>
+
+
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/stylesheets/articlePage.css">
+
+  <!--jquery-->
+  <script src="/jquery-3.2.1.js"></script>
+  <script src="/bootstrap/js/bootstrap.js"></script>
+
+
+  <!--[if IE 9]>
+  <script type="text/javascript" src="/jquery-1.12.4.min.js"></script>
+  <script src="/html5shiv.min.js"></script>
+  <script src="/respond.js"></script>
+  <![endif]-->
+
+
+</head>
+<body>
+
+<!--//导航部分-->
+
+<%- include nav %>
+
+
+<!--//主体内容-->
+<div class="main">
+
+  <!--//轮播图-->
+  <div class="article-page-banner">
+    <div class=" banner-content ">
+      <div class="Splash-title">
+        <!--<p><a href="index-hct.html">首页 > </a> <a href="/">法规解答 > </a> <a href="/">注销备案 </a></p>-->
+        <div class="Search-content">
+          <p class="small-title">获取最新的政策</p>
+          <p class="article-col-title">查找您需要了解的公司问题</p>
+          <p class="article-col-search">
+            <input type="text" placeholder="搜索关键词">
+            <button><i class="fa fa-search fa-2x"></i></button>
+          </p>
+        </div>
+      </div>
+
+      <!---->
+
+    </div>
+    <div class="mune-col hidden-xs" id="container_type">
+      <div class="mune clearfix">
+        <ul class="mune-list">
+          <li class="item"><a href="/articlePage#container_type" class="active" role="button" data-linkid="at0">全部</a>
+          </li>
+          <li class="item"><a href="?typeid=1#container_type"  role="button" data-linkid="at0">公司注销</a>
+          </li>
+          <li class="item"><a href="?typeid=2#container_type" role="button" data-linkid="at1">外资注册</a></li>
+          <li class="item"><a href="?typeid=3#container_type" role="button" data-linkid="at2">资质审批</a></li>
+        </ul>
+      </div>
+      <div class="cotact-btn">
+        <button>立刻咨询</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="articles-col">
+    <div class="articles-content container">
+      <div class="articles-row row">
+        <div class="left-content col-xs-12 col-sm-8">
+
+          <div class="article-col" id="at0">
+
+            <% if(rs.length > 0){ %>
+
+            <% for (var i = 0; i < rs.length; i++) { %>
+
+            <div class="article" id="article_<%= rs[i]['aid'] %>" data-aid="article_<%= rs[i]['aid'] %>">
+              <a  class="radio">
+                <h2 class="article-title"><%=rs[i]['title'] %></h2>
+                <p class="article-sub-title"><%-rs[i]['titleLabel'] %></p>
+              </a>
+              <div  class="article-list"><%-rs[i]['content']%> </div>
+
+            </div>
+            <% } %>
+
+            <% } %>
+
+            <!--虚横线-->
+            <div class="esjy-rule"></div>
+
+          </div>
+
+
+        </div>
+
+        <div class="right-content col-xs-12 col-sm-4">
+          <div class="advertise-col ">
+            <div class="advertise">
+              advertise-1
+            </div>
+            <div class="advertise">
+              advertise-2
+            </div>
+            <div class="advertise">
+              advertise-3
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<script>
+  var acolor = document.getElementById('article-page');
+  acolor.style.color = "#dee558";
+</script>
+
+<script src="/javascripts/articlePage.js"></script>
+</body>
+
+</html>

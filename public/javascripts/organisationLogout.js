@@ -53,7 +53,7 @@
     //
     //
     //     var p = $(this).attr('data-linkid');
-    //     url = "article-page.ejs?p="+p;//此处拼接内容
+    //     url = "articlePage.ejs?p="+p;//此处拼接内容
     //     window.location.href = url;
     //
     //

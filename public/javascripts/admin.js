@@ -54,7 +54,7 @@ $(function () {
                 li = '<li class="'+styleclass+'"><div>'+
                     '<i class="name">'+nicheng+'</i>'+
                     '<i class="timer">'+new Date(mes.chattime).Format('hh:mm:ss')+'</i>'+
-                    '<p class="content">'+mes.message+'</p> </div>'+
+                    '<p class="content">'+mes.message+ '</p> </div>'+
                     '</li>';
                 $("#chatUl").append(li);
 
@@ -86,6 +86,7 @@ $(function () {
             /**
              *  获取当前client的聊天信息
              */
+
             $.ajax({
                 url: '/admin/message/' + current_clientId,
                 type: 'get',
@@ -141,6 +142,7 @@ $(function () {
 
     // 通知服务端 客服上线
     server_users.emit('server_join', {
+        //todo: notifier!!!
         server_socketId: socketId
     });
 
@@ -161,9 +163,6 @@ $(function () {
 
         $('.chat-col').append(msgingli);
       }
-
-
-
 
     });
 

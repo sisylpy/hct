@@ -44,15 +44,11 @@ app.use(bodyParser({uploadDir:'./uploadtemp'}));//设置上传临时文件夹
 
 
 
-
-
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/admin',adminRouter);
 app.use('/consult',consultRouter);
-
 
 
 
