@@ -17,7 +17,6 @@ body{
   height:52px;
   line-height: 52px;
 
-
 }
 
 .wraper {
@@ -48,19 +47,19 @@ body{
 .mainChat {
   width: 100%;
   height: 100%;
-  position: relative;
+  position: fixed;
+
 
   .chatContent {
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px 2px #ccc;
     position: relative;
-
-
     width: 90%;
     height:100rem;
     left:5%;
     top:10rem;
+    font-size: 2em;
 
 
     /* 小屏幕（平板，大于等于 768px） */
@@ -70,6 +69,7 @@ body{
       left:20%;
       top:8rem;
       //border: 1px solid red;
+      font-size: 1.1em;
     }
 
     /* 中等屏幕（桌面显示器，大于等于 992px） */
@@ -78,7 +78,9 @@ body{
       height: 36rem;
       left:20%;
       top:6rem;
-      border: 1px solid green;
+      //border: 1px solid green;
+      font-size: 1.1em;
+
 
     }
 
@@ -87,27 +89,30 @@ body{
     @media (min-width: @screen-lg-min) {
 
       width: 50%;
-      height: 35rem;
+      height: 30rem;
       left:25%;
-      top:6rem;
-      border: 1px solid gold;
+      top:4rem;
+      //border: 1px solid gold;
+      font-size: 1.1em;
+
 
     }
 
   }
 }
 
+
 .msgs{
   position: relative;
   width: 100%;
   border-bottom: 1px solid cornflowerblue;
   overflow: auto;
-  height: 90%;
+  height: 80%;
 
 
   /* 小屏幕（平板，大于等于 768px） */
   @media (min-width: @screen-sm-min) {
-    height: 34rem;
+    height: 44rem;
 
   }
 
@@ -120,29 +125,29 @@ body{
   /* 大屏幕（大桌面显示器，大于等于 1200px） */
   @media (min-width: @screen-lg-min) {
     height: 28rem;
-
   }
 
 
 
   #connectAuto {
-    //position: relative;
     position: fixed;
     margin-bottom: 1rem;
 
+    top:10rem;
     border-radius: 5px 5px 0 0 ;
     border: 1px solid #fff;
     color: #fff;
     background: url("../images/hct/Huichangtong-assets/headerBg.jpg");
 
     line-height: 5rem;
-    top:6rem;
+    //top:6rem;
     height: 5rem;
     width: 90%;
+    z-index: 99;
 
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
-      line-height: 2rem;
+      line-height: 3rem;
       top:8rem;
       height: 3rem;
       width: 60%;
@@ -150,7 +155,7 @@ body{
 
     /* 中等屏幕（桌面显示器，大于等于 992px） */
     @media (min-width: @screen-md-min) {
-      line-height: 2rem;
+      line-height: 3rem;
       top:6rem;
       height: 3rem;
       width: 60%;
@@ -158,70 +163,72 @@ body{
 
     /* 大屏幕（大桌面显示器，大于等于 1200px） */
     @media (min-width: @screen-lg-min) {
-      line-height: 2rem;
-      top:6rem;
+      top:4rem;
       height: 3rem;
+      line-height: 3rem;
       width: 50%;
     }
 
-    #connctTime {
-      display: block;
-      font-size: 0.7rem;
-      font-style: normal;
-      width: 100%;
-
-    }
-    #clarkName {
-      display: block;
-      font-style: normal;
-      width: 100%;
-
-
-      /* 小屏幕（平板，大于等于 768px） */
-      @media (min-width: @screen-sm-min) {
-
-        font-size: 1.2em;
-        line-height: 3rem;
-        text-align: left;
-        padding-left: 1rem;
-      }
-
-      /* 中等屏幕（桌面显示器，大于等于 992px） */
-      @media (min-width: @screen-md-min) {
-        font-size: 1em;
-        line-height: 3rem;
-        text-align: left;
-        padding-left: 1rem;
-
-      }
-
-      /* 大屏幕（大桌面显示器，大于等于 1200px） */
-      @media (min-width: @screen-lg-min) {
-        font-size: 1rem;
-        line-height: 3rem;
-        text-align: left;
-        padding-left: 1rem;
-      }
-    }
   }
+}
 
-  #chatUl {
-    width: 100%;
-    height: 100%;
-    padding-left: 1rem;
-    padding-top: 4rem;
+
+
+//聊天（上部分）
+#chatUl {
+  //width: 100%;
+  //height: 100%;
+  padding-left: 1rem;
+  padding-top: 4rem;
+
+  .chatli {
+
+    position: relative;
+    color: #fff;
+    display: inline;
+    //width: 70%;
+
+
+  }
+  .chatli.left{
+    float:left;
+    display: block;
+    color: #000;
+    clear:both;
+
 
     .connectName {
-      display: block;
-      font-size: 1em;
-      font-style: normal;
+      //color: #000;
+
     }
 
-    .chatli {
+    p{
+      background-color: #e3e3e3;
+      border-radius: 5px;
+      padding-top: 0.5rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-bottom: 0.5rem;
+      margin-top:0.5rem;
+      word-wrap:break-word;
 
-      position: relative;
-      //todo:--4， 宽度也需要修改
-      //width: 60%;
+
+    }
+  }
+  .chatli.right{
+    display:inline;
+    margin-top:0.5rem;
+    padding-right: 1rem;
+    clear:both;
+    float:right;
+    max-width: 60%;
+
+    .connectName{
+      color: #000;
+    }
+
+
+    p{
       background-color: #387fed;
       border-radius: 5px;
       padding-top: 0.5rem;
@@ -229,26 +236,14 @@ body{
       padding-right: 1rem;
       padding-bottom: 0.5rem;
       margin-top:0.5rem;
-      color: #fff;
-      display: block;
 
-    }
-    .chatli.left{
-      float:left;
-      background-color: #e3e3e3;
-      color: #000;
-    }
-    .chatli.right{
-      float:right;
+      word-wrap:break-word;
+
     }
   }
-
-
-
-
 }
 
-.chat{
+.chatSend{
   position: relative;
   width: 100%;
   //background-color: red;
@@ -304,17 +299,25 @@ body{
     position: relative;
     float: left;
     width: 90%;
+    padding: 0.5rem;
+    resize:none;
+
+
 
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
       height: 5rem;
       width: 85%;
+      padding: 0.5rem;
+
     }
 
     /* 中等屏幕（桌面显示器，大于等于 992px） */
     @media (min-width: @screen-md-min) {
       height: 6rem;
       width: 85%;
+      padding: 0.5rem;
+
     }
 
     /* 大屏幕（大桌面显示器，大于等于 1200px） */
@@ -322,6 +325,7 @@ body{
       height: 5rem;
       line-height: 1.2rem;
       width: 85%;
+      padding: 0.5rem;
     }
 
   }

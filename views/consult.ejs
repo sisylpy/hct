@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="x-ua-compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
-    <meta name="apple-touch-fullscreen" content="YES">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <!--以上是固定必须的！-->
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
+  <meta name="apple-touch-fullscreen" content="YES">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <!--以上是固定必须的！-->
 
-    <meta content="ESJY 主页" name="description"/>
-    <meta content="ESJY 主页" name="keywords"/>
-    <meta content="index,follow" name="robots"/>
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>咨询</title>
-
-
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.css">
-
-    <link rel="stylesheet" href="/stylesheets/consult.css">
-
-    <!--jquery-->
-    <script src="/jquery-3.2.1.js"></script>
-    <script src="/bootstrap/js/bootstrap.js"></script>
+  <meta content="ESJY 主页" name="description"/>
+  <meta content="ESJY 主页" name="keywords"/>
+  <meta content="index,follow" name="robots"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>咨询</title>
 
 
-    <!--[if IE 9]>
-    <script type="text/javascript" src="/jquery-1.12.4.min.js"></script>
-    <script src="/dist/html5shiv.min.js"></script>
-    <script src="/dist/respond.js"></script>
-    <![endif]-->
+  <!--<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">-->
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/javascripts/consult.js"></script>
+  <!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"-->
+        <!--integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+
+  <!--<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"-->
+          <!--integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"-->
+          <!--crossorigin="anonymous"></script>-->
+  <!--<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"-->
+          <!--integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"-->
+          <!--crossorigin="anonymous"></script>-->
+
+
+  <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.css">
+
+  <link rel="stylesheet" href="/stylesheets/consult.css">
+
+  <!--jquery-->
+  <script src="/jquery-3.2.1.js"></script>
+  <!--<script src="/bootstrap/js/bootstrap.js"></script>-->
+
+
+  <!--[if IE 9]>
+  <script type="text/javascript" src="/jquery-1.12.4.min.js"></script>
+  <script src="/dist/html5shiv.min.js"></script>
+  <script src="/dist/respond.js"></script>
+  <![endif]-->
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/javascripts/consult.js"></script>
 
 </head>
 
 <script>
-
 
 
 </script>
@@ -46,58 +57,57 @@
 
 
 <div class="wraper ">
-    <div class="bgTop "></div>
-    <div class="bgBottom"></div>
+  <div class="bgTop "></div>
+  <div class="bgBottom"></div>
 </div>
 
-<div class="header hidden-xs">
-    晖昌通
+<div class="header hidden-xs invisible">
+  晖昌通1
 </div>
 
 <div class="mainChat">
-    <input type="hidden" name="clientId" id="clientId" value="<%=clientId%>" />
-    <div class="chatContent">
+  <input type="hidden" name="clientId" id="clientId" value="<%= clientId %>"/>
 
-      <%if(rs) {%>
-        <div class="msgs">
-            <div id="connectAuto">
-                <i id="connctTime"></i>
-                <i id="clarkName">为您接通业务咨询代表  <%= rs['nicheng']%></i>
-            </div>
+  <div class="chatContent">
 
-            <ul id="chatUl">
-                <input type="hidden" id="server_uid" value="<%= rs['uid']%>" />
-                <input type="hidden" id="server_socketId" value="<%= rs['socketId']%>" />
-                <i  class="connectName">业务咨询代表 <%= rs['nicheng']%>   <%=consultTime%></i>
-                <li class="chatli msg left">
-                    <p class="userPhone">您好，我是业务代表 <%= rs['nicheng']%> 手机：<%= rs['phone']%>。</p>
-                    <p class="sendMsg">请问有什么可以帮到您？</p>
-                </li>
+    <% if(rs) { %>
+    <div class="msgs">
+      <div id="connectAuto">为您接通业务咨询代表 <%= rs['nicheng'] %>
+        <!--<i id="clarkName">为您接通业务咨询代表  <%= rs['nicheng'] %></i>-->
+      </div>
 
-            </ul>
-        </div>
+      <ul id="chatUl">
+        <input type="hidden" id="server_uid" value="<%= rs['uid'] %>"/>
+        <input type="hidden" id="server_socketId" value="<%= rs['socketId'] %>"/>
+        <input type="hidden" id="nicheng" value="<%= rs['nicheng'] %>"/>
 
-      <% } else { %>
+        <li class="chatli msg left">
+          <i class="connectName" >业务咨询代表 <%= rs['nicheng'] %>   <%= consultTime %></i>
+          <p class="userPhone">您好，我是业务代表 <%= rs['nicheng'] %> 手机：<%= rs['phone'] %>。</br>请问有什么可以帮到您？</p>
+            <!--<p class="sendMsg"></p>-->
+        </li>
 
-
-
-        <!--<a href="/offwork"></a>-->
-        <!--<div class="msgs">-->
-            <!--<div id="connectAuto">-->
-                <!--<i id="connctTime"></i>-->
-                <!--<i id="clarkName"> 请稍等。。。。</i>-->
-            <!--</div>-->
-        <!--</div>-->
-
-      <%}%>
-
-        <div class="chat">
-            <div class="buttons"></div>
-            <textarea type="text" name="" id="t"></textarea>
-            <button id="b" class="hidden-xs" >发送</button>
-        </div>
+      </ul>
     </div>
 
+    <% } else { %>
+
+    <!--<a href="/offwork"></a>-->
+    <!--<div class="msgs">-->
+    <!--<div id="connectAuto">-->
+    <!--<i id="connctTime"></i>-->
+    <!--<i id="clarkName"> 请稍等。。。。</i>-->
+    <!--</div>-->
+    <!--</div>-->
+
+    <% } %>
+
+    <div class="chatSend">
+      <div class="buttons"></div>
+      <textarea type="text" name="" id="t"></textarea>
+      <button id="b" class="hidden-xs">发送</button>
+    </div>
+  </div>
 
 
 </div>

@@ -44,7 +44,7 @@
           <ul class="personList">
             <% if (rsConsult.length > 0){ %>
             <% rsConsult.forEach(function (row) { %>
-            <li class="personNO" id="<%= row['client_id'] %>" data-clientid="<%= row['client_id'] %>"
+            <li class="personNO" data-status="<%= row['status']%>" id="<%= row['client_id'] %>" data-clientid="<%= row['client_id'] %>"
                 data-clientip="<%= row['client_ip'] %>">
               <div class="face"> <%= row['userid'] %>
                 <!--//todo:---5，未读信息条数量-->
@@ -60,16 +60,16 @@
             <% } %>
           </ul>
         </div>
-
       </div>
 
       <div class="chat-col">
         <div class="chatContent">
           <ul id="chatUl">
-            <!--<li class="chat0 chat">
-                <i class="name">sisddddy</i>
-                <i class="timer">12:30:30</i>
-                <p class="content">The first line</p>
+            <!--<li class="chat0 chatli">
+               <i class="name">sisddddy</i>
+               <div>
+                  <p class="content">The first line</p>
+               </div>
             </li>
             <li class="chat1 chat active" class="chat active">......</li>-->
 

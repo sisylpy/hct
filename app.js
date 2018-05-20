@@ -46,6 +46,8 @@ app.use(bodyParser({uploadDir:'./uploadtemp'}));//设置上传临时文件夹
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(favicon(path.join(__dirname, 'public', '/images/favicon.ico')));
+
 app.use('/', indexRouter);
 app.use('/admin',adminRouter);
 app.use('/consult',consultRouter);

@@ -27,8 +27,34 @@ client_chat.on('connection', (socket) => {
   /**
    * 客户关闭页面
    */
-  socket.on('disconnect', () => {
+  socket.on('disconnect', (reason) => {
+    var socket_id = socket.id;
     console.log("client_tuichule ");
+    // 将聊天加入数据库
+    pool.getConnection((err, conn) => {
+      var userAddSql = 'update client_user set status = 0 where socket_client_id = ?';
+      var param = [socket_id];
+      conn.query(userAddSql, param, (err, rs) => {
+        if (err) {
+          console.log(err.message);
+        }
+        conn.release();
+      });
+    });
+
+    pool.getConnection((err,conn) =>{
+      var getClientId = 'select client_id , server_socket_id from client_user where socket_client_id=?';
+      var param = [socket_id];
+      conn.query(getClientId,param,(err,rs) => {
+         if(rs.length > 0){
+           socket.to(rs[0].server_socket_id).emit('offline',{
+             client_id:rs[0].client_id
+           })
+         }
+         conn.release();
+      })
+    })
+
   });
 
   /**
@@ -36,6 +62,18 @@ client_chat.on('connection', (socket) => {
    */
   socket.on('client_join', (obj) => {
     socket.join(obj.client_id);
+    // 将聊天加入数据库
+    pool.getConnection((err, conn) => {
+      var userAddSql = 'insert into client_user (client_id,status,socket_client_id,server_socket_id) values(?,?,?,?)';
+      var param = [obj.client_id, 1,socket.id,obj.server_socketId];
+      conn.query(userAddSql, param, (err, rs) => {
+        if (err) {
+          console.log(err.message);
+        }
+        conn.release();
+      });
+    });
+
   });
 
   /**

@@ -184,7 +184,7 @@ main {
 }
 @media (min-width: 992px) {
   .subNav .subitems {
-    width: 40%;
+    width: 50%;
   }
 }
 @media (min-width: 1200px) {
@@ -200,10 +200,11 @@ main {
   position: relative;
   float: left;
   text-align: center;
-  width: 25%;
+  width: 20%;
 }
 .subNav .subitems #addNew {
   border: 1px solid greenyellow;
+  margin-left: 1rem;
 }
 #search-col {
   width: 100%;

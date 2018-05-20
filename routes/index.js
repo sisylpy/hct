@@ -25,8 +25,8 @@ router.get('/foreign', function (req, res, next) {
 //资质审批
 router.get('/orgLog/:tipeid', function (req, res, next) {
   console.log('====0000');
-  // res.render('organisationLogout');
-  articleModel.artclePage(req,res);
+  res.render('organisationLogout');
+  // articleModel.artclePage(req,res);
 
 });
 

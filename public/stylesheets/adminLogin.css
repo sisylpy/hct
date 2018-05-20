@@ -265,11 +265,11 @@ main {
   width: 60%;
   position: relative;
   float: left;
+  border-left: 1px solid #e3e3e3;
   background-color: #fff;
 }
 .chat-col .chatContent {
   height: 85%;
-  border: 1px solid purple;
   color: #fff;
   overflow: auto;
 }
@@ -289,6 +289,8 @@ main {
   position: relative;
   float: left;
   height: 100%;
+  resize: none;
+  padding: 0.5rem;
 }
 .chat-col .sendMessage #b {
   width: 20%;
@@ -301,19 +303,20 @@ main {
 #chatUl {
   padding: 1rem ;
 }
-#chatUl .chat {
-  line-height: 3rem;
-  width: 70%;
-  position: relative;
-  margin-right: 25%;
-}
-#chatUl .chat0 {
+#chatUl .chatli {
   display: block;
   margin-top: 0.5rem;
+}
+#chatUl .chat0 {
   float: right;
   clear: both;
+  max-width: 60%;
 }
-#chatUl .chat0 div {
+#chatUl .chat0 .name {
+  color: purple;
+  display: block;
+}
+#chatUl .chat0 p {
   background-color: #e3e3e3;
   color: #000;
   border-radius: 5px;
@@ -321,22 +324,25 @@ main {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 0.2rem;
-}
-#chatUl .chat0 div .name {
-  color: purple;
-  display: block;
+  word-wrap: break-word;
 }
 #chatUl .chat1 {
   display: block;
   margin-top: 0.5rem;
   float: left;
   clear: both;
+  max-width: 60%;
 }
-#chatUl .chat1 div {
+#chatUl .chat1 .name {
+  color: #000;
+  display: block;
+}
+#chatUl .chat1 p {
   background-color: #387fed;
   border-radius: 5px;
   padding-top: 0.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 0.5rem;
+  word-wrap: break-word;
 }

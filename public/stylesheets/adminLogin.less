@@ -169,14 +169,13 @@
   width: 60%;
   position: relative;
   float: left;
-  //border-left: 1px solid red;
+  border-left: 1px solid #e3e3e3;
   background-color: #fff;
 
   //右侧聊天上部分
   .chatContent {
     //background-color: bisque;
     height: 85%;
-    border: 1px solid purple;
 
     color: #fff;
     overflow: auto;
@@ -201,6 +200,8 @@
       position: relative;
       float: left;
       height: 100%;
+      resize:none;
+      padding: 0.5rem;
       //left: 10%;
       //top: 10%;
       //border-radius: 1rem
@@ -222,45 +223,33 @@
 #chatUl {
   padding: 1rem ;
 
-  .chat {
-    line-height: 3rem;
-    //background-color: #00D494;
-    width: 70%;
-    position: relative;
-    margin-right: 25%;
-
-    #name {
-
-    }
-    #timer {
-
-    }
-    #content {
-
-    }
+  .chatli {
+    display:block;
+    margin-top:0.5rem;
 
   }
 
   //todo:---3， 宽度需要修改
   .chat0 {
-    display:block;
-    margin-top:0.5rem;
     float:right;
     clear:both;
+    max-width: 60%;
 
-    div{
+    .name{
+      color: purple;
+      display: block;
+    }
+    p{
       background-color: #e3e3e3;
-      //width: 60%;
       color: #000;
       border-radius: 5px;
       padding-top: 0.5rem;
       padding-left: 1rem;
       padding-right: 1rem;
       padding-bottom: 0.2rem;
-      .name{
-        color: purple;
-        display: block;
-      }
+      word-wrap:break-word;
+
+
     }
 
   }
@@ -268,9 +257,14 @@
     display:block;
     margin-top:0.5rem;
     float:left;
-
     clear:both;
-    div{
+    max-width: 60%;
+
+    .name{
+      color: #000;
+      display: block;
+    }
+    p{
       //width: 60%;
       background-color: #387fed;
       border-radius: 5px;
@@ -278,6 +272,8 @@
       padding-left: 1rem;
       padding-right: 1rem;
       padding-bottom: 0.5rem;
+      word-wrap:break-word;
+
     }
   }
 }
