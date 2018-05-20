@@ -21,7 +21,7 @@ module.exports = {
       if(req.session.loginbean == undefined) {
 
 
-        var userSql = 'select uid,nicheng from user where email=? and pwd=?';
+        var userSql = 'select uid,nicheng,socketId from user where email=? and pwd=?';
         var param = [req.body['email'], req.body['pwd']];
         var socket_id = '';
         async.series({
