@@ -25,9 +25,7 @@ module.exports = {
         res.render('index', {rs: rs});
       });
       conn.release();
-
     })
-
   },
 
 
@@ -55,6 +53,7 @@ module.exports = {
         }
 
         if(typeid == 0){
+
           res.render('articlePage', {rs: rs});
 
         }else {

@@ -20,7 +20,6 @@ module.exports = {
 
       if(req.session.loginbean == undefined) {
 
-
         var userSql = 'select uid,nicheng,socketId from user where email=? and pwd=?';
         var param = [req.body['email'], req.body['pwd']];
         var socket_id = '';
@@ -54,16 +53,14 @@ module.exports = {
             });
           },
           two: function (callback) {
-            var consultSql = 'SELECT userid,m.client_id,message,client_ip,max(chattime) lastchattime, cu.status FROM message m left join client_user cu on m.client_id=cu.client_id WHERE userid = ' + loginbean.uid + ' GROUP BY m.client_id';
+            var consultSql = 'SELECT userid,m.client_id,message,client_ip,max(chattime) lastchattime, cu.status FROM message m left join client_user cu on m.client_id=cu.client_id WHERE userid = ' + loginbean.uid + ' GROUP BY m.client_id ORDER BY lastchattime DESC';
             conn.query(consultSql, function (err, rs) {
               if (err) {
                 res.send("数据库查询错误。" + err.message);
                 return;
               }
-              console.log(rs);
               callback(null, rs);
             })
-
           }
         }, function (err, results) {
           rsConsult = results['two'];

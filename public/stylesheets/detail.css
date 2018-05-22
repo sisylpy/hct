@@ -205,9 +205,13 @@ main {
   background: none;
   color: #000;
   border: none;
+  line-height: 2rem;
 }
-.nav #userFace .dropdown-menu .dropdown-item a {
-  color: #000000;
+.nav #userFace .dropdown-menu {
+  line-height: 2rem;
+}
+.nav #userFace .dropdown-menu .dropdown-item {
+  line-height: 2rem;
 }
 .edit-article {
   background-color: #f6f6f6;

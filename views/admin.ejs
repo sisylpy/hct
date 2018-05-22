@@ -40,15 +40,21 @@
 <input type="hidden" id="socketId" value="<%= loginbean.socketId%>" />
     <div class="consult-content">
       <div class="person-col">
-        <div class="main">
+        <div class="main" >
+
           <ul class="personList">
             <% if (rsConsult.length > 0){ %>
             <% rsConsult.forEach(function (row) { %>
             <li class="personNO" data-status="<%= row['status']%>" id="<%= row['client_id'] %>" data-clientid="<%= row['client_id'] %>"
                 data-clientip="<%= row['client_ip'] %>">
-              <div class="face"> <%= row['userid'] %>
+              <div class="face" <% if(row['status'] == 0) {%>
+                   style="background: url('/images/hct/Huichangtong-assets/icon_01.png')"
+                <% } else if (row['status'] == 1){%>
+                   style="background: url('/images/hct/Huichangtong-assets/hct_logo.jpg')"
+              <%}%>
+              >
                 <!--//todo:---5，未读信息条数量-->
-                <div class="smallface">1</div>
+                <div class="smallface">///</div>
               </div>
               <div class="personInfo">
                 <p class="consultTime"><%= row['lastchattime'].toLocaleTimeString() %></p>

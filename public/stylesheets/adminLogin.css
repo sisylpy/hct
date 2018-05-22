@@ -197,7 +197,6 @@ main {
   width: 4rem;
   height: 4rem;
   top: 0.5rem;
-  background-color: #3b6caa;
   position: relative;
   float: left;
   border-radius: 50%;
@@ -217,6 +216,7 @@ main {
   right: -3rem;
   font-size: 0.5em;
   line-height: 1.33333333rem;
+  display: none;
 }
 .personNO .personInfo {
   height: 100%;

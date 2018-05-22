@@ -30,9 +30,7 @@ module.exports = {
         var now = (new Date()).getTime();
         var consultTime = (new Date()).toLocaleTimeString();
 
-
         if (rs.length > 0){
-
           var maxtime = now - (new Date(rs[0].chattime)).getTime();
           var currentServer = rs[0];  // 当前客服
           for(var i = 0; i < rs.length; i++){
@@ -43,12 +41,10 @@ module.exports = {
           }
           res.render('consult', {rs:currentServer,clientId:clientId, consultTime:consultTime});
         }else {
-
           res.redirect('/orgLog')
           // res.send('aa');
           // res.render('contactBtn');
         }
-
       });
       conn.release();
     })

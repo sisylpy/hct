@@ -123,11 +123,13 @@ router.post('/saveArticle', function (req, res) {
 
 //
 router.post('/editSave', function (req, res) {
-  loginbean = checkSession.check(req, res);
-  if (!loginbean) {return;}
-  else {
-    articleModel.editSave(req, res);
-  }
+  // loginbean = checkSession.check(req, res);
+  // if (!loginbean) {return;}
+  // else {
+  //   articleModel.editSave(req, res);
+  // }
+
+  res.send(req.body);
 });
 
 

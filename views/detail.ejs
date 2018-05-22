@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>问吧</title>
+ <title>问吧</title>
   <meta charset="UTF-8">
   <!--wang-->
   <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <!--<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-  <!--<script src="/jquery-3.2.1.js"></script>-->
   <script src="/xheditor/jquery-1.11.2.min.js"></script>
   <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
           integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -16,10 +13,6 @@
           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
           crossorigin="anonymous"></script>
   <link rel='stylesheet' href='/stylesheets/detail.css'/>
-  <!--<link rel="stylesheet" href="/stylesheets/nav.css">-->
-  <!--<script type="text/javascript" src="/xheditor/xheditor-1.2.2.min.js"></script>-->
-  <!--<script type="text/javascript" src="/xheditor/xheditor_lang/zh-cn.js"></script>-->
-
   <script type="text/javascript" src="/xheditor/xheditor-1.2.2.min.js"></script>
   <script type="text/javascript" src="/xheditor/xheditor_lang/zh-cn.js"></script>
 
@@ -93,9 +86,9 @@
 
 <body>
 
+<form method="post" action="/admin/editSave">
 
 <div class="esjy-col">
-
 
   <div id="topBlack" class="bg-dark"></div>
   <div class="navbar">
@@ -106,64 +99,57 @@
       <div class="line">添加文章</div>
       <% } else  { %>
       <div class="line">修改文章</div>
-
       <% } %>
 
+      <!--<div class="form-group">-->
+
+        <% if( rs[0] == 0) { %>
       <div class="form-group">
-
-        <% if( rs == undefined) { %>
-
         <select id="inputState" class="form-control">
           <option value="1" selected>公司注销</option>
           <option value="2">外资注册</option>
           <option value="3">资质审批</option>
-
         </select>
+      </div>
         <% } else { %>
-
+      <div class="form-group">
         <select id="inputState" class="form-control">
-          <% if (rs[0]['typeid'] == '1') { %>
+        <% if (rs[0]['typeid'] == '1') { %>
           <option value="1" selected>公司注销</option>
           <option value="2">外资注册</option>
           <option value="3">资质审批</option>
-
           <% } else if (rs[0]['typeid'] == '2') { %>
           <option value="1">公司注销</option>
           <option value="2" selected>外资注册</option>
           <option value="3">资质审批</option>
-
           <% } else { %>
           <option value="1">公司注销</option>
           <option value="2">外资注册</option>
           <option value="3" selected>资质审批</option>
-
           <% } %>
-
         </select>
-
         <% } %>
 
-      </div>
-
-
-      <div class="btn-group dropdown" id="userFace">
-        <% if (loginbean) { %>
-        <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                aria-haspopup="false" aria-expanded="false">
-          <%= loginbean.nicheng %>
-        </button>
-        <% } else { %>
-        <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                aria-haspopup="false" aria-expanded="false">用户
-        </button>
-        <% } %>
-
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button">修改头像</button>
-          <button class="dropdown-item" type="button">修改密码</button>
-          <button class="dropdown-item" type="button" href=""><a href="/admin/logout">退出</a></button>
+        <div class="btn-group dropdown" id="userFace">
+          <% if (loginbean) { %>
+          <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                  aria-haspopup="false" aria-expanded="false">
+            <%= loginbean.nicheng %>
+          </button>
+          <% } else { %>
+          <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                  aria-haspopup="false" aria-expanded="false">用户
+          </button>
+          <% } %>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button">修改头像</button>
+            <button class="dropdown-item" type="button">修改密码</button>
+            <button class="dropdown-item" type="button" onclick="window.location='/admin/logout'">退出</button>
+          </div>
         </div>
+
       </div>
+
     </div>
 
   </div>
@@ -173,7 +159,7 @@
   <% } else  { %>
 
   <div class="edit-article">
-    <form method="post" action="/admin/editSave">
+    <!--<form method="post" action="/admin/editSave">-->
       <div class="form-group row article-title">
         <label class="col-1 col-form-label">文章标题:</label>
         <div class="col-11">
@@ -227,7 +213,7 @@
         <button type="submit" class="btn btn-success">确认提交</button>
       </div>
 
-    </form>
+    <!--</form>-->
 
   </div>
 
@@ -238,7 +224,7 @@
 
 <!--</div>-->
 
-
+</form>
 </body>
 </html>
 

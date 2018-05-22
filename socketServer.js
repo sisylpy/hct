@@ -8,11 +8,8 @@ var _ = require('underscore');
 var moment = require('moment');
 var connPool = require("./models/ConnPool");
 var pool = connPool();
-// var news = io
-//   .of('/news')
-//   .on('connection', (socket) => {
-//     socket.emit('item', {news: 'item'});
-//   });
+
+
 
 /**
  * 客户
@@ -22,7 +19,6 @@ var client_chat = io.of('/client/consult');
 client_chat.on('connection', (socket) => {
   // 获取客户端ip
   var client_ip = socket.handshake.headers['x-forwarded-for'] || socket.handshake.address;
-
 
   /**
    * 客户关闭页面
@@ -47,6 +43,7 @@ client_chat.on('connection', (socket) => {
       var param = [socket_id];
       conn.query(getClientId,param,(err,rs) => {
          if(rs.length > 0){
+           console.log(rs[0]);
            socket.to(rs[0].server_socket_id).emit('offline',{
              client_id:rs[0].client_id
            })
@@ -61,6 +58,7 @@ client_chat.on('connection', (socket) => {
    * 监听客户上线
    */
   socket.on('client_join', (obj) => {
+
     socket.join(obj.client_id);
     // 将聊天加入数据库
     pool.getConnection((err, conn) => {
