@@ -55,8 +55,6 @@
     $(this).addClass("active").siblings().removeClass('active');
     // $(this).parent().siblings().children().removeClass("active");
 
-
-
     //    获取data_linkid
     var data_linkid = $(this).attr("data-linkid");
 

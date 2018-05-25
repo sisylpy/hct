@@ -8,6 +8,7 @@ module.exports = {
   /**
    * 前台首页推荐文章
    * status = 1 是推荐文章
+   * todo: ajax todo!
    */
   statusArtcles: function (req, res) {
     pool = connPool();
@@ -31,6 +32,7 @@ module.exports = {
 
   /**
    * 前台---打开"国家规定"页面和点击"typeid"
+   * todo:ajax todo!
    */
   artclePage: function (req, res) {
     var typeid = req.query.typeid == undefined ? 0 : req.query.typeid;
@@ -52,11 +54,11 @@ module.exports = {
           res.send("数据库查询错误" + err.message);
         }
 
-        if(typeid == 0){
+        if (typeid == 0) {
 
           res.render('articlePage', {rs: rs});
 
-        }else {
+        } else {
 
           res.send(typeid);
         }
@@ -67,15 +69,11 @@ module.exports = {
   },
 
 
-
-
   /**
    * 后台---首页面默认显示第一个菜单
+   * typeId 从nav.ejs 传过来，默认是"1"
    */
   articleList: function (req, res, loginbean) {
-    /**
-     * typeId 从nav.ejs 传过来，默认是"1"
-     */
     typeId = req.query['typeId'];
     pool = connPool();
     pool.getConnection(function (err, conn) {
@@ -85,17 +83,16 @@ module.exports = {
       }
       if (typeId == undefined) {
         typeId = 1;
-        var listSql = 'select aid,title,looknum, updatetime from articleList  where typeid = 1';
+        var listSql = 'select aid,title,looknum, updatetime,status from articleList  where typeid = 1';
       } else {
         var param = [typeId];
-        var listSql = 'select aid,title,looknum, updatetime from articleList  where typeid = ?';
+        var listSql = 'select aid,title,looknum, updatetime,status from articleList  where typeid = ?';
       }
       conn.query(listSql, param, function (err, rs) {
         if (err) {
           res.send("数据库错误,错误原因:" + err.message);
           return;
         }
-
         res.render('adminArticles', {rs: rs, typeId: typeId, loginbean: loginbean, type: 'all'});
       });
       conn.release();
@@ -109,7 +106,7 @@ module.exports = {
   editArticle: function (req, res) {
 
     aid = req.query['aid'];
-    editSql = 'select aid,typeid, title,content, subTitle from articleList where aid=?';
+    editSql = 'select aid,typeid, title,content, subTitle,titleLabel, status from articleList where aid=?';
     param = [aid];
     pool = connPool();
     pool.getConnection(function (err, conn) {
@@ -122,6 +119,7 @@ module.exports = {
           res.send("数据库错误,错误原因:" + err.message);
           return;
         }
+        console.log(rs);
         res.render('detail', {rs: rs});
       });
 
@@ -129,73 +127,57 @@ module.exports = {
     });
   },
 
+
   /**
-   * 后台---保存修改文章
+   * 后台---保存新文章和修改文章
    */
-  editSave: function (req, res) {
+  articleSave: function (req, res) {
 
     loginbean = req.session.loginbean;
     aid = req.body['aid'];
-    if (aid != undefined) {
-      typeid = req.body['typeid'];
-      title = req.body['title'];
-      subTitle = req.body['subTitle'];
-      content = req.body['content'];
-      editSaveSql = 'UPDATE articleList SET typeid = ?,title = ?, subTitle = ?, content = ? WHERE aid = ' + req.body['aid'] + '';
+    uid = req.body['uid'];
 
-      pool = connPool();
-      var parm = [typeid, title, subTitle, content];
-      pool.getConnection(function (err, conn) {
-        conn.query(editSaveSql, parm, function (err, rs) {
-          if (err) {
-            res.send("数据库错误,错误原因:" + err.message);
-            return;
-          }
-          res.send("<script> alert('save success'); location.href = '../admin/articles'</script>");
-        });
-        conn.release();
-      });
-    } else {
-      res.send('文章的参数aid不正确')
-    }
-
-  },
+    typeid = req.body['typeid'];
+    title = req.body['title'];
+    subTitle = req.body['subTitle'];
+    content = req.body['content'];
+    status = req.body['status'];
+    titleLabel = req.body['titleLabel'];
 
 
-  // todo: typeid status 2个参数未获取
-  saveArticle: function (req, res) {
-    loginbean = req.session.loginbean;
     pool = connPool();
-    //从pool中获取连接(异步,取到后回调)
     pool.getConnection(function (err, conn) {
+      if (err) {
+        res.send("获取连接错误,错误原因:" + err.message);
+        return;
+      }
 
-      var userAddSql = 'insert into articleList (typeid,title,content,uid) values(?,?,?,?)';
-      var param = [req.body['typeId'], req.body['aid'], req.body['title'], req.body['content'], loginbean.uid];
+      if (aid !== '-1') {
+        saveSql = 'UPDATE articleList SET typeid = ?,title = ?, subTitle = ?, content = ? , status = ? ,uid = ? , titleLabel = ?,updatetime = current_timestamp WHERE aid = ' + req.body['aid'] + '';
 
-      // var param = [req.body['email'], req.body['pwd']];
+      } else {
+        saveSql = 'INSERT INTO articleList (typeid,title, subTitle, content,status,uid,titleLabel,updatetime) values(?,?,?,?,?,?,?,current_timestamp)';
+      }
 
-      console.log('000');
-      console.log(param);
-      conn.query(userAddSql, param, function (err, rs) {
+      var parm = [typeid, title, subTitle, content, status,uid,titleLabel];
+      conn.query(saveSql, parm, function (err, rs) {
         if (err) {
           res.send("数据库错误,错误原因:" + err.message);
           return;
         }
 
-        // res.send(rs);
-        res.send("<script> alert('ask success'); location.href = '/admin/articles'</script>");
-        // res.redirect('../'); //不能同时和上面的同时用；
+        res.send("<script> alert('save success'); location.href = '../admin/articles'</script>");
       });
+
       conn.release();
     });
-
   },
 
 
   /**
    * 后台---首页推荐 和 全部查询
    */
-  searchArticle: function (req, res) {
+  searchStatus: function (req, res) {
     loginbean = req.session.loginbean;
     pool = connPool();
     //从pool中获取连接(异步,取到后回调)
@@ -224,44 +206,7 @@ module.exports = {
 
   },
 
-  /**
-   * 后台---文章类型查询
-   */
-  searchType: function (req, res) {
-
-    typeId = req.query['typeId'];
-    pool = connPool();
-    pool.getConnection(function (err, conn) {
-      if (err) {
-        res.send("获取连接错误,错误原因:" + err.message);
-        return;
-      }
-      if (typeId == undefined) {
-        var listSql = 'select aid,title,looknum, updatetime from articleList  where typeid = 1';
-      } else {
-        var param = [typeId];
-        var listSql = 'select aid,title,looknum, updatetime from articleList  where typeid = ?';
-      }
-      conn.query(listSql, param, function (err, rs) {
-        if (err) {
-          res.send("数据库错误,错误原因:" + err.message);
-          return;
-        }
-
-        // res.send('a');
-        // console.log(rs);
-        // console.log('===========');
-        // loginbean = new LoginBean();
-        // loginbean.id = rs[0].uid;
-        // loginbean.nicheng = rs[0].nicheng;
-        // req.session.loginbean = loginbean;
-        res.render('adminArticles', {rs: rs, loginbean: loginbean, type: 'all', typeId: typeId});
-      });
-      conn.release();
-    });
-
-
-  }
-
 
 };
+
+

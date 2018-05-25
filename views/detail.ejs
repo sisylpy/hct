@@ -1,189 +1,201 @@
 <!DOCTYPE html>
 <html>
- <title>问吧</title>
-  <meta charset="UTF-8">
-  <!--wang-->
-  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="/xheditor/jquery-1.11.2.min.js"></script>
-  <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossorigin="anonymous"></script>
-  <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-          crossorigin="anonymous"></script>
-  <link rel='stylesheet' href='/stylesheets/detail.css'/>
-  <script type="text/javascript" src="/xheditor/xheditor-1.2.2.min.js"></script>
-  <script type="text/javascript" src="/xheditor/xheditor_lang/zh-cn.js"></script>
+<title>问吧</title>
+<meta charset="UTF-8">
+<!--wang-->
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="/xheditor/jquery-1.11.2.min.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<link rel='stylesheet' href='/stylesheets/detail.css'/>
+<script type="text/javascript" src="/xheditor/xheditor-1.2.2.min.js"></script>
+<script type="text/javascript" src="/xheditor/xheditor_lang/zh-cn.js"></script>
+<script src="/javascripts/detail.js"></script>
 
-
-  <script type="text/javascript">
-    $(pageInit);
-
-    function pageInit() {
-      $.extend(XHEDITOR.settings, {shortcuts: {'ctrl+enter': submitForm}});
-      $('#content').xheditor({
-        html5Upload: false,
-        upMultiple: '1',
-        upLinkUrl: "/uploadFile",
-        upLinkExt: "zip,rar,txt",
-        upImgUrl: "/admin/uploadImg",
-        upImgExt: "jpg,jpeg,gif,png",
-        upFlashUrl: "/uploadFlash",
-        upFlashExt: "swf",
-        upMediaUrl: "upload.php",
-        upMediaExt: "wmv,avi,wma,mp3,mid"
-      });
-    }
-
-    function insertUpload(arrMsg) {
-      console.log(arrMsg)
-      var i, msg;
-      for (i = 0; i < arrMsg.length; i++) {
-        msg = arrMsg[i];
-        $("#uploadList").append('<option value="' + msg.id + '">' + msg.localname + '</option>');
-      }
-    }
-
-    function submitForm() {
-      $('#frmDemo').submit();
-    }
-
-
-    $(function () {
-
-      var navLi = $('.nav-item') //此处填写你的导航html对象
-      var windowUrl = window.location.href; //获取当前url链接
-      navLi.each(function () {
-        var t = $(this).attr('href');
-        // http://localhost:3001/?typeId=4
-        var thref = "http://localhost:3001" + t;
-        var reg = RegExp(/typeId=4/);
-        if (thref == windowUrl) {
-          $(this).addClass('active');  //添加当前位置样式
-        }
-      })
-
-
-    })
-
-    function typeId() {
-      $("#inputState").change(function () {
-        var id = $("#inputState  option:selected").val();
-        $('#typeId').val(id);
-
-
-        $('#typeId').css("background-color", "yellow");
-
-
-        // alert($('#typeId').attr('name'));
-      })
-    }
-
-    typeId();
-
-  </script>
 
 <body>
 
-<form method="post" action="/admin/editSave">
 
-<div class="esjy-col">
+<form method="post" action="/admin/articleSave">
+  <div class="esjy-col">
 
-  <div id="topBlack" class="bg-dark"></div>
-  <div class="navbar">
-    <div class="nav">
-      <a class="logo" href="/admin/articles">晖昌通管理系统</a>
+    <!--顶部黑线-->
+    <div id="topBlack" class="bg-dark"></div>
 
-      <% if (rs[0] == 0) { %>
-      <div class="line">添加文章</div>
-      <% } else  { %>
-      <div class="line">修改文章</div>
-      <% } %>
+    <!--导航栏-->
+    <div class="navbar">
 
-      <!--<div class="form-group">-->
-
-        <% if( rs[0] == 0) { %>
-      <div class="form-group">
-        <select id="inputState" class="form-control">
-          <option value="1" selected>公司注销</option>
-          <option value="2">外资注册</option>
-          <option value="3">资质审批</option>
-        </select>
-      </div>
-        <% } else { %>
-      <div class="form-group">
-        <select id="inputState" class="form-control">
-        <% if (rs[0]['typeid'] == '1') { %>
-          <option value="1" selected>公司注销</option>
-          <option value="2">外资注册</option>
-          <option value="3">资质审批</option>
-          <% } else if (rs[0]['typeid'] == '2') { %>
-          <option value="1">公司注销</option>
-          <option value="2" selected>外资注册</option>
-          <option value="3">资质审批</option>
-          <% } else { %>
-          <option value="1">公司注销</option>
-          <option value="2">外资注册</option>
-          <option value="3" selected>资质审批</option>
-          <% } %>
-        </select>
+      <!-- nav_Begin -->
+      <div class="nav">
+        <a class="logo" href="/admin/articles">晖昌通管理系统</a>
+        <!-- '添加文章' 和 '修改文章'大标题 -->
+        <% if (rs[0] == 0) { %>
+        <div class="line">添加文章</div>
+        <% } else  { %>
+        <div class="line">修改文章</div>
         <% } %>
 
+        <!-- 获取用户'uid' -->
+        <input name="uid" type="hidden" value="<%= loginbean.uid %>">
+
+        <!-- 文章类型 - '新添加文章' 选中第一个 -->
+        <% if( rs[0] == 0) { %>
+        <div class="form-group">
+          <select id="inputState" class="form-control" name="typeid">
+            <% if (typeid == '1') { %>
+            <option value="1" selected>公司注销</option>
+            <option value="2">外资注册</option>
+            <option value="3">资质审批</option>
+            <% } else if (typeid == '2') { %>
+            <option value="1">公司注销</option>
+            <option value="2" selected>外资注册</option>
+            <option value="3">资质审批</option>
+            <% } else { %>
+            <option value="1">公司注销</option>
+            <option value="2">外资注册</option>
+            <option value="3" selected>资质审批</option>
+            <% } %>
+          </select>
+        </div>
+        <% } else { %>
+        <!-- 文章类型 - '修改文章' -->
+        <div class="form-group">
+          <select id="inputState" class="form-control" name="typeid">
+            <% if (rs[0]['typeid'] == '1') { %>
+            <option value="1" selected>公司注销</option>
+            <option value="2">外资注册</option>
+            <option value="3">资质审批</option>
+            <% } else if (rs[0]['typeid'] == '2') { %>
+            <option value="1">公司注销</option>
+            <option value="2" selected>外资注册</option>
+            <option value="3">资质审批</option>
+            <% } else { %>
+            <option value="1">公司注销</option>
+            <option value="2">外资注册</option>
+            <option value="3" selected>资质审批</option>
+            <% } %>
+          </select>
+        </div>
+        <% } %>
+
+        <!-- 用户按钮 -->
         <div class="btn-group dropdown" id="userFace">
-          <% if (loginbean) { %>
-          <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+
+          <!-- 显示用户名称-->
+          <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle"
+                  data-toggle="dropdown"
                   aria-haspopup="false" aria-expanded="false">
             <%= loginbean.nicheng %>
           </button>
-          <% } else { %>
-          <button type="button" href="/" id="user-btn" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                  aria-haspopup="false" aria-expanded="false">用户
-          </button>
-          <% } %>
+
+          <!-- 用户下拉框-->
           <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <button class="dropdown-item" type="button">修改头像</button>
             <button class="dropdown-item" type="button">修改密码</button>
             <button class="dropdown-item" type="button" onclick="window.location='/admin/logout'">退出</button>
+
           </div>
+
         </div>
 
+        <!-- nav__End-->
       </div>
 
     </div>
 
-  </div>
 
-  <% if (rs[0] == undefined) { %>
-  <div class="line">添加文章</div>
-  <% } else  { %>
+    <!-- 文章部分_ Begin -->
+    <div class="edit-article">
 
-  <div class="edit-article">
-    <!--<form method="post" action="/admin/editSave">-->
+      <!-- 标题 -->
       <div class="form-group row article-title">
         <label class="col-1 col-form-label">文章标题:</label>
-        <div class="col-11">
-
-          <div class="input-group mb-3">
+        <div class="col-11" id="title-input">
+          <!--添加新文章-->
+          <% if (rs[0] == 0) { %>
+          <!--默认status = 0-->
+          <input type="hidden" name="status" id="stauts" value="0">
+          <div class="input-group mb-3 " id="selectBtn">
             <div class="input-group-prepend">
-              <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+              <button id="selectStatus" class="btn btn-outline-secondary dropdown-toggle" type="button"
+                      data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">普通文章
               </button>
-              <div class="dropdown-menu">
-                <!--todo: 默认"普通文章"是active状态，status=0；还可以选择"首页推荐"，status=1。-->
-                <a class="dropdown-item" href="#">普通文章</a>
-                <a class="dropdown-item" href="#">首页推荐</a>
+              <div class="dropdown-menu" id="select-items">
+                <a class="dropdown-item selected" id="common">普通文章</a>
+                <a class="dropdown-item" id="suggest">首页显示</a>
                 <div role="separator" class="dropdown-divider"></div>
               </div>
             </div>
-            <input name="title" type="text" class="form-control" aria-label="Text input with dropdown button"
+            <input name="title" type="text" class="form-control" aria-label="Text input with dropdown button">
+          </div>
+          <!-- 修改文章-->
+          <% } else  { %>
+          <!--默认status = 0-->
+          <input type="hidden" name="status" id="stauts" value="0">
+          <div class="input-group mb-3 " id="selectBtn">
+            <div class="input-group-prepend">
+              <% if(rs[0]['status'] == 0) { %>
+              <button id="selectStatus" class="btn btn-outline-secondary dropdown-toggle" type="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">普通文章
+              </button>
+              <div class="dropdown-menu" id="select-items">
+                <a class="dropdown-item  selected" id="common">普通文章</a>
+                <a class="dropdown-item" id="suggest">首页显示</a>
+                <div role="separator" class="dropdown-divider"></div>
+              </div>
+              <% } else if (rs[0]['status'] == 1) { %>
+              <button id="selectStatus" class="btn btn-outline-secondary dropdown-toggle" type="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">首页显示
+              </button>
+              <div class="dropdown-menu" id="select-items">
+                <a class="dropdown-item " id="common">普通文章</a>
+                <a class="dropdown-item selected" id="suggest">首页显示</a>
+                <div role="separator" class="dropdown-divider"></div>
+              </div>
+              <% } %>
+            </div>
+            <input style="display: block" name="title" type="text" class="form-control"
+                   aria-label="Text input with dropdown button"
                    value="<%= rs[0]['title'] %>">
           </div>
-          <input name="typeId" type="hidden" id="typeId" value="<%= rs[0]['typeid'] %>">
-
+          <% } %>
         </div>
       </div>
 
+      <!-- 首页显示显示-->
+      <div class="form-group row article-second-title" id="suggestWord" style="display:
+      <% if(rs[0] == 0){ %>
+              none
+      <% } else { %>
+      <% if(rs[0]['status'] == 0){ %>
+              none
+      <% } else if(rs[0]['status'] == 1){ %>
+              in-line-block
+      <% } %>
+      <% } %>
+              ">
+        <label class="col-1 col-form-label">首页文字:</label>
+        <div class="col-11">
+          <% if(rs[0] == 0){ %>
+          <textarea name="titleLabel" class="form-control" id="exampleFormControlTextarea1"
+                    rows="1"> </textarea>
+          <% } else { %>
+          <textarea name="titleLabel" class="form-control" id="exampleFormControlTextarea1"
+                    rows="1"><%= rs[0]['titleLabel'] %></textarea>
+          <% } %>
+        </div>
+      </div>
+
+
+      <!-- 二级标题 -->
       <div class="form-group row article-second-title">
         <label class="col-1 col-form-label">二级标题:</label>
         <div class="col-11">
@@ -192,39 +204,42 @@
         </div>
       </div>
 
+      <!-- 文章内容 -->
       <div class="form-group article-content">
         <label for="exampleFormControlSelect2">详细内容:</label>
         <textarea name="content" id="content" class="form-control xheditor"
                   rows="10"> <%= rs[0]['content'] %></textarea>
       </div>
 
+      <!-- 文章出自-->
       <div class="form-group row article-from">
         <label class="col-1 col-form-label ">文章出自:</label>
         <div class="col-11">
-          <input class="form-control" type="text"
-                 value="晖昌通公司">
+          <input class="form-control" type="text" value="晖昌通公司">
         </div>
       </div>
+
+      <!-- 保存按钮 -->
       <div id="save">
-        <input name="typeid" type="hidden"
-               value="<%= parseInt(rs[0]['typeid']) %>">
-        <input name="aid" type="hidden"
-               value="<%= rs[0]['aid'] %>">
+        <!--<% if (rs[0] == 0) { %>-->
+        <input type="hidden" name="aid" value="-1"/>
+        <!--<% } else  { %>-->
+        <input name="aid" type="hidden" value="<%= rs[0]['aid'] %>">
+        <!--<% } %>-->
         <button type="submit" class="btn btn-success">确认提交</button>
       </div>
 
-    <!--</form>-->
+
+    </div>
+    <!-- 文章部分_ End -->
+
 
   </div>
 
-  <% } %>
-
-</div>
-
-
-<!--</div>-->
 
 </form>
+
+
 </body>
 </html>
 

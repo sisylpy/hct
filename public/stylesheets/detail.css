@@ -220,9 +220,34 @@ main {
   padding-right: 2rem;
   padding-top: 2rem;
 }
-.edit-article form #save button {
+.edit-article .article-title label {
+  font-size: 0.9em;
+}
+.edit-article .article-second-title label {
+  font-size: 0.9em;
+}
+.edit-article .article-content label {
+  font-size: 0.9em;
+}
+.edit-article .article-content #content {
+  font-size: 1em;
+  color: red;
+}
+.edit-article .article-from label {
+  font-size: 0.9em;
+}
+.edit-article #save button {
   margin-top: 1rem;
   position: relative;
   float: right;
   right: 5rem;
+}
+#selectStatus {
+  color: #000;
+}
+#select-items a {
+  display: block;
+}
+#select-items .selected {
+  color: #3b6caa;
 }

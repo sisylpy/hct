@@ -23,9 +23,6 @@
   <!--<script src="/jquery.color.js"></script>-->
 
 
-
-
-
 </head>
 
 <body id="sss">
@@ -38,14 +35,23 @@
   <div class="subNav bg-dark ">
     <a class="navitem-name" href="/admin/articles">文章管理</a>
     <div class="subitems">
-      <a id="logoutFlow" <%if(typeId==1){%>
-         class="active" <%}%> href="/admin/searchType/?typeId=1"> 公司注销</a>
-      <a id="foreign" <%if(typeId==2){%>
-         class="active" <%}%>  href="/admin/searchType/?typeId=2">外资注册</a>
-      <a id="orgnaize" <%if(typeId==3){%>
-         class="active" <%}%>  href="/admin/searchType/?typeId=3">资质审批</a>
+      <a id="logoutFlow"
+              <% if(typeId == 1){ %>
+         class="active"
+              <% } %>
+         href="/admin/articles/?typeId=1"> 公司注销</a>
+      <a id="foreign"
+              <% if(typeId == 2){ %>
+         class="active"
+              <% } %>
+         href="/admin/articles/?typeId=2">外资注册</a>
+      <a id="orgnaize"
+              <% if(typeId == 3){ %>
+         class="active"
+              <% } %>
+         href="/admin/articles/?typeId=3">资质审批</a>
       <button type="button" class="btn btn-dark add-btn" id="addNew"><a
-                href="/admin/addArticle" target="_blank">添加新文章</a></button>
+                href="/admin/addArticle?typeid=<%= typeId%>" target="_blank">添加新文章</a></button>
     </div>
   </div>
 
@@ -60,19 +66,25 @@
       </div>
     </div>
 
-    <div class="esjy-control" >
+    <div class="esjy-control">
       <div class="custom-control custom-radio">
-        <input  onclick="javascript:window.location.href='/admin/search?customRadio=all&typeid=<%= typeId%>'" type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="all" <%if(type == 'all'){%> checked
-                <%}%>
-               />
-        <input id="subflag" type="hidden" name="subflag" />
-        <label  class="custom-control-label" for="customRadio1">全部</label>
+        <input onclick="javascript:window.location.href='/admin/searchStatus?customRadio=all&typeid=<%= typeId %>'"
+               type="radio" id="customRadio1" name="customRadio" class="custom-control-input" value="all"
+                <% if(type == 'all'){ %>
+               checked
+                <% } %>
+        />
+        <input id="subflag" type="hidden" name="subflag"/>
+        <label class="custom-control-label" for="customRadio1">全部</label>
       </div>
       <div class="custom-control custom-radio">
-        <input onclick="javascript:window.location.href='/admin/search?customRadio=put&typeid=<%= typeId%>'"  type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="put" <%if(type == 'put'){%> checked
-                <%}%>
+        <input onclick="javascript:window.location.href='/admin/searchStatus?customRadio=put&typeid=<%= typeId %>'"
+               type="radio" id="customRadio2" name="customRadio" class="custom-control-input" value="put"
+                <% if(type == 'put'){ %>
+               checked
+                <% } %>
         />
-        <label  class="custom-control-label" for="customRadio2">首页推荐</label>
+        <label class="custom-control-label" for="customRadio2">首页推荐</label>
       </div>
     </div>
 
@@ -97,7 +109,11 @@
       <tr>
         <th scope="row"> <%= i + 1 %></th>
         <td><%= rs[i]['title'] %></td>
-        <td><%= rs[i]['looknum'] %></td>
+        <%if(rs[i]['status'] == 0){ %>
+        <td>否</td>
+        <% }else if(rs[i]['status']){ %>
+        <td>是</td>
+        <% } %>
         <td><%= rs[i]['updatetime'].toLocaleString() %></td>
         <td>
           <button id="edit-btn" type="button" class="btn btn-secondary"><a

@@ -55,7 +55,7 @@ router.get('/logout', function (req, res, next) {
 
 
 
-//后台文章管理
+//后台---文章
 router.get('/articles', function (req, res, next) {
 
   loginbean = checkSession.check(req, res);
@@ -66,30 +66,20 @@ router.get('/articles', function (req, res, next) {
 
 });
 
-
 //后台文章二级菜单导航
-router.get('/search', function (req, res, next) {
+router.get('/searchStatus', function (req, res, next) {
 
   loginbean = checkSession.check(req, res);
   if (!loginbean) {return;}
   else {
-    articleModel.searchArticle(req, res);
-  }
-});
-
-//后台文章类型索引
-router.get('/searchType', function (req, res, next) {
-
-  loginbean = checkSession.check(req, res);
-  if (!loginbean) {return;}
-  else {
-    articleModel.searchType(req, res);
+    console.log(req.query);
+    articleModel.searchStatus(req, res);
   }
 });
 
 
+//修改文章
 router.get('/editArticle', function (req, res) {
-
   loginbean = checkSession.check(req, res);
   if (!loginbean) {return;}
   else {
@@ -97,39 +87,28 @@ router.get('/editArticle', function (req, res) {
   }
 });
 
-
+//添加新文章
 router.get('/addArticle', function (req, res) {
-
   loginbean = checkSession.check(req, res);
   if (!loginbean) { return;}
   else {
-
     var rs =[[]];
-    console.log(rs[0].length);
-    res.render('detail', {rs: rs});
+    var typeid = req.query['typeid'];
+    console.log('faklfj;alksjf;las;fjaslfja');
+    console.log(typeid);
 
-    // res.render('detail', {rs:rs,loginbean: loginbean});
-  }
+    res.render('detail', {rs: rs,typeid:typeid});
+    }
 });
 
-
-router.post('/saveArticle', function (req, res) {
+//保存新添加和修改文章
+router.post('/articleSave', function (req, res) {
   loginbean = checkSession.check(req, res);
   if (!loginbean) {return;}
   else {
-    articleModel.saveArticle(req, res);
+    console.log(req.body);
+    articleModel.articleSave(req, res);
   }
-});
-
-//
-router.post('/editSave', function (req, res) {
-  // loginbean = checkSession.check(req, res);
-  // if (!loginbean) {return;}
-  // else {
-  //   articleModel.editSave(req, res);
-  // }
-
-  res.send(req.body);
 });
 
 
