@@ -25,7 +25,17 @@ router.get('/foreign', function (req, res, next) {
 //资质审批
 router.get('/orgLog/:tipeid', function (req, res, next) {
   res.render('organisationLogout');
+
 });
+
+
+
+
+router.get('/search/:words', (req, res, next) =>{
+  articleModel.search(req,res);
+});
+
+
 
 //关于公司
 router.get('/about', function (req, res, next) {

@@ -4,7 +4,6 @@ var LoginBean = require("../jsBean/LoginBean");
 
 module.exports = {
 
-
   /**
    * 前台首页推荐文章
    * status = 1 是推荐文章
@@ -42,27 +41,20 @@ module.exports = {
         res.send("获取连接错误,错误原因:" + err.message);
         return;
       }
-
       if (typeid == 0) {
-        var statusSql = 'select aid,title, titleLabel,content,typeid from articleList ';
+        var statusSql = 'select aid,title, titleLabel,content,typeid from articleList order by typeid ,status desc';
       } else {
-        var statusSql = 'select aid,title, titleLabel,typeid, content from articleList where typeid=' + typeid;
-
+        var statusSql = 'select aid,title, titleLabel,typeid, content from articleList  where typeid=' + typeid;
       }
       conn.query(statusSql, function (err, rs) {
         if (err) {
           res.send("数据库查询错误" + err.message);
         }
-
         if (typeid == 0) {
-
           res.render('articlePage', {rs: rs});
-
         } else {
-
-          res.send(typeid);
+          res.render('articlePage', {rs: rs});
         }
-
       });
       conn.release();
     })
@@ -70,8 +62,40 @@ module.exports = {
 
 
   /**
-   * 后台---首页面默认显示第一个菜单
-   * typeId 从nav.ejs 传过来，默认是"1"
+   * search
+   */
+  search: function (req, res) {
+    words = req.params['words'];
+    searchSql = 'SELECT  title FROM articleList ';
+    pool = connPool();
+    pool.getConnection(function (err, conn) {
+      if (err) {
+        res.send("获取连接错误,错误原因:" + err.message);
+        return;
+      }
+      conn.query(searchSql, function (err, rs) {
+        if (err) {
+          res.send("数据库错误,错误原因:" + err.message);
+          return;
+        }
+
+        for(var i = 0; i < rs.length; i++) {
+          console.log(rs[i]);
+          // if(rs[i].indexOf("注销")>-1){
+          //   console.log(rs[i]);
+          // }
+        }
+      });
+
+      conn.release();
+    });
+
+
+  },
+
+
+  /**
+   * 后台---首页面默认显示第一个菜单 默认是"1"
    */
   articleList: function (req, res, loginbean) {
     typeId = req.query['typeId'];
@@ -159,7 +183,7 @@ module.exports = {
         saveSql = 'INSERT INTO articleList (typeid,title, subTitle, content,status,uid,titleLabel,updatetime) values(?,?,?,?,?,?,?,current_timestamp)';
       }
 
-      var parm = [typeid, title, subTitle, content, status,uid,titleLabel];
+      var parm = [typeid, title, subTitle, content, status, uid, titleLabel];
       conn.query(saveSql, parm, function (err, rs) {
         if (err) {
           res.send("数据库错误,错误原因:" + err.message);

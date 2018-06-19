@@ -17,6 +17,7 @@
 
   <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="/stylesheets/articlePage.css">
+  <link rel="stylesheet" href="/font-awesome-4.7.0/css/font-awesome.css">
 
   <!--jquery-->
   <script src="/jquery-3.2.1.js"></script>
@@ -50,8 +51,8 @@
           <p class="small-title">获取最新的政策</p>
           <p class="article-col-title">查找您需要了解的公司问题</p>
           <p class="article-col-search">
-            <input type="text" placeholder="搜索关键词">
-            <button><i class="fa fa-search fa-2x"></i></button>
+            <input type="text" placeholder="搜索关键词" id="words">
+            <button id="searchWord"><i class="fa fa-search fa-2x"></i></button>
           </p>
         </div>
       </div>
@@ -82,29 +83,25 @@
       <div class="articles-row row">
         <div class="left-content col-xs-12 col-sm-8">
 
-          <div class="article-col" id="at0">
+          <!--<div class="article-col" id="at0">-->
+          <div class="article-col">
 
             <% if(rs.length > 0){ %>
-
             <% for (var i = 0; i < rs.length; i++) { %>
-
             <div class="article" id="article_<%= rs[i]['aid'] %>" data-aid="article_<%= rs[i]['aid'] %>">
               <a  class="radio">
                 <h2 class="article-title"><%=rs[i]['title'] %></h2>
                 <p class="article-sub-title"><%-rs[i]['titleLabel'] %></p>
               </a>
               <div  class="article-list"><%-rs[i]['content']%> </div>
-
             </div>
             <% } %>
-
             <% } %>
 
             <!--虚横线-->
             <div class="esjy-rule"></div>
 
           </div>
-
 
         </div>
 

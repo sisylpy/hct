@@ -136,11 +136,10 @@
           </div>
           <!-- 修改文章-->
           <% } else  { %>
-          <!--默认status = 0-->
-          <input type="hidden" name="status" id="stauts" value="0">
+
           <div class="input-group mb-3 " id="selectBtn">
+            <% if(rs[0]['status'] == 0) { %>
             <div class="input-group-prepend">
-              <% if(rs[0]['status'] == 0) { %>
               <button id="selectStatus" class="btn btn-outline-secondary dropdown-toggle" type="button"
                       data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">普通文章
@@ -150,7 +149,11 @@
                 <a class="dropdown-item" id="suggest">首页显示</a>
                 <div role="separator" class="dropdown-divider"></div>
               </div>
+            </div>
+            <!-- 提交status值=0 -->
+            <input type="hidden" name="status" id="stauts" value="0">
               <% } else if (rs[0]['status'] == 1) { %>
+            <div class="input-group-prepend">
               <button id="selectStatus" class="btn btn-outline-secondary dropdown-toggle" type="button"
                       data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false">首页显示
@@ -160,8 +163,10 @@
                 <a class="dropdown-item selected" id="suggest">首页显示</a>
                 <div role="separator" class="dropdown-divider"></div>
               </div>
-              <% } %>
             </div>
+            <!-- 提交status值=1 -->
+            <input type="hidden" name="status" id="stauts" value="1">
+            <% } %>
             <input style="display: block" name="title" type="text" class="form-control"
                    aria-label="Text input with dropdown button"
                    value="<%= rs[0]['title'] %>">

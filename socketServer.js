@@ -10,7 +10,6 @@ var connPool = require("./models/ConnPool");
 var pool = connPool();
 
 
-
 /**
  * 客户
  */
@@ -38,17 +37,17 @@ client_chat.on('connection', (socket) => {
       });
     });
 
-    pool.getConnection((err,conn) =>{
+    pool.getConnection((err, conn) => {
       var getClientId = 'select client_id , server_socket_id from client_user where socket_client_id=?';
       var param = [socket_id];
-      conn.query(getClientId,param,(err,rs) => {
-         if(rs.length > 0){
-           console.log(rs[0]);
-           socket.to(rs[0].server_socket_id).emit('offline',{
-             client_id:rs[0].client_id
-           })
-         }
-         conn.release();
+      conn.query(getClientId, param, (err, rs) => {
+        if (rs.length > 0) {
+          console.log(rs[0]);
+          socket.to(rs[0].server_socket_id).emit('offline', {
+            client_id: rs[0].client_id
+          })
+        }
+        conn.release();
       })
     })
 
@@ -63,7 +62,7 @@ client_chat.on('connection', (socket) => {
     // 将聊天加入数据库
     pool.getConnection((err, conn) => {
       var userAddSql = 'insert into client_user (client_id,status,socket_client_id,server_socket_id) values(?,?,?,?)';
-      var param = [obj.client_id, 1,socket.id,obj.server_socketId];
+      var param = [obj.client_id, 1, socket.id, obj.server_socketId];
       conn.query(userAddSql, param, (err, rs) => {
         if (err) {
           console.log(err.message);

@@ -1,0 +1,242 @@
+@charset "utf-8";
+@import "../../myless/main";
+
+
+
+//回到顶部按钮
+.esjy-tools-Circle {
+  position: relative;
+  float: left;
+  display: block;
+  .tool-toTop {
+    position: fixed;
+    display: block;
+    background-color: #ececec;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    bottom: 60px;
+    right: -50px;
+    color: #000;
+    height: 50px;
+    //position: fixed;
+    //right: 0;
+    //transform: translate3d(110%, 0, 0);
+    //transition: transform .4s, background-color .15s;
+    //white-space: nowrap;
+    width: 50px;
+    //z-index: 10;
+    will-change: transform;
+
+    &:hover {
+      background-color: #000;
+      i {
+        color: #eee;
+      }
+
+    }
+
+    i {
+      width: 50px;
+      text-align: center;
+      line-height: 50px;
+      //border:1px solid red;
+      position: relative;
+      float: left;
+      top:-3px;
+    }
+  }
+}
+
+
+
+//联系我们-pc按钮
+.esjy-contact-btn-pc {
+  background: #f77832 none repeat scroll 0 0;
+  border:0;
+  width: 56px;
+  height: 140px;
+  display: block;
+  position: fixed;
+  right: 0;
+  color: #FFF;
+  font-size: 1.3em;
+  font-weight: 300;
+  top: 35%;
+}
+//联系我们mob按钮
+.esjy-contact-btn-mob {
+  background: #f77832 none repeat scroll 0 0;
+  border:0;
+  width: 146px;
+  height: 50px;
+  display: block;
+  position: fixed;
+  right: 0;
+  color: #FFF;
+  font-size: 1.3em;
+  font-weight: 300;
+  bottom: 0;
+}
+
+
+
+
+//联系我们弹出页面
+.esjy-contact-widget {
+
+  bottom: -270px; //手机的位置
+  height: 270px;
+  width: 100%;
+
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+    width: 360px;
+    height:270px;
+    top: 20%;
+    right:-380px;
+
+  }
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    width: 360px;
+    height:270px;
+    top: 20%;
+    right:-380px;
+
+
+  }
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    width: 360px;
+    height:270px;
+    top: 20%;
+    right:-380px;
+
+  }
+
+  text-align: left;
+  box-sizing: border-box;
+  border: 1px solid #aeaeae;
+  right:0;
+  position: fixed;
+  z-index: 9;
+  padding: 15px 10px 0 20px;
+  background-color: #FFF !important;
+
+
+  //*** 在您身边
+  .esjy-icononly {
+    width: 100%;
+    height: 40px;
+    box-shadow: inset 0 -1px 0 0 #e0e0e0;
+    line-height: 40px;
+    position: relative;
+    float: left;
+    margin-bottom: 5px;
+
+    h3 {
+      line-height: 40px;
+      position: relative;
+      float: left;
+      margin: 0;
+    }
+    //关闭按钮
+    i{
+      position: relative;
+      float: right;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+
+
+  //contact`s public-style
+  .esjy-contact-list {
+    line-height: 20px;
+    font-weight: 500;
+    li {
+      display: table;
+      position: relative!important;
+      vertical-align: baseline;
+      width: 100%;
+      font-size: 16px;
+      box-shadow: inset 0 -1px 0 0 #e0e0e0;
+      i {
+        position: relative;
+        float: left;
+        width: 24px;
+        height: 24px;
+        margin-top: 10px;
+        margin-right: 5px;
+      }
+      //最后一行li没有下划线
+      &:last-child {
+        box-shadow: 0 0 0 ;
+      }
+    }
+  }
+}
+
+//分别设置样式
+.esjy-contact-list{
+
+  //1，立即交谈
+  .esjy-chat {
+    width: 100%;
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      h4 {
+        margin-bottom: 5px;
+      }
+      p {
+        line-height: 18px;
+        margin-left: 29px;
+      }
+    }
+  }
+
+  .esjy-call {
+    //width: 100%;
+    padding: 5px 0 5px 0;
+
+  }
+
+  //3，二维码
+  .esjy-microcode{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 100%;
+    width: 100%;
+    a {
+      display: block;
+      margin-top: 5px;
+      //position: relative;
+    }
+    //二维码图片
+    button {
+      //margin-top: 5px;
+      //display: block;
+      border: 0;
+      //position: relative;
+      width: 50px;
+      height: 50px;
+      margin-left:80px;
+      margin-top: 5px;
+      background: url("../images/hct/Huichangtong-assets/WX.png");
+      background-size: 100% 100%;
+    }
+  }
+}
+
+.esjy-addWechat-lg-img {
+  .modal-lg {
+    width: 700px;
+    height: 700px;
+    .modal-content {
+      border-radius: 0;
+    }
+  }
+}

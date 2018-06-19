@@ -25,11 +25,30 @@
 //
 //}
 
+
+.main {
+  width: 100%;
+  position: relative;
+  float: left;
+  /* 小屏幕（平板，大于等于 768px） */
+  @media (min-width: @screen-sm-min) {
+    top: -@esjy-navHeight-pc;
+  }
+  /* 中等屏幕（桌面显示器，大于等于 992px） */
+  @media (min-width: @screen-md-min) {
+    top: -@esjy-navHeight-pc;
+  }
+  /* 大屏幕（大桌面显示器，大于等于 1200px） */
+  @media (min-width: @screen-lg-min) {
+    top: -@esjy-navHeight-pc-lg;
+  }
+}
+
 .Search-content {
   //width: 100%;
   //background-color: darkslategrey;
   //background: url("../images/hct/Huichangtong-assets/xuexi.jpg")  center/cover no-repeat;
-
+  height: 100%;
   .small-title {
     font-size: 1.75em;
     line-height: 2rem;
@@ -83,25 +102,6 @@
   }
 }
 
-.main {
-  //background-color: darkblue;
-  width: 100%;
-  position: relative;
-  float: left;
-  /* 小屏幕（平板，大于等于 768px） */
-  @media (min-width: @screen-sm-min) {
-    top: -@esjy-navHeight-pc;
-  }
-  /* 中等屏幕（桌面显示器，大于等于 992px） */
-  @media (min-width: @screen-md-min) {
-    top: -@esjy-navHeight-pc;
-  }
-  /* 大屏幕（大桌面显示器，大于等于 1200px） */
-  @media (min-width: @screen-lg-min) {
-    top: -@esjy-navHeight-pc-lg;
-  }
-}
-
 .article-col-search {
   position: relative;
   float: left;
@@ -124,14 +124,11 @@
     /* 中等屏幕（桌面显示器，大于等于 992px） */
     @media (min-width: @screen-md-min) {
       font-size: 1em;
-
     }
 
     /* 大屏幕（大桌面显示器，大于等于 1200px） */
     @media (min-width: @screen-lg-min) {
-
       font-size: 1em;
-
     }
 
   }
@@ -145,8 +142,9 @@
     height: 10rem;
     line-height: 5.8rem;
     width: 70%;
+    letter-spacing:2px;
+    padding: 0 0.5rem;
     //font-size: 1.8em;
-
     //background-color: blue;
 
     /* 小屏幕（平板，大于等于 768px） */
@@ -184,7 +182,7 @@
     border: rgba(0, 0, 0, 0);
     left: -8rem;
     background-color: rgba(0, 0, 0, 0);
-    //background-color: red;
+    outline:none;
 
     /* 小屏幕（平板，大于等于 768px） */
     @media (min-width: @screen-sm-min) {
@@ -203,11 +201,17 @@
     /* 大屏幕（大桌面显示器，大于等于 1200px） */
     @media (min-width: @screen-lg-min) {
       left: -3rem;
-      height: 3.8rem;
-      line-height: 3.8rem;
+      //top:1rem;
+      width: 3rem;
+      height: 3rem;
+      line-height: 3rem;
+      //background-color: red;
     }
     i {
       color: #eee;
+      display: block;
+      width: 100%;
+      height: 100%;
     }
 
   }
@@ -305,8 +309,10 @@
       float: left;
       width: 15%;
       position: relative;
+      //todo: 这里设置为什么起作用？
+      //font-size: 1.2em;
       .active {
-        font-weight: 400;
+        font-weight: 500;
         border-bottom: 1px solid #e3e3e3;
       }
       a {
@@ -330,7 +336,8 @@
         }
         /* 大屏幕（大桌面显示器，大于等于 1200px） */
         @media (min-width: @screen-lg-min) {
-          font-size: 1.2em;
+          //todo: 这里不起作用？
+          font-size: 18px;
 
         }
 
